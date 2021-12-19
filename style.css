@@ -1,0 +1,9 @@
+.alert-container {
+    border-radius: 1rem;
+    width: 40%;
+    margin: auto;
+}
+
+.alert-box {
+    padding-top: 10px;
+}
