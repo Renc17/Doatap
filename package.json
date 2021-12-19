@@ -1,0 +1,22 @@
+{
+  "name": "doatap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renc17/Doatap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renc17/Doatap/issues"
+  },
+  "homepage": "https://github.com/Renc17/Doatap#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
