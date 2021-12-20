@@ -29,7 +29,7 @@ include 'controllers/users.php';
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="text" name="password" value="<?php echo $password; ?>" class="text-input" >
+                    <input type="password" name="password" value="<?php echo $password; ?>" class="text-input" >
                     <div class="error"> <?php echo $errors['password'] ?? '' ?> </div>
                 </div>
                 <button class = 'btn btn-outline-info' type="submit" name="login" value='login' class="submit">Login</button>

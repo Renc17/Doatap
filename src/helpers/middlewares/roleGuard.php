@@ -3,7 +3,7 @@
 function usersOnly()
 {
     if (empty($_SESSION['id'])) {
-        header("location: index.php");
+        header("location: login.php");
         exit(0);
     }
 }
@@ -11,7 +11,7 @@ function usersOnly()
 function adminOnly()
 {
     if (empty($_SESSION['id']) && empty($_SESSION['admin'])) {
-        header("location: index.php");
+        header("location: login.php");
         exit(0);
     }
 }

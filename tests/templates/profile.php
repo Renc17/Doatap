@@ -1,7 +1,8 @@
 <?php
     include './helpers/middlewares/roleGuard.php';
     session_start();
-    usersOnly();
+    adminOnly();
+    # usersOnly();  # if it's user profile 
 ?>
 <html>
     <body>
@@ -13,6 +14,6 @@
             </li>
             </ul>
         </nav>
-        <h1>Welcome to the Account Page, <?php echo $_SESSION['name'] ?></h1>
+        <h1>Welcome to the Account Page, <?php echo $_SESSION['role'] ?></h1>
     </body>
 </html>

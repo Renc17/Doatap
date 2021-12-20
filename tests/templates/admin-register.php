@@ -17,12 +17,12 @@ include 'controllers/users.php';
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
 
-  <title>Register</title>
+  <title>Admin Register</title>
 </head>
     <body>
         <div class="auth-content">
            
-            <form action="register.php" function="register" method="post">
+            <form action="admin-register.php" function="register" method="post">
                 <h2 class="form-title">Register</h2>
                 <div class="error"> <?php echo $errors['users'] ?? '' ?> </div>
                 <div>
@@ -51,9 +51,11 @@ include 'controllers/users.php';
                     <div class="error"> <?php echo $errors['confirm_password'] ?? '' ?> </div>
                 </div>
                 <div>
-                    <button type="submit" name="register" value="user" class="btn btn-big">Register</button>
+                    <button type="submit" name="admin" value="admin" class="btn btn-big">Register</button>
                 </div>
             </form>
+
+            
         </div>
     </body>
 </html>
