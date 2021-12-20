@@ -16,7 +16,7 @@ class LoginUser {
         foreach ($this->fields as $field) {
             if(!array_key_exists($field, $this->data)){
                 trigger_error("Form $field doesn't exist");
-                return;
+                exit();
             }
         }
 

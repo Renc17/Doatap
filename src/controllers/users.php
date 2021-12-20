@@ -54,6 +54,10 @@ if(isset($_POST['login']) ){
             $_SESSION['id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['name'] = $user['name'];
+            $_SESSION['surname'] = $user['surname'];
+            $_SESSION['afm'] = $user['afm'];
+            $_SESSION['amka'] = $user['amka'];
+            $_SESSION['cel'] = $user['cel'];
             header('location: profile.php');
         }
     }
