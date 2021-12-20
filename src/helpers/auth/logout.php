@@ -1,12 +1,11 @@
 <?php
 
-session_start(); //to ensure you are using same session
+include '../../utils/config.php';
+session_start();
 if(isset($_SESSION['email']) ){
-    session_destroy(); //destroy the session
-    header("location: index.php"); //to redirect back to "index.php" after logging out
+    session_destroy();
+    header("location: " . BASE_URL . "index.php");
     exit();
-}else{
-    echo "You are not authorized to view this page. Go back <a href= '/'>home</a>";
 }
 
 ?>
