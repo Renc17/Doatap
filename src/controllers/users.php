@@ -28,8 +28,10 @@ if(isset($_POST['register'])){
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $user_id = $db->create($table, $_POST);
+        if($user_id){
+            $errors['users'] = 'user already exists';
+            return;
+        }
     }
-}else{
-    print('NO');
 }
 ?>
