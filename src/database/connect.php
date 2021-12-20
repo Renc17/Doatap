@@ -11,7 +11,6 @@
             die('Database connection error: ' . $conn->connect_error);
         }
 
-        echo "Connected successfully";
         return $conn;
     }
  
