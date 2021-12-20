@@ -51,6 +51,7 @@ if(isset($_POST['login']) ){
 
         if(password_verify($_POST['password'], $user['password'])){
             session_start();
+            $_SESSION['id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['name'] = $user['name'];
             header('location: profile.php');
