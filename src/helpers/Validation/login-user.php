@@ -1,8 +1,8 @@
 <?php
 
-class CreateUser {
+class LoginUser {
     private $data;
-    private static $fields = [
+    private $fields = [
         'email',
         'password',
     ];
@@ -15,13 +15,13 @@ class CreateUser {
     function validateForm(){
         foreach ($this->fields as $field) {
             if(!array_key_exists($field, $this->data)){
-                $this->addError("Form", "$field doesn't exist");
+                trigger_error("Form $field doesn't exist");
                 return;
             }
         }
 
         $this->validateEmail();
-        $this->validatePaswword();
+        $this->validatePassword();
         return $this->errors;
     }
 
@@ -36,12 +36,12 @@ class CreateUser {
         }
     }
 
-    function validatePaswword(){
+    function validatePassword(){
         $password = trim($this->data['password']);
         if(empty($password)){
             $this->addError('password', 'password cannot be empty');
         }else{
-            if(!preg_match('/*[a-zA-Z0-9]{6-12}$/', $password)){
+            if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $password)){
                 $this->addError('password', 'password must be 6-12 characters');
             }
         }

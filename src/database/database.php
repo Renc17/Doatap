@@ -64,7 +64,7 @@
                 if ($i === 0) {
                     $query = $query . " WHERE $key=?";
                 } else {
-                    $query = $query . "AND $key=?";
+                    $query = $query . " AND $key=?";
                 }
                 $i++;
             }
