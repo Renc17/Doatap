@@ -10,6 +10,10 @@
 
         function executeQuery($query, $data){
             $stmt = $this->connection->prepare($query);
+            if ($stmt == FALSE){
+                print('Statement is not correct');
+                exit();
+            }
             $values = array_values($data);
             $types = str_repeat('s', count($values));
             $stmt->bind_param($types, ...$values);
@@ -73,6 +77,23 @@
             return $stmt->get_result()->fetch_assoc();
         }
 
+        function delete($table, $conditiions){
+            $query = "DELETE FROM $table";
+
+            $i=0;
+            foreach($conditiions as $key => $_){
+                if ($i === 0) {
+                    $query = $query . " WHERE $key=?";
+                } else {
+                    $query = $query . " AND $key=?";
+                }
+                $i++;
+            }
+
+            $this->executeQuery($query, $conditiions);
+            return;
+        }
+        
         // function __destruct(){
         //     Disconnect_Database($this->connection);
         // }

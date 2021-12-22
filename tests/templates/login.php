@@ -1,5 +1,7 @@
 <?php
-include 'controllers/users.php';
+require_once('controllers/users.php');
+$controller =  new UserController();
+$controller->login();
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@ include 'controllers/users.php';
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
 
-  <title>Register</title>
+  <title>Login</title>
 </head>
     <body>
         <div class="auth-content">
@@ -24,13 +26,13 @@ include 'controllers/users.php';
                 <h2 class="form-title">Login</h2>
                 <div>
                     <label>Email</label>
-                    <input type="text" name="email" value="<?php echo $email; ?>" class="text-input" >
-                    <div class="error"> <?php echo $errors['email'] ?? '' ?> </div>
+                    <input type="text" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" >
+                    <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password" value="<?php echo $password; ?>" class="text-input" >
-                    <div class="error"> <?php echo $errors['password'] ?? '' ?> </div>
+                    <input type="password" name="password" value="<?php echo $controller->getPassword(); ?>" class="text-input" >
+                    <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
                 </div>
                 <button class = 'btn btn-outline-info' type="submit" name="login" value='login' class="submit">Login</button>
             </form> 
