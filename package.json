@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Renc17/Doatap#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.1.3",
+    "jquery": "^3.6.0"
   }
 }
