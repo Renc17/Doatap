@@ -1,0 +1,43 @@
+.alert-container {
+    border-radius: 1rem;
+    width: 80%;
+    margin: auto;
+}
+
+.alert-box {
+    padding-top: 10px;
+}
+
+.alert-fade{
+    animation: fadeout 5s forwards;
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 0
+    }
+
+    44% {
+        opacity: 0;
+    }
+
+    55% {
+        opacity: 1
+    }
+
+    90% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.minehr {
+    background-color: #77B6EA;
+}
+
+.qna{
+    color: #77B6EA;
+}
