@@ -1,5 +1,8 @@
 <?php
-include 'controllers/users.php';
+// include 'controllers/users.php';
+require_once('controllers/users.php');
+$controller =  new UserController();
+$controller->register();
 ?>
 
 
@@ -22,33 +25,33 @@ include 'controllers/users.php';
     <body>
         <div class="auth-content">
            
-            <form action="register.php" function="register" method="post">
+            <form action="register.php" method="post">
                 <h2 class="form-title">Register</h2>
                 <div class="error"> <?php echo $errors['users'] ?? '' ?> </div>
                 <div>
                     <label>Name</label>
-                    <input type="text" name="name" value="<?php echo $name; ?>" class="text-input" >
-                    <div class="error"> <?php echo $errors['name'] ?? '' ?> </div>
+                    <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" >
+                    <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Surname</label>
-                    <input type="text" name="surname" value="<?php echo $surname; ?>" class="text-input" >
-                    <div class="error"> <?php echo $errors['surname'] ?? '' ?> </div>
+                    <input type="text" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" >
+                    <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="email" name="email"  value="<?php echo $email; ?>" class="text-input">
-                    <div class="error"> <?php echo $errors['email'] ?? '' ?> </div>
+                    <input type="email" name="email"  value="<?php echo $controller->getEmail(); ?>" class="text-input">
+                    <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" name="password"  value="<?php echo $password; ?>" class="text-input">
-                    <div class="error"> <?php echo $errors['password'] ?? '' ?> </div>
+                    <input type="password" name="password"  value="<?php echo $controller->getPassword(); ?>" class="text-input">
+                    <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Password Confirmation</label>
-                    <input type="password" name="confirm_password"  value="<?php echo $confirm_password; ?>" class="text-input">
-                    <div class="error"> <?php echo $errors['confirm_password'] ?? '' ?> </div>
+                    <input type="password" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" class="text-input">
+                    <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
                 </div>
                 <div>
                     <button type="submit" name="register" value="user" class="btn btn-big">Register</button>
