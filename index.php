@@ -48,6 +48,8 @@
         </div>
         <hr class="minehr" />
     </div>
+
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

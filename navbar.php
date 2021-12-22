@@ -33,9 +33,12 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex">
+        <form class="d-flex m-2">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+        <div class="d-flex">
+            <button class="btn btn-outline-success" type="submit">Login</button>
+        </div>
     </div>
 </nav>
