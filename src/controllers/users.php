@@ -77,7 +77,7 @@ class UserController{
                 $_POST['role'] = 'user';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         
-                $user_id = $this->db->create(self::$table, $_POST);
+                $user_id = $this->db->create(self::$table, $_POST, 'email');
                 if($user_id){
                     $errors['users'] = 'user already exists';
                     return;
@@ -130,7 +130,7 @@ class UserController{
                 $_POST['role'] = 'admin';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-                $user_id = $this->db->create(self::$table, $_POST);
+                $user_id = $this->db->create(self::$table, $_POST, 'email');
                 if($user_id){
                     $errors['users'] = 'admin already exists';
                     return;

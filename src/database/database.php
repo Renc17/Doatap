@@ -21,10 +21,12 @@
             return $stmt;
         }
     
-        function create($table, $data){
-            $user = $this->selectOne($table, ['email' => $data['email']]);
-            if ($user){
-                return $user['id'];
+        function create($table, $data, $unique){
+            if ($unique != null){
+                $user = $this->selectOne($table, [$unique => $data[$unique]]);
+                if ($user){
+                    return $user['id'];
+                }
             }
 
             $query = "INSERT INTO $table SET ";
