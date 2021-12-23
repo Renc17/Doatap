@@ -1,8 +1,8 @@
 <?php
 
-include 'database/database.php';
-include 'helpers/validation/create-user.php';
-include 'helpers/validation/login-user.php';
+require(BASE_URL. '\src\database\database.php');
+require(BASE_URL. '\src\helpers\validation\create-user.php');
+require(BASE_URL. '\src\helpers\validation\login-user.php');
 
 class UserController{
 

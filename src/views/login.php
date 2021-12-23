@@ -1,5 +1,7 @@
 <?php
-require_once('controllers/users.php');
+
+require('../../config.php');
+require(BASE_URL.'\src\controllers\users.php');
 $controller =  new UserController();
 $controller->login();
 ?>

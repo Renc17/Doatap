@@ -1,5 +1,5 @@
 <?php
-    include 'connect.php';
+    require('connect.php');
 
     class Database {
         private $connection;
