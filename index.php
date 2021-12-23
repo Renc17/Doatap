@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <?php include("navbar.php"); ?>
+    <?php 
+        require('config.php');
+        include(BASE_URL. '\src\includes\navbar.php'); 
+    ?>
 
     <div class="container" style="height:100vh;">
         <div id="eonly" class="alert-box">
@@ -49,7 +52,7 @@
         <hr class="minehr" />
     </div>
 
-    <?php include("footer.php"); ?>
+    <?php include(BASE_URL. '\src\includes\footer.php');  ?>
 </body>
 
 </html>

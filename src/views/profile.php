@@ -1,5 +1,6 @@
 <?php
-    include './helpers/middlewares/roleGuard.php';
+    require('../../config.php');
+    require(BASE_URL. '\src\helpers\middlewares\roleGuard.php');
     session_start();
     #adminOnly();
     usersOnly();  # if it's user profile 

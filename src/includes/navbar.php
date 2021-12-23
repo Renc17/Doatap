@@ -38,7 +38,7 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="d-flex">
-            <button class="btn btn-outline-success" onclick="location.href = 'src/login';" type="submit">Login</button>
+            <button class="btn btn-outline-success" onclick="location.href = '../views/login.php';" type="submit">Login</button>
         </div>
     </div>
 </nav>

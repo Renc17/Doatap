@@ -1,5 +1,6 @@
 <?php
-include 'controllers/users.php';
+    require('../../config.php');
+    require(BASE_URL. '\src\controllers\users.php');
 ?>
 
 
