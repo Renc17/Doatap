@@ -1,15 +1,14 @@
 <?php
 
-include '../../utils/config.php';
-include '../../database/database.php';
-include '../../controllers/users.php';
+require('../../../config.php');
+require(BASE_URL .'\src\controllers\users.php');
 
 session_start();
-if(isset($_SESSION['email']) ){
+if(isset($_SESSION['id']) ){
     $controller = new UserController();
     $controller->deleteUser($_SESSION);
     session_destroy();
-    header("location: " . BASE_URL . "index.php");
+    header("location: http://localhost/Doatap/");
     exit();
 }
 
