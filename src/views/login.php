@@ -1,6 +1,9 @@
 <?php
 
 require('../../config.php');
+require(BASE_URL. '\src\helpers\middlewares\guard.php');
+isLoggedIn();
+
 require(BASE_URL.'\src\controllers\users.php');
 $controller =  new UserController();
 $controller->login();
@@ -38,6 +41,7 @@ $controller->login();
                 </div>
                 <button class = 'btn btn-outline-info' type="submit" name="login" value='login' class="submit">Login</button>
             </form> 
+            <a class="nav-link" href="register.php">Create Account</a>
         </div>
     </body>
 </html>
