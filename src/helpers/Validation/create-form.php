@@ -3,7 +3,37 @@
 class CreateForm {
     private $data;
     private $fields = [
-        
+        'name',
+        'surname',
+        'gender',
+        'father_name',
+        'mother_name',
+        'amka',
+        'afm',
+        'birth_country',
+        'birth_city',
+        'birth_date',
+        'identification',
+        'ID_num',
+        'release_date',
+        'release_country',
+        'living_country',
+        'living_city',
+        'living_area',
+        'address',
+        'cel',
+        'email',
+        'diploma_type',
+        'study_type',
+        'diploma_recognition',
+        'evaluation',
+        'study_process',
+        'study_country',
+        'university',
+        'department',
+        'credits',
+        'start_date',
+        'deploma_date'
     ];
     private $errors = [];
 
@@ -22,6 +52,10 @@ class CreateForm {
         $this->validateName();
         $this->validateSurname();
         $this->validateEmail();
+        $this->validateAFM();
+        $this->validateAMKA();
+        $this->validateCredits();
+        $this->validateID();
         
         return $this->errors;
     }
@@ -59,25 +93,46 @@ class CreateForm {
         }
     }
 
-    function validatePaswword(){
-        $password = trim($this->data['password']);
-        if(empty($password)){
-            $this->addError('password', 'password cannot be empty');
+    function validateAFM(){
+        $afm = trim($this->data['afm']);
+        if(empty($afm)){
+            return;
         }else{
-            if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $password)){
-                $this->addError('password', 'password must be 6-12 characters');
+            if(!preg_match('/*[0-9]$/', $afm)){
+                $this->addError('afm', 'name must contain numerical');
             }
         }
     }
 
-    function validateConfirmPassword(){
-        $confirm = trim($this->data['confirm_password']);
-        $password = trim($this->data['password']);
-        if(empty($password)){
-            $this->addError('password', 'password cannot be empty');
+    function validateAMKA(){
+        $amka = trim($this->data['amka']);
+        if(empty($amka)){
+            return;
         }else{
-            if(!($confirm == $password)){
-                $this->addError('password', 'password confirmation doesnt match');
+            if(!preg_match('/*[0-9]$/', $amka)){
+                $this->addError('amka', 'name must contain numerical');
+            }
+        }
+    }
+
+    function validateID(){
+        $id_num = trim($this->data['ID_num']);
+        if(empty($id_num)){
+            return;
+        }else{
+            if(!preg_match('/*[0-9]$/', $id_num)){
+                $this->addError('amka', 'name must contain numerical');
+            }
+        }
+    }
+
+    function validateCredits(){
+        $credits = trim($this->data['credits']);
+        if(empty($credits)){
+            return;
+        }else{
+            if(!preg_match('/*[0-9]$/', $credits)){
+                $this->addError('credits', 'must contain numerical');
             }
         }
     }
