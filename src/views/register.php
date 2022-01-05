@@ -27,7 +27,7 @@ $controller->register();
            
             <form action="register.php" method="post">
                 <h2 class="form-title">Register</h2>
-                <div class="error"> <?php echo $errors['users'] ?? '' ?> </div>
+                <div class="error"> <?php echo $controller->getErrors('users') ?? '' ?> </div>
                 <div>
                     <label>Name</label>
                     <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" >

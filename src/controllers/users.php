@@ -107,7 +107,7 @@ class UserController{
         
                 $user_id = $this->db->create(self::$table, $_POST);
                 if($user_id){
-                    $errors['users'] = 'user already exists';
+                    $this->errors['users'] = 'user already exists';
                     return;
                 }
                 header('location: login.php');

@@ -78,12 +78,9 @@ class CreateUser {
     function validateConfirmPassword(){
         $confirm = trim($this->data['confirm_password']);
         $password = trim($this->data['password']);
-        if(empty($password)){
-            $this->addError('password', 'password cannot be empty');
-        }else{
-            if(!($confirm == $password)){
-                $this->addError('password', 'password confirmation doesnt match');
-            }
+        
+        if($confirm != $password){
+            $this->addError('confirm_password', 'password confirmation doesnt match');
         }
     }
 
