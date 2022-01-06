@@ -77,9 +77,9 @@ $controller->create();
             </div>
             <div>
                 <label>Ταυτοποίηση</label>
-                <input type="radio" class="btn-check" name="identification" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="identification" id="success-outlined" value="Ταυτότητα" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="outlined">Ταυτότητα</label>
-                <input type="radio" class="btn-check" name="identification" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="identification" id="danger-outlined" value="Διαβατήριο" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Διαβατήριο</label>
                 <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
             </div>
@@ -149,45 +149,44 @@ $controller->create();
             </div>
             <div>
                 <label>Τύπος Πτυχίου</label>
-                <input type="radio" class="btn-check" name="diploma_type" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="diploma_type" id="success-outlined" autocomplete="off" value="Βασικό Πτυχίο" checked>
                 <label class="btn btn-outline-success" for="outlined">Βασικό Πτυχίο</label>
-                <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" value="Μεταπτυχιακό" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Μεταπτυχιακό</label>
-                <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" value="Διδακτορικό" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Διδακτορικό</label>
-                <input type="text" name="diploma_type" value="<?php echo $controller->getDiplomaType(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('diploma_type') ?? '' ?> </div>
             </div>
             <div>
                 <label>Τύπος Φοίτησης</label>
-                <input type="radio" class="btn-check" name="study_type" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="study_type" id="success-outlined" value="Τακτική" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="outlined">Τακτική</label>
-                <input type="radio" class="btn-check" name="study_type" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="study_type" id="danger-outlined" value="Μερική" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Μερική</label>
                 <div class="error"> <?php echo $controller->getErrors('study_type') ?? '' ?> </div>
             </div>
             <div>
                 <label>Αντιστοιχία Πτυχίου</label>
-                <input type="radio" class="btn-check" name="diploma_recognition" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="diploma_recognition" id="success-outlined" value="Ναι" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="outlined">Ναι</label>
-                <input type="radio" class="btn-check" name="diploma_recognition" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="diploma_recognition" id="danger-outlined" value="Όχι" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Όχι</label>
                 <input type="text" name="diploma_recognition" value="<?php echo $controller->getDiplomaRecognition(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
             </div>
             <div>
                 <label>Συνεκτίμηση Πτυχίου</label>
-                <input type="radio" class="btn-check" name="evaluation" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="evaluation" id="success-outlined" value="Ναι" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="outlined">Ναι</label>
-                <input type="radio" class="btn-check" name="evaluation" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="evaluation" id="danger-outlined" value="Όχι" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Όχι</label>
                 <div class="error"> <?php echo $controller->getErrors('evaluation') ?? '' ?> </div>
             </div>
             <div>
                 <label>Τρόπος Φοίτησης</label>
-                <input type="radio" class="btn-check" name="study_process" id="success-outlined" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="study_process" id="success-outlined" value="Συμβατικός" autocomplete="off" checked>
                 <label class="btn btn-outline-success" for="outlined">Συμβατικός</label>
-                <input type="radio" class="btn-check" name="study_process" id="danger-outlined" autocomplete="off">
+                <input type="radio" class="btn-check" name="study_process" id="danger-outlined" value="Εξ' αποστάσεως" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Εξ' αποστάσεως</label>
                 <input type="text" name="study_process" value="<?php echo $controller->getStudyProcess(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('study_process') ?? '' ?> </div>
