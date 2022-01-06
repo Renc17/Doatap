@@ -33,7 +33,7 @@ class CreateForm {
         'department',
         'credits',
         'start_date',
-        'deploma_date'
+        'diploma_date'
     ];
     private $errors = [];
 
@@ -82,6 +82,270 @@ class CreateForm {
         }
     }
 
+    function validateFatherName(){
+        $field = trim($this->data['father_name']);
+        if(empty($field)){
+            $this->addError('father_name', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('father_name', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateMotherName(){
+        $field = trim($this->data['mother_name']);
+        if(empty($field)){
+            $this->addError('mother', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('mother', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateBirthCountry(){
+        $field = trim($this->data['birth_country']);
+        if(empty($field)){
+            $this->addError('birth_country', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('birth_country', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateBirthCity(){
+        $field = trim($this->data['birth_city']);
+        if(empty($field)){
+            $this->addError('birth_city', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('birth_city', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateBirthDate(){
+        $field = trim($this->data['birth_date']);
+        if(empty($field)){
+            $this->addError('birth_date', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('birth_date', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateIdentification(){
+        $field = trim($this->data['identification']);
+        if(empty($field)){
+            $this->addError('identification', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('identification', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateIDNum(){
+        $field = trim($this->data['ID_num']);
+        if(empty($field)){
+            $this->addError('ID_num', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('ID_num', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateReleaseDate(){
+        $field = trim($this->data['release_date']);
+        if(empty($field)){
+            $this->addError('release_date', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('release_date', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateReleaseCountry(){
+        $field = trim($this->data['release_country']);
+        if(empty($field)){
+            $this->addError('release_country', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('release_country', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateLivingCountry(){
+        $field = trim($this->data['living_country']);
+        if(empty($field)){
+            $this->addError('living_country', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('living_country', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateLivingCity(){
+        $field = trim($this->data['living_city']);
+        if(empty($field)){
+            $this->addError('living_city', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('living_city', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateLivingArea(){
+        $field = trim($this->data['living_area']);
+        if(empty($field)){
+            $this->addError('living_area', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('living_area', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateAddress(){
+        $field = trim($this->data['address']);
+        if(empty($field)){
+            $this->addError('address', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('address', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateCel(){
+        $field = trim($this->data['cel']);
+        if(empty($field)){
+            $this->addError('cel', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('cel', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateDiplomaType(){
+        $field = trim($this->data['diploma_type']);
+        if(empty($field)){
+            $this->addError('diploma_type', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('diploma_type', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateStudyType(){
+        $field = trim($this->data['study_type']);
+        if(empty($field)){
+            $this->addError('study_type', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('study_type', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateDiplomaRecognition(){
+        $field = trim($this->data['diploma_recognition']);
+        if(empty($field)){
+            $this->addError('diploma_recognition', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('diploma_recognition', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateEvaluation(){
+        $field = trim($this->data['evaluation']);
+        if(empty($field)){
+            $this->addError('evaluation', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('evaluation', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateStudyProcess(){
+        $field = trim($this->data['study_process']);
+        if(empty($field)){
+            $this->addError('study_process', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('study_process', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateStudyCountry(){
+        $field = trim($this->data['study_country']);
+        if(empty($field)){
+            $this->addError('study_country', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('study_country', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateDepartment(){
+        $field = trim($this->data['department']);
+        if(empty($field)){
+            $this->addError('department', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('department', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateUniversity(){
+        $field = trim($this->data['university']);
+        if(empty($field)){
+            $this->addError('university', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('university', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateStartDate(){
+        $field = trim($this->data['start_date']);
+        if(empty($field)){
+            $this->addError('start_date', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('start_date', 'field must not contain numerical');
+            }
+        }
+    }
+
+    function validateDeplomaDate(){
+        $field = trim($this->data['diploma_date']);
+        if(empty($field)){
+            $this->addError('diploma_date', 'field cannot be empty');
+        }else{
+            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+                $this->addError('diploma_date', 'field must not contain numerical');
+            }
+        }
+    }
+
     function validateEmail(){
         $email = trim($this->data['email']);
         if(empty($email)){
@@ -98,7 +362,7 @@ class CreateForm {
         if(empty($afm)){
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $afm)){
+            if(!preg_match('/^[0-9]*$/', $afm)){
                 $this->addError('afm', 'name must contain numerical');
             }
         }
@@ -109,7 +373,7 @@ class CreateForm {
         if(empty($amka)){
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $amka)){
+            if(!preg_match('/^[0-9]*$/', $amka)){
                 $this->addError('amka', 'name must contain numerical');
             }
         }
@@ -120,7 +384,7 @@ class CreateForm {
         if(empty($id_num)){
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $id_num)){
+            if(!preg_match('/^[0-9]*$/', $id_num)){
                 $this->addError('amka', 'name must contain numerical');
             }
         }
