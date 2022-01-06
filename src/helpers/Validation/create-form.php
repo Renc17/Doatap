@@ -51,12 +51,33 @@ class CreateForm {
 
         $this->validateName();
         $this->validateSurname();
+        $this->validateFatherName();
+        $this->validateMotherName();
+        $this->validateAddress();
+        $this->validateBirthCity();
+        $this->validateBirthCountry();
+        $this->validateBirthDate();
+        $this->validateCel();
         $this->validateEmail();
         $this->validateAFM();
         $this->validateAMKA();
         $this->validateCredits();
         $this->validateID();
-        
+        $this->validateIdentification();
+        $this->validateDepartment();
+        $this->validateDiplomaType();
+        $this->validateDiplomaDate();
+        $this->validateUniversity();
+        $this->validateStartDate();
+        $this->validateStudyCountry();
+        $this->validateStudyProcess();
+        $this->validateStudyType();
+        $this->validateReleaseCountry();
+        $this->validateReleaseDate();
+        $this->validateLivingArea();
+        $this->validateLivingCity();
+        $this->validateLivingCountry();
+
         return $this->errors;
     }
 
@@ -335,7 +356,7 @@ class CreateForm {
         }
     }
 
-    function validateDeplomaDate(){
+    function validateDiplomaDate(){
         $field = trim($this->data['diploma_date']);
         if(empty($field)){
             $this->addError('diploma_date', 'field cannot be empty');

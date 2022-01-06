@@ -110,7 +110,7 @@ class FormController{
         return $this->living_city;
     }
 
-    function getLivingAarea(){
+    function getLivingArea(){
         return $this->living_area;
     }
 
@@ -154,7 +154,7 @@ class FormController{
         return $this->university;
     }
 
-    function getDeparment(){
+    function getDepartment(){
         return $this->department;
     }
 

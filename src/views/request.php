@@ -23,7 +23,7 @@ $controller->create();
             <h2 class="form-title">Αναγνώριση ισοτιμίας</h2>
             <div>
                 <label>Όνομα</label>
-                <input type="text" name="name" value="<?php echo $controller->getΝame(); ?>" class="text-input">
+                <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
             </div>
             <div>
@@ -85,7 +85,7 @@ $controller->create();
             </div>
             <div>
                 <label>Αριθμός Ταυτότητας</label>
-                <input type="text" name="ID_num" value="<?php echo $controller->getIDΝum(); ?>" class="text-input">
+                <input type="text" name="ID_num" value="<?php echo $controller->getIDNum(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
             </div>
             <div>
@@ -229,12 +229,12 @@ $controller->create();
             </div>
             <div>
                 <label>Ημερομηνία Εγγραφής</label>
-                <input type="text" name="start_date" value="<?php echo $controller->getStart_date(); ?>" class="text-input">
+                <input type="text" name="start_date" value="<?php echo $controller->getStartDate(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('start_date') ?? '' ?> </div>
             </div>
             <div>
                 <label>Ημερομηνία Αποφοίτησης</label>
-                <input type="text" name="deploma_date" value="<?php echo $controller->getDeplomaDate(); ?>" class="text-input">
+                <input type="text" name="deploma_date" value="<?php echo $controller->getDiplomaDate(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('deploma_date') ?? '' ?> </div>
             </div>
 
