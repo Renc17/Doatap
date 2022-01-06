@@ -234,12 +234,12 @@ $controller->create();
             </div>
             <div>
                 <label>Ημερομηνία Αποφοίτησης</label>
-                <input type="text" name="deploma_date" value="<?php echo $controller->getDiplomaDate(); ?>" class="text-input">
-                <div class="error"> <?php echo $controller->getErrors('deploma_date') ?? '' ?> </div>
+                <input type="text" name="diploma_date" value="<?php echo $controller->getDiplomaDate(); ?>" class="text-input">
+                <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
             </div>
 
 
-            <button class='btn btn-outline-info' type="submit" name="login" value='login' class="submit">Login</button>
+            <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
         </form>
     </div>
 </body>

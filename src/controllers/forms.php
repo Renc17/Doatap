@@ -1,6 +1,7 @@
 <?php
-include 'database/database.php';
-include 'helpers/validation/create-form.php';
+
+require(BASE_URL. '\src\database\database.php');
+require(BASE_URL. '\src\helpers\validation\create-form.php');
 
 class FormController{
     private static $table = 'forms';
@@ -210,7 +211,7 @@ class FormController{
                 
 
             }else{
-                unset($_POST['register']);
+                unset($_POST['submit-form']);
                 session_start();
                 $_POST['user_id'] = $_SESSION['id'];
                 $this->db->create(self::$table, $_POST, null);
@@ -227,11 +228,6 @@ class FormController{
 
     function setErrors($errors){
         $this->errors = $errors;
-    }
-
-    
+    }   
 }
-
-
-
 ?>

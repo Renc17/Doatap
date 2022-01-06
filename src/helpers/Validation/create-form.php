@@ -381,6 +381,7 @@ class CreateForm {
     function validateAFM(){
         $afm = trim($this->data['afm']);
         if(empty($afm)){
+            $this->addError('afm', 'afm cannot be empty');
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $afm)){
@@ -392,6 +393,7 @@ class CreateForm {
     function validateAMKA(){
         $amka = trim($this->data['amka']);
         if(empty($amka)){
+            $this->addError('amka', 'amka cannot be empty');
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $amka)){
@@ -403,10 +405,11 @@ class CreateForm {
     function validateID(){
         $id_num = trim($this->data['ID_num']);
         if(empty($id_num)){
+            $this->addError('ID_num', 'ID Number cannot be empty');
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $id_num)){
-                $this->addError('amka', 'name must contain numerical');
+                $this->addError('ID_num', 'ID Number must contain numerical');
             }
         }
     }
@@ -414,6 +417,7 @@ class CreateForm {
     function validateCredits(){
         $credits = trim($this->data['credits']);
         if(empty($credits)){
+            $this->addError('credits', 'credit cannot be empty');
             return;
         }else{
             if(!preg_match('/*[0-9]$/', $credits)){
