@@ -1,10 +1,9 @@
 <?php
 
-include '../../utils/config.php';
 session_start();
-if(isset($_SESSION['email']) ){
+if(isset($_SESSION['id']) ){
     session_destroy();
-    header("location: " . BASE_URL . "index.php");
+    header("location: http://localhost/Doatap/");
     exit();
 }
 

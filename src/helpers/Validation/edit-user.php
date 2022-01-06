@@ -4,8 +4,8 @@ class EditUser{
     private $data;
     private static $fields = [
         'AFM',
-        'thl',
-        'email'
+        'AMKA',
+        'cel',
     ];
     private $errors = [];
 
@@ -15,50 +15,48 @@ class EditUser{
     }
 
     function validateForm(){
-        foreach ($this->fields as $field) {
+        foreach (self::$fields as $field) {
             if(!array_key_exists($field, $this->data)){
-                $this->addError("Form", "$field doesn't exist");
-                return;
+                trigger_error("Form $field doesn't exist");
+                exit();
             }
         }
 
         $this->validateAFM();
-        $this->validateTHL();
-        $this->validateEmail();
+        $this->validateAMKA();
+        $this->validateCel();
         return $this->errors;
     }
 
     function validateAFM(){
-        $afm = trim($this->data['afm']);
+        $afm = trim($this->data['AFM']);
         if(empty($afm)){
-            // $this->addError('afm', 'afm cannot be empty');
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $afm)){
-                $this->addError('name', 'name must contain numerical');
+            if(!preg_match('/^[0-9]*$/', $afm)){
+                $this->addError('AFM', 'AFM must contain numerical');
             }
         }
     }
 
-    function validateTHL(){
-        $thl = trim($this->data['surname']);
-        if(empty($thl)){
-            // $this->addError('thl', 'thlefono cannot be empty');
+    function validateAMKA(){
+        $amka = trim($this->data['AMKA']);
+        if(empty($amka)){
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $thl)){
-                $this->addError('thl', 'thl must contain numerical');
+            if(!preg_match('/^[0-9]*$/', $amka)){
+                $this->addError('amka', 'amka must contain numerical');
             }
         }
     }
 
-    function validateEmail(){
-        $email = trim($this->data['email']);
-        if(empty($email)){
-            $this->addError('email', 'email cannot be empty');
+    function validateCel(){
+        $cel = trim($this->data['cel']);
+        if(empty($cel)){
+            return;
         }else{
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $this->addError('email', 'email is not valid');
+            if(!preg_match('/^[0-9]*$/', $cel)){
+                $this->addError('cel', 'cel must contain numerical');
             }
         }
     }

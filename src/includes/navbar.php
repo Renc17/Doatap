@@ -1,3 +1,7 @@
+<?php
+    $login_path = 'src\views\login.php';
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -38,7 +42,7 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <div class="d-flex">
-            <button class="btn btn-outline-success" onclick="location.href = '../views/login.php';" type="submit">Login</button>
+            <a class="btn btn-outline-success" href="<?php echo $login_path ?>" >Login</a>
         </div>
     </div>
 </nav>

@@ -3,6 +3,7 @@
 require(BASE_URL. '\src\database\database.php');
 require(BASE_URL. '\src\helpers\validation\create-user.php');
 require(BASE_URL. '\src\helpers\validation\login-user.php');
+require(BASE_URL. '\src\helpers\validation\edit-user.php');
 
 class UserController{
 
@@ -15,6 +16,10 @@ class UserController{
     private $email = '';
     private $password = '';
     private $confirm_password = '';
+
+    private $afm = '';
+    private $amka = '';
+    private $cel = '';
 
     function __construct(){
         $this->db = new Database();
@@ -44,13 +49,36 @@ class UserController{
         $this->email = $email;
     }
 
-
     function getPassword(){
         return $this->password;
     }
 
     function getConfirmPassword(){
         return $this->confirm_password;
+    }
+
+    function setAMKA($AMKA){
+        $this->amka = $AMKA;
+    }
+
+    function getAMKA(){
+        return $this->amka;
+    }
+
+    function setAFM($afm){
+        $this->afm = $afm;
+    }
+
+    function getAFM(){
+        return $this->afm;
+    }
+
+    function setCel($cel){
+        $this->cel = $cel;
+    }
+
+    function getCel(){
+        return $this->cel;
     }
 
     function getErrors($field){
@@ -79,7 +107,7 @@ class UserController{
         
                 $user_id = $this->db->create(self::$table, $_POST, 'email');
                 if($user_id){
-                    $errors['users'] = 'user already exists';
+                    $this->errors['users'] = 'user already exists';
                     return;
                 }
                 header('location: login.php');
@@ -97,7 +125,8 @@ class UserController{
             }else{
                 $user = $this->db->selectOne(self::$table, ['email' => $_POST['email']]);
                 if(!$user){
-                    return;
+                    print('User doesnt exit');
+                    exit();
                 }
         
                 if(password_verify($_POST['password'], $user['password'])){
@@ -106,8 +135,8 @@ class UserController{
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['name'] = $user['name'];
                     $_SESSION['surname'] = $user['surname'];
-                    $_SESSION['afm'] = $user['afm'];
-                    $_SESSION['amka'] = $user['amka'];
+                    $_SESSION['AFM'] = $user['afm'];
+                    $_SESSION['AMKA'] = $user['amka'];
                     $_SESSION['cel'] = $user['cel'];
                     $_SESSION['role'] = $user['role'];
                     header('location: profile.php');
@@ -140,14 +169,32 @@ class UserController{
         }
     }
 
+    function editUser(){
+        if(isset($_POST['edit'])){
+            $user_validation = new EditUser($_POST);
+            $this->setErrors($user_validation->validateForm());
+
+            if(count($this->errors)){
+                $this->setCel($_SESSION['cel']);
+                $this->setAMKA($_SESSION['AMKA']);
+                $this->setAFM($_SESSION['AFM']);
+            }else{
+                unset($_POST['edit']);
+                foreach($_POST as $key => $field){
+                    if(!isset($field)){
+                        $_POST[$key] = $_SESSION[$key];
+                    }
+                }
+                $this->db->update(self::$table, $_SESSION['id'], $_POST);
+                $this->setCel($_POST['cel']);
+                $this->setAFM($_POST['AFM']);
+                $this->setAMKA($_POST['AMKA']);
+            }
+        }
+    }
+
     function deleteUser($data){
         $this->db->delete(self::$table, ['id' => $data['id']]);
     }
-
 }
-
-
-
-
-
 ?>
