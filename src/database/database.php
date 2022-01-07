@@ -23,7 +23,7 @@
     
         function create($table, $data, $unique){
             if ($unique != null){
-                $user = $this->selectOne($table, [$unique => $data[$unique]]);
+                $user = $this->select($table, [$unique => $data[$unique]]);
                 if ($user){
                     return $user['id'];
                 }
@@ -64,7 +64,7 @@
             return $stmt->affected_rows;
         }
 
-        function selectOne($table, $conditiions){
+        function select($table, $conditiions){
             $query = "SELECT * FROM $table";
 
             $i=0;
