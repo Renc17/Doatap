@@ -45,6 +45,11 @@ class FormController{
     function __construct()
     {
         $this->db = new Database();
+        $this->name = $_SESSION['name'];
+        $this->surname = $_SESSION['surname'];
+        $this->email = $_SESSION['email'];
+        $this->afm = $_SESSION['AFM'];
+        $this->amka = $_SESSION['AMKA'];
     }
 
     function getName(){
@@ -175,11 +180,7 @@ class FormController{
         if(isset($_POST['submit-form'])){
             $user_validation = new CreateForm($_POST);
             $this->setErrors($user_validation->validateForm());
-        
             if(count($this->errors)){
-                $this->name = $_POST['name'];
-                $this->surname = $_POST['surname'];
-                $this->email = $_POST['email'];
                 $this->gender = $_POST['gender'];
                 $this->father_name = $_POST['father_name'];
                 $this->mother_name = $_POST['mother_name'];
@@ -206,13 +207,8 @@ class FormController{
                 $this->birth_date = $_POST['birth_date'];
                 $this->birth_city = $_POST['birth_city'];
                 $this->birth_country = $_POST['birth_country'];
-                $this->afm = $_POST['afm'];
-                $this->amka = $_POST['amka'];
-                
-
             }else{
                 unset($_POST['submit-form']);
-                session_start();
                 $_POST['user_id'] = $_SESSION['id'];
                 $this->db->create(self::$table, $_POST, null);
                 header('location: profile.php');

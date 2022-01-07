@@ -86,7 +86,7 @@ class CreateForm {
         if(empty($name)){
             $this->addError('name', 'name cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $name)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $name)){
                 $this->addError('name', 'name must not contain numerical');
             }
         }
@@ -97,7 +97,7 @@ class CreateForm {
         if(empty($surname)){
             $this->addError('surname', 'surname cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $surname)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $surname)){
                 $this->addError('surname', 'surname must not contain numerical');
             }
         }
@@ -108,7 +108,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('father_name', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('father_name', 'field must not contain numerical');
             }
         }
@@ -119,7 +119,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('mother', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('mother', 'field must not contain numerical');
             }
         }
@@ -130,7 +130,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('birth_country', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('birth_country', 'field must not contain numerical');
             }
         }
@@ -141,7 +141,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('birth_city', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('birth_city', 'field must not contain numerical');
             }
         }
@@ -152,7 +152,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('birth_date', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
                 $this->addError('birth_date', 'field must not contain numerical');
             }
         }
@@ -163,19 +163,19 @@ class CreateForm {
         if(empty($field)){
             $this->addError('identification', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('identification', 'field must not contain numerical');
             }
         }
     }
 
-    function validateIDNum(){
+    function validateID(){
         $field = trim($this->data['ID_num']);
         if(empty($field)){
             $this->addError('ID_num', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
-                $this->addError('ID_num', 'field must not contain numerical');
+            if(!preg_match('/[A-Z]{2}[0-9]{6}$/', $field)){
+                $this->addError('ID_num', $field .' must not contain numerical');
             }
         }
     }
@@ -185,7 +185,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('release_date', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
                 $this->addError('release_date', 'field must not contain numerical');
             }
         }
@@ -196,7 +196,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('release_country', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('release_country', 'field must not contain numerical');
             }
         }
@@ -207,7 +207,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('living_country', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('living_country', 'field must not contain numerical');
             }
         }
@@ -218,7 +218,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('living_city', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('living_city', 'field must not contain numerical');
             }
         }
@@ -229,7 +229,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('living_area', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('living_area', 'field must not contain numerical');
             }
         }
@@ -239,10 +239,6 @@ class CreateForm {
         $field = trim($this->data['address']);
         if(empty($field)){
             $this->addError('address', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
-                $this->addError('address', 'field must not contain numerical');
-            }
         }
     }
 
@@ -251,7 +247,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('cel', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[0-9]*$/', $field)){
                 $this->addError('cel', 'field must not contain numerical');
             }
         }
@@ -262,7 +258,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('diploma_type', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('diploma_type', 'field must not contain numerical');
             }
         }
@@ -273,7 +269,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('study_type', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('study_type', 'field must not contain numerical');
             }
         }
@@ -284,7 +280,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('diploma_recognition', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('diploma_recognition', 'field must not contain numerical');
             }
         }
@@ -295,7 +291,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('evaluation', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('evaluation', 'field must not contain numerical');
             }
         }
@@ -306,7 +302,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('study_process', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('study_process', 'field must not contain numerical');
             }
         }
@@ -317,7 +313,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('study_country', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('study_country', 'field must not contain numerical');
             }
         }
@@ -328,7 +324,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('department', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('department', 'field must not contain numerical');
             }
         }
@@ -339,7 +335,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('university', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
                 $this->addError('university', 'field must not contain numerical');
             }
         }
@@ -350,7 +346,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('start_date', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
                 $this->addError('start_date', 'field must not contain numerical');
             }
         }
@@ -361,7 +357,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('diploma_date', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $field)){
+            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
                 $this->addError('diploma_date', 'field must not contain numerical');
             }
         }
@@ -402,25 +398,13 @@ class CreateForm {
         }
     }
 
-    function validateID(){
-        $id_num = trim($this->data['ID_num']);
-        if(empty($id_num)){
-            $this->addError('ID_num', 'ID Number cannot be empty');
-            return;
-        }else{
-            if(!preg_match('/^[0-9]*$/', $id_num)){
-                $this->addError('ID_num', 'ID Number must contain numerical');
-            }
-        }
-    }
-
     function validateCredits(){
         $credits = trim($this->data['credits']);
         if(empty($credits)){
             $this->addError('credits', 'credit cannot be empty');
             return;
         }else{
-            if(!preg_match('/*[0-9]$/', $credits)){
+            if(!preg_match('/^[0-9]*$/', $credits)){
                 $this->addError('credits', 'must contain numerical');
             }
         }

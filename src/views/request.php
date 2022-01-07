@@ -2,6 +2,8 @@
 
 require('../../config.php');
 require(BASE_URL . '\src\controllers\forms.php');
+require(BASE_URL . '\src\helpers\middlewares\guard.php');
+usersOnly();
 $controller =  new FormController();
 $controller->create();
 ?>
@@ -109,7 +111,6 @@ $controller->create();
                     <option value="Γαλλία">Γαλλία</option>
                     <option value="Αγγλία">Αγγλία</option>
                 </select>
-                <input type="text" name="living_country" value="<?php echo $controller->getLivingCountry(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('living_country') ?? '' ?> </div>
             </div>
             <div>
@@ -171,7 +172,6 @@ $controller->create();
                 <label class="btn btn-outline-success" for="outlined">Ναι</label>
                 <input type="radio" class="btn-check" name="diploma_recognition" id="danger-outlined" value="Όχι" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Όχι</label>
-                <input type="text" name="diploma_recognition" value="<?php echo $controller->getDiplomaRecognition(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
             </div>
             <div>
@@ -188,7 +188,6 @@ $controller->create();
                 <label class="btn btn-outline-success" for="outlined">Συμβατικός</label>
                 <input type="radio" class="btn-check" name="study_process" id="danger-outlined" value="Εξ' αποστάσεως" autocomplete="off">
                 <label class="btn btn-outline-danger" for="outlined">Εξ' αποστάσεως</label>
-                <input type="text" name="study_process" value="<?php echo $controller->getStudyProcess(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('study_process') ?? '' ?> </div>
             </div>
             <div>

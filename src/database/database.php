@@ -11,7 +11,7 @@
         function executeQuery($query, $data){
             $stmt = $this->connection->prepare($query);
             if ($stmt == FALSE){
-                print('Statement is not correct');
+                die('prepare() failed: ' . htmlspecialchars($this->connection->error));
                 exit();
             }
             $values = array_values($data);
@@ -40,8 +40,10 @@
                 }
                 $i++;
             }
-    
-           $this->executeQuery($query, $data);
+            
+            print($query);
+            print_r($data);
+            $this->executeQuery($query, $data);
         }
 
         function update($table, $id, $data){
