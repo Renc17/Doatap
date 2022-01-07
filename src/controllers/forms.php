@@ -208,6 +208,11 @@ class FormController{
                 $this->birth_city = $_POST['birth_city'];
                 $this->birth_country = $_POST['birth_country'];
             }else{
+                if($_POST['submit-form'] == 'draft'){
+                    $_POST['status'] = 0;
+                }else {
+                    $_POST['status'] = 1;
+                }
                 unset($_POST['submit-form']);
                 $_POST['user_id'] = $_SESSION['id'];
                 $this->db->create(self::$table, $_POST, null);

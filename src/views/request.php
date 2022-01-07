@@ -238,6 +238,7 @@ $controller->create();
 
 
             <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
+            <button class='btn btn-outline-info' type="submit" name="submit-form" value='draft' class="submit">Draft</button>
         </form>
     </div>
 </body>
