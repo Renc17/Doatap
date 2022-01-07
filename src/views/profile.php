@@ -15,7 +15,7 @@
     $drafts = $formController->getFormsByStatus(1);
     $submitted = $formController->getFormsByStatus(0);
 
-    $formPreview = $formController->getFormPreview(1)[0];   // for form preview view
+    $formPreview = $formController->getFormPreview(6);   // for form preview view
 ?>
 <html>
     <body>

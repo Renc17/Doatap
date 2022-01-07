@@ -225,7 +225,12 @@ class FormController{
     }
 
     function getFormPreview($id){
-        return $this->db->select(self::$table, ['id' => $id]);
+        $form = $this->db->select(self::$table, ['id' => $id]);
+        if(!empty($form)){
+            return $form[0];
+        }
+
+        return [];
     }
 
     function getFormsByStatus($status){
