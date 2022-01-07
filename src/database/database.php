@@ -23,9 +23,9 @@
     
         function create($table, $data, $unique){
             if ($unique != null){
-                $user = $this->select($table, [$unique => $data[$unique]]);
-                if ($user){
-                    return $user['id'];
+                $user = $this->select($table, [$unique => $data[$unique]])[0];
+                if (!empty($user)){
+                    return $user[0];
                 }
             }
 
@@ -78,7 +78,12 @@
             }
 
             $stmt = $this->executeQuery($query, $conditiions);
-            return $stmt->get_result()->fetch_assoc();
+            $rows = $stmt->get_result();
+            $results = array();
+            while ($row = $rows->fetch_array(MYSQLI_NUM)) {
+                $results[] = $row;
+            }
+            return $results;
         }
 
         function delete($table, $conditiions){

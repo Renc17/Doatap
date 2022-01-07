@@ -224,6 +224,14 @@ class FormController{
         return $this->db->select(self::$table, ['user_id' => $_SESSION['id']]);
     }
 
+    function getFormsByStatus($status){
+        return $this->db->select(self::$table, 
+        [
+            'user_id' => $_SESSION['id'],
+            'status' => $status
+        ]);
+    }
+
     function getErrors($field){
         if(isset($this->errors[$field]))
             return $this->errors[$field];

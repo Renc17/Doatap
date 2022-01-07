@@ -12,6 +12,8 @@
     require(BASE_URL.'\src\controllers\forms.php');
     $formController =  new FormController($database);
     $forms = $formController->allForms();
+    $drafts = $formController->getFormsByStatus(1);
+    $submitted = $formController->getFormsByStatus(0);
 ?>
 <html>
     <body>
@@ -49,6 +51,17 @@
         </form>
         
         <a class="nav-link" href="request.php">Create Form</a>
-        
+
+        <!-- <?php
+            foreach($forms as $form){
+                print_r($form);
+            }
+        ?> -->
+
+        <?php
+            foreach($drafts as $form){
+                print_r($form);
+            }
+        ?>
     </body>
 </html>
