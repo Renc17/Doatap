@@ -1,6 +1,5 @@
 <?php
 
-require(BASE_URL. '\src\database\database.php');
 require(BASE_URL. '\src\helpers\validation\create-user.php');
 require(BASE_URL. '\src\helpers\validation\login-user.php');
 require(BASE_URL. '\src\helpers\validation\edit-user.php');
@@ -21,8 +20,8 @@ class UserController{
     private $amka = '';
     private $cel = '';
 
-    function __construct(){
-        $this->db = new Database();
+    function __construct($database){
+        $this->db = $database;
     }
 
     function getName(){
@@ -123,7 +122,7 @@ class UserController{
             if(count($this->errors)){
                 $this->setEmail($_POST['email']);
             }else{
-                $user = $this->db->selectOne(self::$table, ['email' => $_POST['email']]);
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
                 if(!$user){
                     print('User doesnt exit');
                     exit();

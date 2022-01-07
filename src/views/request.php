@@ -4,7 +4,7 @@ require('../../config.php');
 require(BASE_URL . '\src\controllers\forms.php');
 require(BASE_URL . '\src\helpers\middlewares\guard.php');
 usersOnly();
-$controller =  new FormController();
+$controller =  new FormController($database);
 $controller->create();
 ?>
 

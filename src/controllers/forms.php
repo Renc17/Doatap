@@ -1,6 +1,5 @@
 <?php
 
-require(BASE_URL. '\src\database\database.php');
 require(BASE_URL. '\src\helpers\validation\create-form.php');
 
 class FormController{
@@ -42,9 +41,9 @@ class FormController{
     private $diploma_date = '';
 
 
-    function __construct()
-    {
-        $this->db = new Database();
+    function __construct($database){
+
+        $this->db = $database;
         $this->name = $_SESSION['name'];
         $this->surname = $_SESSION['surname'];
         $this->email = $_SESSION['email'];
@@ -219,6 +218,10 @@ class FormController{
                 header('location: profile.php');
             }
         }
+    }
+
+    function allForms(){
+        return $this->db->select(self::$table, ['user_id' => $_SESSION['id']]);
     }
 
     function getErrors($field){

@@ -3,11 +3,15 @@
     require(BASE_URL. '\src\helpers\middlewares\guard.php');
     usersOnly();
     require(BASE_URL.'\src\controllers\users.php');
-    $controller =  new UserController();
+    $controller =  new UserController($database);
     $controller->editUser();
 
     $logout_path = '..\helpers\auth\logout.php';
     $delete_path = '..\helpers\auth\delete.php';
+
+    require(BASE_URL.'\src\controllers\forms.php');
+    $formController =  new FormController($database);
+    $forms = $formController->allForms();
 ?>
 <html>
     <body>
@@ -44,6 +48,7 @@
             <button class = 'btn btn-outline-info' type="submit" name="edit" value='update' class="submit">Update</button>
         </form>
         
-        <a class="nav-link" href="request.php">My Forms</a>
+        <a class="nav-link" href="request.php">Create Form</a>
+        
     </body>
 </html>

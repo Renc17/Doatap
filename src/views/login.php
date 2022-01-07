@@ -5,7 +5,7 @@ require(BASE_URL . '\src\helpers\middlewares\guard.php');
 isLoggedIn();
 
 require(BASE_URL . '\src\controllers\users.php');
-$controller =  new UserController();
+$controller =  new UserController($database);
 $controller->login();
 ?>
 
