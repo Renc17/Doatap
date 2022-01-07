@@ -224,6 +224,10 @@ class FormController{
         return $this->db->select(self::$table, ['status' => $status]);
     }
 
+    function getFormPreview($id){
+        return $this->db->select(self::$table, ['id' => $id]);
+    }
+
     function getFormsByStatus($status){
         return $this->db->select(self::$table, 
         [

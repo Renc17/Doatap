@@ -14,6 +14,8 @@
     $forms = $formController->allFormsByStatus(0);      // For admin
     $drafts = $formController->getFormsByStatus(1);
     $submitted = $formController->getFormsByStatus(0);
+
+    $formPreview = $formController->getFormPreview(1)[0];   // for form preview view
 ?>
 <html>
     <body>
@@ -52,15 +54,21 @@
         
         <a class="nav-link" href="request.php">Create Form</a>
 
-        <?php
+        <!-- <?php
             foreach($forms as $form){
                 print_r($form);
             }
-        ?>
+        ?> -->
 
         <!-- <?php
             foreach($drafts as $form){
                 print_r($form);
+            }
+        ?> -->
+
+        <!-- <?php
+            foreach($formPreview as $key=>$field){
+                print($key . ' - ' .$field . "\n");
             }
         ?> -->
     </body>
