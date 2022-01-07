@@ -220,8 +220,8 @@ class FormController{
         }
     }
 
-    function allForms(){
-        return $this->db->select(self::$table, ['user_id' => $_SESSION['id']]);
+    function allFormsByStatus($status){
+        return $this->db->select(self::$table, ['status' => $status]);
     }
 
     function getFormsByStatus($status){
