@@ -37,6 +37,7 @@ $controller->login();
                 <label>Password</label>
                 <input type="password" name="password" value="<?php echo $controller->getPassword(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
+                <div class="error"> <?php echo $controller->getErrors('auth') ?? '' ?> </div>
             </div>
             <button class='btn btn-outline-info' type="submit" name="login" value='login' class="submit">Login</button>
         </form>
