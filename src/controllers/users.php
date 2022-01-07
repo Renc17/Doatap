@@ -122,23 +122,26 @@ class UserController{
             if(count($this->errors)){
                 $this->setEmail($_POST['email']);
             }else{
-                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
-                if(!$user){
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']])[0];
+                print_r($user);
+                if(empty($user)){
                     print('User doesnt exit');
                     exit();
                 }
-        
-                if(password_verify($_POST['password'], $user['password'])){
+
+                if(password_verify($_POST['password'], $user[4])){
                     session_start();
-                    $_SESSION['id'] = $user['id'];
-                    $_SESSION['email'] = $user['email'];
-                    $_SESSION['name'] = $user['name'];
-                    $_SESSION['surname'] = $user['surname'];
-                    $_SESSION['AFM'] = $user['afm'];
-                    $_SESSION['AMKA'] = $user['amka'];
-                    $_SESSION['cel'] = $user['cel'];
-                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['id'] = $user[0];
+                    $_SESSION['email'] = $user[3];
+                    $_SESSION['name'] = $user[1];
+                    $_SESSION['surname'] = $user[2];
+                    $_SESSION['AFM'] = $user[6];
+                    $_SESSION['AMKA'] = $user[7];
+                    $_SESSION['cel'] = $user[5];
+                    $_SESSION['role'] = $user[8];
                     header('location: profile.php');
+                }else {
+                    $this->errors['auth'] = 'Password is not correct';
                 }
             }
         }
