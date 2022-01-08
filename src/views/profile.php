@@ -11,7 +11,6 @@
 
     require(BASE_URL.'\src\controllers\forms.php');
     $formController =  new FormController($database);
-    $forms = $formController->allFormsByStatus('checked');      // For admin
     $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
 
@@ -53,12 +52,6 @@
         </form>
         
         <a class="nav-link" href="request.php">Create Form</a>
-
-        <!-- <?php
-            foreach($forms as $form){
-                print_r($form);
-            }
-        ?> -->
 
         <!-- <?php
             foreach($drafts as $form){
