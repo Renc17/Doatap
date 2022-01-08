@@ -222,6 +222,7 @@ class FormController{
 
     function allFormsByStatus($status){
         return $this->db->select(self::$table, ['status' => $status]);
+        header('location: dashboard.php');
     }
 
     function getFormPreview($id){
@@ -239,6 +240,15 @@ class FormController{
             'user_id' => $_SESSION['id'],
             'status' => $status
         ]);
+    }
+
+    function AdminCheckedForm($id){
+        $effected_rows = $this->db->update(self::$table, $id, ['status'=> 'checked']);
+        if($effected_rows)
+            header('location: dashboard.php');
+        else
+            $this->errors['checked'] = 'Form doesnt exist';
+            return;
     }
 
     function getErrors($field){
