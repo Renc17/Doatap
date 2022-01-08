@@ -123,7 +123,6 @@ class UserController{
                 $this->setEmail($_POST['email']);
             }else{
                 $user = $this->db->select(self::$table, ['email' => $_POST['email']])[0];
-                print_r($user);
                 if(empty($user)){
                     print('User doesnt exit');
                     exit();
@@ -140,7 +139,10 @@ class UserController{
                     $_SESSION['cel'] = $user[5];
                     $_SESSION['role'] = $user[8];
 
-                    header('location: profile.php');
+                    if($_SESSION['role'] == 'user')
+                        header('location: profile.php');
+                    else if($_SESSION['role'] == 'admin')
+                        header('location: dashboard.php');
                 }else {
                     $this->errors['auth'] = 'Password is not correct';
                 }
