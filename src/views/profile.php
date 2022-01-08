@@ -11,9 +11,9 @@
 
     require(BASE_URL.'\src\controllers\forms.php');
     $formController =  new FormController($database);
-    $forms = $formController->allFormsByStatus(0);      // For admin
-    $drafts = $formController->getFormsByStatus(1);
-    $submitted = $formController->getFormsByStatus(0);
+    $forms = $formController->allFormsByStatus('checked');      // For admin
+    $drafts = $formController->getFormsByStatus('drafts');
+    $submitted = $formController->getFormsByStatus('submitted');
 
     $formPreview = $formController->getFormPreview(6);   // for form preview view
 ?>
@@ -36,17 +36,17 @@
             </h2>
             <div>
                 <label>AFM</label>
-                <input type="text" name="AFM" value="<?php echo $controller->getAFM(); ?>" placeholder="<?php echo $_SESSION['AFM'] ?>" class="text-input" >
+                <input type="text" name="AFM" value="<?php echo $_SESSION['AFM'] ?>" placeholder="<?php echo $_SESSION['AFM'] ?>" class="text-input" >
                 <div class="error"> <?php echo $controller->getErrors('AFM') ?? '' ?> </div>
             </div>
             <div>
                 <label>AMKA</label>
-                <input type="text" name="AMKA" value="<?php echo $controller->getAMKA(); ?>" placeholder="<?php echo $_SESSION['AMKA'] ?>" class="text-input" >
+                <input type="text" name="AMKA" value="<?php echo $_SESSION['AMKA'] ?>" placeholder="<?php echo $_SESSION['AMKA'] ?>" class="text-input" >
                 <div class="error"> <?php echo $controller->getErrors('AMKA') ?? '' ?> </div>
             </div>
             <div>
                 <label>Cel</label>
-                <input type="text" name="cel" value="<?php echo $controller->getCel(); ?>" placeholder="<?php echo $_SESSION['cel'] ?>" class="text-input" >
+                <input type="text" name="cel" value="<?php echo $_SESSION['cel'] ?>" placeholder="<?php echo $_SESSION['cel'] ?>" class="text-input" >
                 <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
             </div>
             <button class = 'btn btn-outline-info' type="submit" name="edit" value='update' class="submit">Update</button>

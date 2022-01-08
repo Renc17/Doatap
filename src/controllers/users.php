@@ -140,10 +140,6 @@ class UserController{
                     $_SESSION['cel'] = $user[5];
                     $_SESSION['role'] = $user[8];
 
-                    $this->setAFM($_SESSION['AFM']);
-                    $this->setAMKA($_SESSION['AMKA']);
-                    $this->setCel($_SESSION['cel']);
-
                     header('location: profile.php');
                 }else {
                     $this->errors['auth'] = 'Password is not correct';
@@ -182,9 +178,7 @@ class UserController{
             $this->setErrors($user_validation->validateForm());
 
             if(count($this->errors)){
-                $this->setCel($_SESSION['cel']);
-                $this->setAMKA($_SESSION['AMKA']);
-                $this->setAFM($_SESSION['AFM']);
+                return;
             }else{
                 unset($_POST['edit']);
                 foreach($_POST as $key => $field){
@@ -196,6 +190,10 @@ class UserController{
                 $this->setCel($_POST['cel']);
                 $this->setAFM($_POST['AFM']);
                 $this->setAMKA($_POST['AMKA']);    
+
+                $_SESSION['AFM'] = $_POST['AFM'];
+                $_SESSION['AMKA'] =$_POST['AMKA'];
+                $_SESSION['cel'] = $_POST['cel'];
 
                 header('location: profile.php');
             }
