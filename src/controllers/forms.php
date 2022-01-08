@@ -208,9 +208,9 @@ class FormController{
                 $this->birth_country = $_POST['birth_country'];
             }else{
                 if($_POST['submit-form'] == 'draft'){
-                    $_POST['status'] = 0;
+                    $_POST['status'] = 'draft';
                 }else {
-                    $_POST['status'] = 1;
+                    $_POST['status'] = 'submitted';
                 }
                 unset($_POST['submit-form']);
                 $_POST['user_id'] = $_SESSION['id'];

@@ -12,7 +12,7 @@
     require(BASE_URL.'\src\controllers\forms.php');
     $formController =  new FormController($database);
     $forms = $formController->allFormsByStatus('checked');      // For admin
-    $drafts = $formController->getFormsByStatus('drafts');
+    $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
 
     $formPreview = $formController->getFormPreview(6);   // for form preview view
