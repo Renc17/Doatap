@@ -139,6 +139,11 @@ class UserController{
                     $_SESSION['AMKA'] = $user[7];
                     $_SESSION['cel'] = $user[5];
                     $_SESSION['role'] = $user[8];
+
+                    $this->setAFM($_SESSION['AFM']);
+                    $this->setAMKA($_SESSION['AMKA']);
+                    $this->setCel($_SESSION['cel']);
+
                     header('location: profile.php');
                 }else {
                     $this->errors['auth'] = 'Password is not correct';
@@ -190,7 +195,9 @@ class UserController{
                 $this->db->update(self::$table, $_SESSION['id'], $_POST);
                 $this->setCel($_POST['cel']);
                 $this->setAFM($_POST['AFM']);
-                $this->setAMKA($_POST['AMKA']);
+                $this->setAMKA($_POST['AMKA']);    
+
+                header('location: profile.php');
             }
         }
     }
