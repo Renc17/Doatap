@@ -41,8 +41,6 @@
                 $i++;
             }
             
-            print($query);
-            print_r($data);
             $this->executeQuery($query, $data);
         }
 

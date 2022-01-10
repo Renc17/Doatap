@@ -39,7 +39,17 @@ class FormController{
     private $credits = '';
     private $start_date = '';
     private $diploma_date = '';
+    private $comment = '';
 
+    // private $parabolo = '';
+    // private $id_copy = '';
+    // private $declaration = '';
+    // private $high_school_deploma = '';
+    // private $diploma_copy = '';
+    // private $master_diploma = '';
+    // private $master_thises = '';
+    // private $classes_certificate = '';
+    // private $university_certificate = '';
 
     function __construct($database){
 
@@ -175,10 +185,33 @@ class FormController{
         return $this->diploma_date;
     }
 
+    function getComment(){
+        return $this->comment;
+    }
+
+    function uploadFiles(){
+        if(isset($_POST['upload-file'])){
+            // $upload_file_validation = new ValidateUploadedFiles();
+            // $this->setErrors($upload_file_validation->validateUploadFile());
+            foreach($_FILES as $key => $file){
+                // if($file['size'] == 0){
+                //     print('Empty file');
+                //     $this->errors['upload'] = 'file '.$key.' not uploaded';
+                //     return;
+                // }
+                $hashed_name = uniqid() .$_FILES[$key]["name"];
+                $didUpload = move_uploaded_file($_FILES[$key]["tmp_name"], BASE_URL.'\src\assets\uploads\\' .$hashed_name);
+                if (!$didUpload) {
+                    echo "An error occurred. Please contact the administrator.";
+                }
+            }
+        }
+    }
+
     function create(){
         if(isset($_POST['submit-form'])){
-            $user_validation = new CreateForm($_POST);
-            $this->setErrors($user_validation->validateForm());
+            $form_validation = new CreateForm($_POST);
+            $this->setErrors($form_validation->validateForm());
             if(count($this->errors)){
                 $this->gender = $_POST['gender'];
                 $this->father_name = $_POST['father_name'];
@@ -206,6 +239,7 @@ class FormController{
                 $this->birth_date = $_POST['birth_date'];
                 $this->birth_city = $_POST['birth_city'];
                 $this->birth_country = $_POST['birth_country'];
+                $this->comment = $_POST['comment'];
             }else{
                 if($_POST['submit-form'] == 'draft'){
                     $_POST['status'] = 'draft';
@@ -243,7 +277,11 @@ class FormController{
     }
 
     function AdminCheckedForm($id){
-        $effected_rows = $this->db->update(self::$table, $id, ['status'=> 'checked']);
+        $effected_rows = $this->db->update(self::$table, $id, 
+        [
+            'status'=> 'checked',
+            'created_at' => '' // current time
+        ]);
         if($effected_rows)
             header('location: dashboard.php');
         else
