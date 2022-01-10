@@ -6,6 +6,7 @@ require(BASE_URL . '\src\helpers\middlewares\guard.php');
 usersOnly();
 $controller =  new FormController($database);
 $controller->create();
+$controller->uploadFiles();
 ?>
 
 <!DOCTYPE html>
@@ -235,11 +236,27 @@ $controller->create();
                 <input type="text" name="diploma_date" value="<?php echo $controller->getDiplomaDate(); ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
             </div>
+            <div>
+                <label>Σχόλεια Αιτούντα</label>
+                <input type="text" name="comment" value="<?php echo $controller->getComment(); ?>" class="text-input">
+                <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
+            </div>
 
 
             <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
             <button class='btn btn-outline-info' type="submit" name="submit-form" value='draft' class="submit">Draft</button>
         </form>
+
+        <form method="POST" action="request.php" enctype="multipart/form-data">
+            <div class="error"> <?php echo $controller->getErrors('upload') ?? '' ?> </div>
+            <input type="file" name="parabolo" value=""/>
+            <input type="file" name="taytotita" value=""/>
+            <input type="file" name="ypey8hnh dhlwsh" value=""/>
+            <div>
+                <button type="submit" name="upload-file">UPLOAD</button>
+            </div>
+        </form>
+
     </div>
 </body>
 
