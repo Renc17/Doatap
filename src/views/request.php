@@ -6,7 +6,7 @@ require(BASE_URL . '\src\helpers\middlewares\guard.php');
 usersOnly();
 $controller =  new FormController($database);
 $controller->create();
-$controller->uploadFiles();
+// $controller->uploadFiles();
 ?>
 
 <!DOCTYPE html>
@@ -238,23 +238,77 @@ $controller->uploadFiles();
             </div>
             <div>
                 <label>Σχόλεια Αιτούντα</label>
-                <input type="text" name="comment" value="<?php echo $controller->getComment(); ?>" class="text-input">
+                <input type="text" name="comment" value="<?php //echo $controller->getComment(); 
+                                                            ?>" class="text-input">
                 <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
             </div>
 
+            <div class="error"> <?php echo $controller->getErrors('upload') ?? '' ?> </div>
+            <div>
+                <div>
+                    <label>Παράβολο</label>
+                    <input type="file" name="parabolo" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('parabolo') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Αντίγραφο Ταυτότητας</label>
+                    <input type="file" name="taytotita" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('taytotita') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Υπεύθυνη Δήλωση</label>
+                    <input type="file" name="ypey8hnh dhlwsh" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('ypey8hnh dhlwsh') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Έντυπο Συγκατάθεσης</label>
+                    <input type="file" name="entypo sygkatathesis" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('entypo sygkatathesis') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Απολυτήριο Λυκείου</label>
+                    <input type="file" name="apolytirio lykeiou" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('apolytirio lykeiou') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Πτυχίο</label>
+                    <input type="file" name="Ptyxio" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Μεταπτυχιακός Τίτλος</label>
+                    <input type="file" name="metaptixiako" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('metaptixiako') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Πιστοποιητικό Μαθημάτων</label>
+                    <input type="file" name="pist mathimaton" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('pist mathimaton') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Πιστοποιητικό Πανεπιστημίου</label>
+                    <input type="file" name="pist panepistimiou" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('pist panepistimiou') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Εργασία Μεταπτυχιακού Τίτλου</label>
+                    <input type="file" name="Ergasia met" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('Ergasia met') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Πιστοποιητικό Πανεπιστημίου (Συνεκτίμηση Μεταπτυχιακού)</label>
+                    <input type="file" name="pist panep sinek" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('pist panep sinek') ?? '' ?> </div>
+                </div>
+                <div>
+                    <label>Πιστοποιητικό Μαθημάτων (Συνεκτίμηση Μεταπτυχιακού)</label>
+                    <input type="file" name="pist math sinek" value="" />
+                    <div class="error"> <?php echo $controller->getErrors('pist math sinek') ?? '' ?> </div>
+                </div>
 
+            </div>
             <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
             <button class='btn btn-outline-info' type="submit" name="submit-form" value='draft' class="submit">Draft</button>
-        </form>
-
-        <form method="POST" action="request.php" enctype="multipart/form-data">
-            <div class="error"> <?php echo $controller->getErrors('upload') ?? '' ?> </div>
-            <input type="file" name="parabolo" value=""/>
-            <input type="file" name="taytotita" value=""/>
-            <input type="file" name="ypey8hnh dhlwsh" value=""/>
-            <div>
-                <button type="submit" name="upload-file">UPLOAD</button>
-            </div>
         </form>
 
     </div>
