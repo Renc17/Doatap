@@ -188,9 +188,6 @@ class FormController{
             $this->setErrors($data['errors']);
             $this->setFiles($data['files']);
 
-            print_r($_POST);
-            return;
-
             if(count($this->errors)){
                 $this->gender = $_POST['gender'];
                 $this->father_name = $_POST['father_name'];
