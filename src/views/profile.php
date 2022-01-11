@@ -1,15 +1,15 @@
 <?php
     require('../../config.php');
-    require(BASE_URL. '\src\helpers\middlewares\guard.php');
+    require(BASE_URL. 'helpers\middlewares\guard.php');
     usersOnly();
-    require(BASE_URL.'\src\controllers\users.php');
+    require(BASE_URL. 'controllers\users.php');
     $controller =  new UserController($database);
     $controller->editUser();
 
     $logout_path = '..\helpers\auth\logout.php';
     $delete_path = '..\helpers\auth\delete.php';
 
-    require(BASE_URL.'\src\controllers\forms.php');
+    require(BASE_URL. 'controllers\forms.php');
     $formController =  new FormController($database);
     $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
@@ -61,7 +61,7 @@
 
         <!-- <?php
             foreach($formPreview as $key=>$field){
-                print($key . ' - ' .$field . "\n");
+                print($key . '-' .$field . "\n");
             }
         ?> -->
     </body>

@@ -11,7 +11,7 @@
 <body>
     <?php 
         require('config.php');
-        include(BASE_URL. '\src\includes\navbar.php'); 
+        include(BASE_URL. 'includes\navbar.php'); 
     ?>
 
     <div class="container" style="height:100vh;">
@@ -52,7 +52,7 @@
         <hr class="minehr" />
     </div>
 
-    <?php include(BASE_URL. '\src\includes\footer.php');  ?>
+    <?php include(BASE_URL. 'includes\footer.php');  ?>
 </body>
 
 </html>

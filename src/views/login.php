@@ -1,10 +1,10 @@
 <?php
 
 require('../../config.php');
-require(BASE_URL . '\src\helpers\middlewares\guard.php');
+require(BASE_URL . 'helpers\middlewares\guard.php');
 isLoggedIn();
 
-require(BASE_URL . '\src\controllers\users.php');
+require(BASE_URL . 'controllers\users.php');
 $controller =  new UserController($database);
 $controller->login();
 ?>

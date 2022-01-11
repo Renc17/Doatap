@@ -2,6 +2,7 @@
 
 class CreateForm {
     private $data;
+    private $files;
     private $fields = [
         'name',
         'surname',
@@ -35,10 +36,12 @@ class CreateForm {
         'start_date',
         'diploma_date'
     ];
-    private $errors = [];
+    private $errors = array();
+    private $validation_data = array();
 
-    function __construct($post_data){
+    function __construct($post_data, $files_data){
         $this->data = $post_data;
+        $this->files = $files_data;
     }
 
     function validateForm(){
@@ -78,7 +81,22 @@ class CreateForm {
         $this->validateLivingCity();
         $this->validateLivingCountry();
 
-        return $this->errors;
+        $this->validateFiles();
+
+        $this->validation_data['errors'] = $this->errors;
+        $this->validation_data['files'] = $this->files;
+        
+        return $this->validation_data;
+    }
+
+    function validateFiles(){
+        foreach($this->files as $key => $file){
+            if($file['size'] == 0){
+                $this->addError($key, 'Το πεδίο '.$key.' είναι υποχρεωτικό');
+            }else{
+                $this->files[$key] = $file;
+            }
+        }
     }
 
     function validateName(){

@@ -1,15 +1,15 @@
 <?php
     require('../../config.php');
-    require(BASE_URL. '\src\helpers\middlewares\guard.php');
+    require(BASE_URL. 'helpers\middlewares\guard.php');
     adminOnly();
-    require(BASE_URL.'\src\controllers\users.php');
+    require(BASE_URL. 'controllers\users.php');
     $controller =  new UserController($database);
     $controller->editUser();
 
     $logout_path = '..\helpers\auth\logout.php';
     $delete_path = '..\helpers\auth\delete.php';
 
-    require(BASE_URL.'\src\controllers\forms.php');
+    require(BASE_URL. 'controllers\forms.php');
     $formController =  new FormController($database);
     $forms = $formController->allFormsByStatus('checked');
     $submitted = $formController->allFormsByStatus('submitted');

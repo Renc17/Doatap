@@ -11,7 +11,7 @@
         function executeQuery($query, $data){
             $stmt = $this->connection->prepare($query);
             if ($stmt == FALSE){
-                die('prepare() failed: ' . htmlspecialchars($this->connection->error));
+                die('prepare() failed:' . htmlspecialchars($this->connection->error));
                 exit();
             }
             $values = array_values($data);
