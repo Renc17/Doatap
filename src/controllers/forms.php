@@ -184,11 +184,16 @@ class FormController{
     function create(){
         if(isset($_POST['submit-form'])){
             $form_validation = new CreateForm($_POST, $_FILES);
-            $data = $form_validation->validateForm();
+            $data = [];
+            if($_POST['submit-form'] == 'submit'){
+                $data = $form_validation->validateForm();
+            }else if($_POST['submit-form'] == 'draft'){
+                $data = $form_validation->validateDraftForm();
+            }
 
             $this->setErrors($data['errors']);
             $this->setFiles($data['files']);
-
+        
             if(count($this->errors)){
                 $this->gender = $_POST['gender'];
                 $this->father_name = $_POST['father_name'];
@@ -266,10 +271,11 @@ class FormController{
 
     function getFormPreview($id){
         $complete_form = array();
-        $form = $this->db->select(self::$table, ['id' => $id])[0];
+        $form = $this->db->select(self::$table, ['id' => $id]);
         if(empty($form)){
             return [];
         }
+        $form = $form[0];
         $files = $this->db->select(self::$files_table, ['form_id' => $form[0]])[0];
 
         $complete_form['data'] = $form;

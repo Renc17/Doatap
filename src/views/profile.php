@@ -60,6 +60,9 @@
         ?> -->
 
         <?php
+            if(empty($formPreview)){
+                return;
+            }
             print_r($formPreview['data']);
             print_r($formPreview['files']);
         ?>

@@ -337,7 +337,7 @@ $controller->create();
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                     <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
-                    <button type="button" type="submit" name="submit-form" value='draft' id="draftBtn" >Draft</button>
+                    <button type="submit" name="submit-form" value='draft' class="submit">Draft</button>
                 </div>
             </div>
 
