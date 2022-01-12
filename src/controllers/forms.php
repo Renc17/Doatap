@@ -293,10 +293,11 @@ class FormController{
     }
 
     function AdminCheckedForm($id){
+        $t=time();
         $effected_rows = $this->db->update(self::$table, $id, 
         [
             'status'=> 'checked',
-            'created_at' => '' // current time
+            'created_at' => date("Y-m-d",$t)
         ]);
         if($effected_rows)
             header('location: dashboard.php');
