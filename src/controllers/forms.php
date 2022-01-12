@@ -242,6 +242,14 @@ class FormController{
         }
     }
 
+    function deleteForm($id){
+        $this->db->delete(self::$table, [
+            'id' => $id,
+            'user_id' => $_SESSION['id'],
+        ]);
+        return;
+    }
+
     function allFormsByStatus($status){
         $all_forms = array();
         $complete_form = array();
