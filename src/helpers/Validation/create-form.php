@@ -85,6 +85,7 @@ class CreateForm {
 
         $this->validation_data['errors'] = $this->errors;
         $this->validation_data['files'] = $this->files;
+        $this->validation_data['data'] = $this->data;
         
         return $this->validation_data;
     }

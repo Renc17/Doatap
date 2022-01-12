@@ -23,8 +23,9 @@
     
         function create($table, $data, $unique){
             if ($unique != null){
-                $user = $this->select($table, [$unique => $data[$unique]])[0];
+                $user = $this->select($table, [$unique => $data[$unique]]);
                 if (!empty($user)){
+                    $user = $user[0];
                     return $user[0];
                 }
             }

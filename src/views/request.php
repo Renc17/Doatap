@@ -49,37 +49,37 @@ $controller->create();
                 </div>
                 <div>
                     <label>Πατρώνυμο</label>
-                    <input type="text" name="father_name" value="<?php echo $controller->getFatherName(); ?>" class="text-input">
+                    <input type="text" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('father_name') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Μητρώνυμο</label>
-                    <input type="text" name="mother_name" value="<?php echo $controller->getMotherName(); ?>" class="text-input">
+                    <input type="text" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('mother_name') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>ΑΜΚΑ</label>
-                    <input type="text" name="amka" value="<?php echo $controller->getAmka(); ?>" class="text-input">
+                    <input type="text" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>ΑΦΜ</label>
-                    <input type="text" name="afm" value="<?php echo $controller->getAfm(); ?>" class="text-input">
+                    <input type="text" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Χώρα Γέννησης</label>
-                    <input type="text" name="birth_country" value="<?php echo $controller->getBirthCountry(); ?>" class="text-input">
+                    <input type="text" name="birth_country" value="<?php echo $controller->getData('birth_country'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('birth_country') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Πόλη Γέννησης</label>
-                    <input type="text" name="birth_city" value="<?php echo $controller->getBirthCity(); ?>" class="text-input">
+                    <input type="text" name="birth_city" value="<?php echo $controller->getData('birth_city'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('birth_city') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Ημερομηνία Γέννησης</label>
-                    <input type="text" name="birth_date" value="<?php echo $controller->getBirthDate(); ?>" class="text-input">
+                    <input type="text" name="birth_date" value="<?php echo $controller->getData('birth_date'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('birth_date') ?? '' ?> </div>
                 </div>
                 <div>
@@ -92,12 +92,12 @@ $controller->create();
                 </div>
                 <div>
                     <label>Αριθμός Ταυτότητας</label>
-                    <input type="text" name="ID_num" value="<?php echo $controller->getIDNum(); ?>" class="text-input">
+                    <input type="text" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Ημερομηνία Έκδοσης</label>
-                    <input type="text" name="release_date" value="<?php echo $controller->getReleaseDate(); ?>" class="text-input">
+                    <input type="text" name="release_date" value="<?php echo $controller->getData('release_date'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('release_date') ?? '' ?> </div>
                 </div>
                 <div>
@@ -120,32 +120,22 @@ $controller->create();
                 </div>
                 <div>
                     <label>Πόλη Διαμονής</label>
-                    <input type="text" name="living_city" value="<?php echo $controller->getLivingCity(); ?>" class="text-input">
+                    <input type="text" name="living_city" value="<?php echo $controller->getData('living_city'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('living_city') ?? '' ?> </div>
                 </div>
                 <div>
                     <label>Τόπος Διαμονής</label>
-                    <input type="text" name="living_area" value="<?php echo $controller->getLivingArea(); ?>" class="text-input">
+                    <input type="text" name="living_area" value="<?php echo $controller->getData('living_area'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('living_area') ?? '' ?> </div>
                 </div>
                 <div>
-                    <label>Πόλη Διαμονής</label>
-                    <input type="text" name="living_city" value="<?php echo $controller->getLivingCity(); ?>" class="text-input">
-                    <div class="error"> <?php echo $controller->getErrors('living_city') ?? '' ?> </div>
-                </div>
-                <div>
                     <label>Διεύθυνση</label>
-                    <input type="text" name="address" value="<?php echo $controller->getAddress(); ?>" class="text-input">
+                    <input type="text" name="address" value="<?php echo $controller->getData('address'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('address') ?? '' ?> </div>
                 </div>
                 <div>
-                    <label>Πόλη Διαμονής</label>
-                    <input type="text" name="living_city" value="<?php echo $controller->getLivingCity(); ?>" class="text-input">
-                    <div class="error"> <?php echo $controller->getErrors('living_city') ?? '' ?> </div>
-                </div>
-                <div>
                     <label>Αριθμός Τηλεφώνου</label>
-                    <input type="text" name="cel" value="<?php echo $controller->getCel(); ?>" class="text-input">
+                    <input type="text" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
                 </div>
                 <div>
@@ -200,7 +190,7 @@ $controller->create();
                     </div>
                     <div>
                         <label>Αντιστοιχία Πτυχίου</label>
-                        <input type="text" name="diploma_recognition" value="<?php echo $controller->getDiplomaRecognition(); ?>" class="text-input">
+                        <input type="text" name="diploma_recognition" value="<?php echo $controller->getData('diploma_recognition'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
                     </div>
                     <div>
@@ -225,22 +215,22 @@ $controller->create();
                     </div>
                     <div>
                         <label>Τίτλος Σπουδών</label>
-                        <input type="text" name="department" value="<?php echo $controller->getDepartment(); ?>" class="text-input">
+                        <input type="text" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                     </div>
                     <div>
                         <label>Πιστ. Μονάδες (credits)</label>
-                        <input type="text" name="credits" value="<?php echo $controller->getCredits(); ?>" class="text-input">
+                        <input type="text" name="credits" value="<?php echo $controller->getData('credits'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('credits') ?? '' ?> </div>
                     </div>
                     <div>
                         <label>Ημερομηνία Εγγραφής</label>
-                        <input type="text" name="start_date" value="<?php echo $controller->getStartDate(); ?>" class="text-input">
+                        <input type="text" name="start_date" value="<?php echo $controller->getData('start_date'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('start_date') ?? '' ?> </div>
                     </div>
                     <div>
                         <label>Ημερομηνία Αποφοίτησης</label>
-                        <input type="text" name="diploma_date" value="<?php echo $controller->getDiplomaDate(); ?>" class="text-input">
+                        <input type="text" name="diploma_date" value="<?php echo $controller->getData('diploma_date'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
                     </div>
                 </div>
@@ -327,7 +317,7 @@ $controller->create();
             <div class="tab">Οριστική Υποβολή:
                 <div>
                     <label>Σχόλεια Αιτούντα</label>
-                    <input type="text" name="comment" value="<?php echo $controller->getComment(); ?>" class="text-input">
+                    <input type="text" name="comment" value="<?php echo $controller->getData('comment'); ?>" class="text-input">
                     <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
                 </div>
             </div>
