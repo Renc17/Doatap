@@ -243,25 +243,53 @@ class FormController{
     }
 
     function allFormsByStatus($status){
-        return $this->db->select(self::$table, ['status' => $status]);
-        header('location: dashboard.php');
+        $all_forms = array();
+        $complete_form = array();
+
+        $forms = $this->db->select(self::$table, ['status' => $status]);
+        foreach($forms as $key => $form){
+            $form = $this->db->select(self::$files_table, ['form_id' => $form[0]]);
+            $complete_form['data'] = $forms[$key];
+            $complete_form['files'] = $form;
+            $all_forms[$key] = $complete_form;
+        }
+        return $all_forms;
     }
 
     function getFormPreview($id){
-        $form = $this->db->select(self::$table, ['id' => $id]);
-        if(!empty($form)){
-            return $form[0];
+        $complete_form = array();
+        $form = $this->db->select(self::$table, ['id' => $id])[0];
+        if(empty($form)){
+            return [];
         }
+        $files = $this->db->select(self::$files_table, ['form_id' => $form[0]])[0];
 
-        return [];
+        $complete_form['data'] = $form;
+        $complete_form['files'] = $files;
+        
+        return $complete_form;
     }
 
     function getFormsByStatus($status){
-        return $this->db->select(self::$table, 
+        $all_forms = array();
+        $complete_form = array();
+
+        $forms = $this->db->select(self::$table, 
         [
             'user_id' => $_SESSION['id'],
             'status' => $status
         ]);
+        if(empty($forms)){
+            return [];
+        }
+
+        foreach($forms as $key => $form){
+            $form = $this->db->select(self::$files_table, ['form_id' => $form[0]]);
+            $complete_form['data'] = $forms[$key];
+            $complete_form['files'] = $form;
+            $all_forms[$key] = $complete_form;
+        }
+        return $all_forms;
     }
 
     function AdminCheckedForm($id){

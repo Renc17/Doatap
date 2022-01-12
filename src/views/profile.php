@@ -14,7 +14,7 @@
     $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
 
-    $formPreview = $formController->getFormPreview(6);   // for form preview view
+    $formPreview = $formController->getFormPreview(15);   // for form preview view
 ?>
 <html>
     <body>
@@ -59,10 +59,9 @@
             }
         ?> -->
 
-        <!-- <?php
-            foreach($formPreview as $key=>$field){
-                print($key . '-' .$field . "\n");
-            }
-        ?> -->
+        <?php
+            print_r($formPreview['data']);
+            print_r($formPreview['files']);
+        ?>
     </body>
 </html>
