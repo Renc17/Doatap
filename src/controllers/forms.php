@@ -4,6 +4,7 @@ require(BASE_URL. 'helpers\validation\create-form.php');
 
 class FormController{
     private static $table = 'forms';
+    private static $files_table = 'files';
     private $db = null;
 
     private $errors = array();
@@ -230,8 +231,12 @@ class FormController{
                     if (!$didUpload) {
                         $this->errors['upload'] = 'An error occurred. Please contact the administrator.';
                     }
+                    $this->files[$key] = $hashed_name;
                 }
-                $this->db->create(self::$table, $_POST, null);
+                
+                $form_id = $this->db->create(self::$table, $_POST, null);
+                $this->files['form_id'] = $form_id;
+                $this->db->create(self::$files_table, $this->files, null);
                 header('location: profile.php');
             }
         }

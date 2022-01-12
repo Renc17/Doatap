@@ -41,7 +41,8 @@
                 $i++;
             }
             
-            $this->executeQuery($query, $data);
+            $stmt = $this->executeQuery($query, $data);
+            return $stmt->insert_id;
         }
 
         function update($table, $id, $data){
