@@ -26,7 +26,10 @@ $controller->create();
     <div class="container-fluid">
         <form id="regForm" method='post' action='request.php' enctype="multipart/form-data">
 
-            <div class="">
+            <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
+            <h6 class="text-center fw-lighter mb-5">Προσωρινά Αποθγκευμένο</h6>
+
+            <div class="status-bar">
                 <div class="row steps-bar m-auto">
                     <div class=" d-flex justify-content-between step col-3">
                         <div>
