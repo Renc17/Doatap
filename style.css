@@ -238,12 +238,22 @@ input.invalid {
 }
 
 button {
-  background-color: #04AA6D;
-  color: #ffffff;
-  border: none;
+  background-color: #fff;
+  color: #26272b;
+  border: 2px solid #26272b;
   padding: 10px 20px;
   font-size: 17px;
-  font-family: Raleway;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#nextBtn{
+  background-color: #fff;
+  color: #04AA6D;
+  border: 2px solid #04AA6D;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-weight: bold;
   cursor: pointer;
 }
 
