@@ -262,97 +262,128 @@ $controller->create();
                 </div>
             </div>
 
-            <div class="tab">Τίτλος Σπουδών:
-                <div>
-                    <div>
-                        <label>Τύπος Πτυχίου</label>
-                        <input type="radio" class="btn-check" name="diploma_type" id="success-outlined" autocomplete="off" value="Βασικό Πτυχίο" checked>
-                        <label class="btn btn-outline-success" for="outlined">Βασικό Πτυχίο</label>
-                        <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" value="Μεταπτυχιακό" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Μεταπτυχιακό</label>
-                        <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" value="Διδακτορικό" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Διδακτορικό</label>
-                        <div class="error"> <?php echo $controller->getErrors('diploma_type') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Τύπος Φοίτησης</label>
-                        <input type="radio" class="btn-check" name="study_type" id="success-outlined" value="Τακτική" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="outlined">Τακτική</label>
-                        <input type="radio" class="btn-check" name="study_type" id="danger-outlined" value="Μερική" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Μερική</label>
-                        <div class="error"> <?php echo $controller->getErrors('study_type') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Αντιστοιχία Πτυχίου</label>
-                        <input type="radio" class="btn-check" name="diploma_recognition" id="success-outlined" value="Ναι" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="outlined">Ναι</label>
-                        <input type="radio" class="btn-check" name="diploma_recognition" id="danger-outlined" value="Όχι" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Όχι</label>
-                        <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Συνεκτίμηση Πτυχίου</label>
-                        <input type="radio" class="btn-check" name="evaluation" id="success-outlined" value="Ναι" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="outlined">Ναι</label>
-                        <input type="radio" class="btn-check" name="evaluation" id="danger-outlined" value="Όχι" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Όχι</label>
-                        <div class="error"> <?php echo $controller->getErrors('evaluation') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Τρόπος Φοίτησης</label>
-                        <input type="radio" class="btn-check" name="study_process" id="success-outlined" value="Συμβατικός" autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="outlined">Συμβατικός</label>
-                        <input type="radio" class="btn-check" name="study_process" id="danger-outlined" value="Εξ' αποστάσεως" autocomplete="off">
-                        <label class="btn btn-outline-danger" for="outlined">Εξ' αποστάσεως</label>
-                        <div class="error"> <?php echo $controller->getErrors('study_process') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Αντιστοιχία Πτυχίου</label>
-                        <input type="text" name="diploma_recognition" value="<?php echo $controller->getData('diploma_recognition'); ?>" class="text-input">
-                        <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Χώρα Σπουδών</label>
-                        <select name="study_country" id="study_country" class="form-select">
-                            <option value="Ελλάδα">Ελλάδα</option>
-                            <option value="Γαλλία">Γαλλία</option>
-                            <option value="Αγγλία">Αγγλία</option>
-                        </select>
-                        <div class="error"> <?php echo $controller->getErrors('study_country') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Πανεπιστήμιο</label>
-                        <select name="university" id="university" class="form-select">
-                            <option value="ΕΚΠΑ">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
-                            <option value="ΠΑΔΑ">Πανεπιστήμιο Δυτικής Αττικής</option>
-                            <option value="ΠΑΝΤΕΙΟΝ">Πάντειον Πανεπιστήμιο</option>
-                            <option value="ΑΠΘ">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
-                            <option value="ΕΜΠ">Εθνικό Μετσόβιο Πολυτεχνείο</option>
-                        </select>
-                        <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Τίτλος Σπουδών</label>
-                        <input type="text" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
-                        <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Πιστ. Μονάδες (credits)</label>
-                        <input type="text" name="credits" value="<?php echo $controller->getData('credits'); ?>" class="text-input">
-                        <div class="error"> <?php echo $controller->getErrors('credits') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Ημερομηνία Εγγραφής</label>
-                        <input type="text" name="start_date" value="<?php echo $controller->getData('start_date'); ?>" class="text-input">
-                        <div class="error"> <?php echo $controller->getErrors('start_date') ?? '' ?> </div>
-                    </div>
-                    <div>
-                        <label>Ημερομηνία Αποφοίτησης</label>
-                        <input type="text" name="diploma_date" value="<?php echo $controller->getData('diploma_date'); ?>" class="text-input">
-                        <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
-                    </div>
+            <div class="tab">
+                <div class="container mt-5" style="width: 70%;">
+                        <h6 class="fw-bolder mb-2">Στοιχεία τίτλου προς αναγνώριση</h6>
+                        <hr class="form-bar">
+
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="radio-toolbar col-md-6">
+                                <input type="radio" id="Πτυχίο" name="diploma_type" value="Βασικό Πτυχίο" checked>
+                                <label for="Πτυχίο">Βασικό Πτυχίο</label>
+
+                                <input type="radio" id="Μεταπτυχιακό" name="diploma_type" value="Μεταπτυχιακό">
+                                <label for="Μεταπτυχιακό">Μεταπτυχιακό</label>
+
+                                <input type="radio" id="Διδακτορικό" name="diploma_type" value="Διδακτορικό">
+                                <label for="Διδακτορικό">Διδακτορικό</label>
+
+                                <div class="error"> <?php echo $controller->getErrors('diploma_type') ?? '' ?> </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-between mt-2">
+                            <div class="col-md-5">
+                                <label>Τύπος Φοίτησης</label>
+                                <div class="radio-toolbar">
+                                    <input type="radio" id="Τακτική" name="study_type" value="Τακτική" checked>
+                                    <label for="Τακτική">Τακτική</label>
+
+                                    <input type="radio" id="Μερική" name="study_type" value="Μερική">
+                                    <label for="Μερική">Μερική</label>
+
+                                    <div class="error"> <?php echo $controller->getErrors('study_type') ?? '' ?> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Αντιστοιχία Πτυχίου</label>
+                                <div class="radio-toolbar">
+                                    <input type="radio" id="Ναι" name="diploma_recognition" value="Ναι" checked>
+                                    <label for="Ναι">Ναι</label>
+
+                                    <input type="radio" id="Όχι" name="diploma_recognition" value="Όχι" >
+                                    <label for="Όχι">Όχι</label>
+
+
+                                    <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-between mt-2">
+                            <div class="col-md-5">
+                                <label>Συνεκτίμηση Πτυχίου</label>
+                                <div class="radio-toolbar">
+                                    <input type="radio" id="Ναι" name="evaluation" value="Ναι" checked>
+                                    <label for="Ναι">Ναι</label>
+
+                                    <input type="radio" id="Όχι" name="evaluation" value="Όχι">
+                                    <label for="Όχι">Όχι</label>
+
+                                    <div class="error"> <?php echo $controller->getErrors('evaluation') ?? '' ?> </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Τρόπος Φοίτησης</label>
+                                <div class="radio-toolbar">
+                                    <input type="radio" id="Συμβατικός" name="study_process" value="Συμβατικός" checked>
+                                    <label for="Συμβατικός">Συμβατικός</label>
+
+                                    <input type="radio" id="Εξ' αποστάσεως" name="study_process" value="Εξ' αποστάσεως" >
+                                    <label for="Εξ' αποστάσεως">Εξ' αποστάσεως</label>
+
+                                    <div class="error"> <?php echo $controller->getErrors('study_process') ?? '' ?> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-between mt-2">
+                            <div class="col-md-3">
+                                <label>Χώρα Σπουδών</label>
+                                <select name="study_country" id="study_country" class="form-select">
+                                    <option value="Ελλάδα">Ελλάδα</option>
+                                    <option value="Γαλλία">Γαλλία</option>
+                                    <option value="Αγγλία">Αγγλία</option>
+                                </select>
+                                <div class="error"> <?php echo $controller->getErrors('study_country') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Πανεπιστήμιο</label>
+                                <select name="university" id="university" class="form-select">
+                                    <option value="ΕΚΠΑ">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                                    <option value="ΠΑΔΑ">Πανεπιστήμιο Δυτικής Αττικής</option>
+                                    <option value="ΠΑΝΤΕΙΟΝ">Πάντειον Πανεπιστήμιο</option>
+                                    <option value="ΑΠΘ">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                                    <option value="ΕΜΠ">Εθνικό Μετσόβιο Πολυτεχνείο</option>
+                                </select>
+                                <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Τίτλος Σπουδών</label>
+                                <input type="text" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-row justify-content-between mt-2">
+                            <div class="col-md-3">
+                                <label>Πιστ. Μονάδες (credits)</label>
+                                <input type="text" name="credits" value="<?php echo $controller->getData('credits'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('credits') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Ημερομηνία Εγγραφής</label>
+                                <input type="text" name="start_date" value="<?php echo $controller->getData('start_date'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('start_date') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Ημερομηνία Αποφοίτησης</label>
+                                <input type="text" name="diploma_date" value="<?php echo $controller->getData('diploma_date'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
+                            </div>
+                        </div>
                 </div>
-            </div>  
+            </div>
 
             <div class="tab">Επισυναπτόμενα Έγγραφα:
                 <div class="error"> <?php echo $controller->getErrors('upload') ?? '' ?> </div>
