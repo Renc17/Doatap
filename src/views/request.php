@@ -23,10 +23,46 @@ $controller->create();
 </head>
 
 <body>
-    <div class="auth-content">
+    <div class="container-fluid">
         <form id="regForm" method='post' action='request.php' enctype="multipart/form-data">
 
-            <!-- One "tab" for each step in the form: -->
+            <div class="">
+                <div class="row steps-bar m-auto">
+                    <div class=" d-flex justify-content-between step col-3">
+                        <div>
+                            <span >Στοιχεία <br> Αιτούντος</span>
+                        </div>
+                        <div>
+                            <hr class="bar">
+                        </div>
+                    </div>
+                    
+                    <div class=" d-flex justify-content-between step col-3">
+                        <div>
+                            <span >Τίτλος <br> Σπουδών</span>
+                        </div>
+                        <div>
+                            <hr class="bar">
+                        </div>
+                    </div>
+
+
+                    <div class=" d-flex justify-content-between step col-3">
+                        <div>
+                            <span >Επισυναπτόμενα <br> Έγγραφα</span>
+                        </div>
+                        <div>
+                            <hr class="bar">
+                        </div>
+                    </div>
+
+                    <div class=" d-flex justify-content-between step col-3">
+                        <span >Οριστική <br> Υποβολή</span>
+                    </div>
+                </div>
+            </div>
+            
+
             <div class="tab">Στοιχεία Αιτούντος:
                 <div>
                     <label>Όνομα</label>
@@ -147,7 +183,8 @@ $controller->create();
 
             <div class="tab">Τίτλος Σπουδών:
                 <div>
-                    <label>Τύπος Πτυχίου</label>
+                    <div>
+                        <label>Τύπος Πτυχίου</label>
                         <input type="radio" class="btn-check" name="diploma_type" id="success-outlined" autocomplete="off" value="Βασικό Πτυχίο" checked>
                         <label class="btn btn-outline-success" for="outlined">Βασικό Πτυχίο</label>
                         <input type="radio" class="btn-check" name="diploma_type" id="danger-outlined" value="Μεταπτυχιακό" autocomplete="off">
@@ -326,17 +363,9 @@ $controller->create();
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                    <button class='btn btn-outline-info' type="submit" name="submit-form" value='register' class="submit">Submit</button>
-                    <button type="submit" name="submit-form" value='draft' class="submit">Draft</button>
+                    <button id="submitBtn" type="submit" name="submit-form" value='register'>Submit</button>
+                    <button type="submit" name="submit-form" value='draft'>Draft</button>
                 </div>
-            </div>
-
-            <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
             </div>
 
         </form>

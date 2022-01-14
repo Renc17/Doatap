@@ -212,11 +212,6 @@ body {
 }
 
 #regForm {
-  background-color: #ffffff;
-  margin: 100px auto;
-  font-family: Raleway;
-  padding: 40px;
-  width: 70%;
   min-width: 300px;
 }
 
@@ -260,23 +255,50 @@ button:hover {
   background-color: #bbbbbb;
 }
 
-/* Make circles that indicate the steps of the form: */
+.steps-bar{
+  border: solid rgba(0, 0, 0, 0.3) 1px;
+  border-radius: 25px;
+  width: 65%;
+  padding-left: 60px;
+}
+
 .step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 20px;
+  opacity: 0.4;
+}
+
+.bar{
+  border: 10px solid black;
+  width: 20px;
+  border-radius: 5px;
 }
 
 .step.active {
   opacity: 1;
+  font-weight: bolder;
 }
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #04AA6D;
+  color: #198754;
+  opacity: 1;
+  font-weight: bolder;
+}
+
+.bar.active {
+  opacity: 0.7;
+}
+
+/* Mark the steps that are finished and valid: */
+.bar.finish {
+  border: 10px solid #198754;
+  opacity: 1;
+}
+
+.form-bar{
+  border: 2px solid black;
+  opacity: 1;
+  width: 30%;
 }
