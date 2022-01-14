@@ -71,6 +71,10 @@ class FormController{
                 unset($this->data['submit-form']);
                 $this->data['user_id'] = $_SESSION['id'];
                 foreach($this->files as $key => $file){
+                    if($file["size"] == 0){
+                        $this->files[$key] = null;
+                        continue;
+                    }
                     $hashed_name = uniqid() .$file["name"];
                     $didUpload = move_uploaded_file($file["tmp_name"], BASE_URL. 'assets\uploads\\' .$hashed_name);
                     if (!$didUpload) {
