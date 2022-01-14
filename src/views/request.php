@@ -26,6 +26,17 @@ $controller->create();
     <div class="container-fluid">
         <form id="regForm" method='post' action='request.php' enctype="multipart/form-data">
 
+            <div class="container mt-2">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Αρχική</a></li>
+                        <li class="breadcrumb-item"><a href="#">Προφίλ</a></li>
+                        <li class="breadcrumb-item"><a href="#">Νέα Αιτήση</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Αναγνώριση ισοτιμίας</li>
+                    </ol>
+                </nav>
+            </div>
+
             <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
             <h6 class="text-center fw-lighter mb-5">Προσωρινά Αποθγκευμένο</h6>
 
