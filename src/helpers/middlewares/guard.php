@@ -31,4 +31,12 @@ function adminOnly(){
     }
 }
 
+function loggedInStatus(){
+    if (empty($_SESSION['id'])) {
+        return false;
+    }else {
+        return true;
+    }
+}
+
 ?>

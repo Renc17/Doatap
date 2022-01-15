@@ -11,6 +11,7 @@
 <body>
     <?php 
         require('config.php');
+        require(BASE_URL. 'helpers\middlewares\guard.php');
         include(BASE_URL. 'includes\navbar.php'); 
     ?>
 
