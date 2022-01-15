@@ -65,7 +65,7 @@
         
         
 
-            <div class="container" style="width: 30%;">
+            <div class="container col-md-5 col-sm-12 mb-5" >
                 <div class="d-flex flex-row justify-content-between">
                     <div class="user-data d-flex flex-row">
                         <h2 class="name m-1">
@@ -115,38 +115,8 @@
                 </div>
             </div>
             
-            <!-- <div>
-                <label>AFM</label>
-                <input type="text" name="AFM" value="<?php echo $_SESSION['AFM'] ?>" placeholder="<?php echo $_SESSION['AFM'] ?>" class="text-input" >
-                <div class="error"> <?php echo $controller->getErrors('AFM') ?? '' ?> </div>
-            </div>
-            <div>
-                <label>AMKA</label>
-                <input type="text" name="AMKA" value="<?php echo $_SESSION['AMKA'] ?>" placeholder="<?php echo $_SESSION['AMKA'] ?>" class="text-input" >
-                <div class="error"> <?php echo $controller->getErrors('AMKA') ?? '' ?> </div>
-            </div>
-            <div>
-                <label>Cel</label>
-                <input type="text" name="cel" value="<?php echo $_SESSION['cel'] ?>" placeholder="<?php echo $_SESSION['cel'] ?>" class="text-input" >
-                <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
-            </div>
-            <button class = 'btn btn-outline-info' type="submit" name="edit" value='update' class="submit">Update</button> -->
-       
-        
-       
-
-        <!-- <?php
-            foreach($drafts as $form){
-                print_r($form);
-            }
-        ?> -->
-
-        <?php
-            if(empty($formPreview)){
-                return;
-            }
-            print_r($formPreview['data']);
-            print_r($formPreview['files']);
+        <?php 
+            include(BASE_URL. 'includes\footer.php'); 
         ?>
     </body>
 </html>
