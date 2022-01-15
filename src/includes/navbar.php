@@ -1,10 +1,6 @@
-<?php
-    $login_path = BASE_URL. 'views\login.php';
-?>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/Doatap/index.php">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,20 +37,38 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <div class="log">
+        <div class="dropdown">
             <?php
-                if(loggedInStatus()){?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="loggingOptions" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php echo $_SESSION['name'] ?>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="loggingOptions">
-                            <li class="dropdown-item"><a class="nav-link" href="<?php echo $logout_path ?>">Logout</a> </li>
-                            <li class="dropdown-item"><a class="nav-link btn-danger" href="<?php echo $delete_path ?>">DELETE ACCOUNT</a> </li>
+            if(loggedInStatus()){?>
+                <div class="btn-group dropstart">
+                    <div class="btn-group dropstart" role="group">
+                        <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu p-3 text-center" style="width: 250px;">
+                            <li class="">
+                                <a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black">Έξοδος Λογαριασμού</a>
+                            </li>
+                            <hr>
+                            <li class="">
+                                <a href="/Doatap/src/helpers/auth/delete.php" class="btn-danger p-2" style="text-decoration: none; color: white" >Διαγραφή Λογαριασμού</a>
+                            </li>
                         </ul>
-                    </li>
-                <?php }else { ?>
-                    <a class="btn btn-outline-success" href="<?php echo BASE_URL. 'views\login.php' ?>" >Login</a>
-                <?php }?>
+                    </div>
+                    <?php if ($_SESSION["role"] === "admin"){
+                    ?>
+                        <a class="btn btn-outline-success" href="/Doatap/src/views/dashboard.php"><span class="icon-menu" ><?php echo $_SESSION["name"];?></span></a>
+                    <?php
+                    }else{?>
+                        <a class="btn btn-outline-success" href="/Doatap/src/views/profile.php"><span class="icon-menu" ><?php echo $_SESSION["name"];?></span></a>
+                        <?php
+                    }?>
+                </div>
+                <?php
+            }else {?>
+                <a class="btn btn-outline-success" href="/Doatap/src/views/login.php">Σύνδεση</a>
+                <?php
+            }
+            ?>
         </div>
-    </div>
+
+        
 </nav>
