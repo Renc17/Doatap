@@ -41,6 +41,10 @@
                 width: 100%;
             }
 
+            .breadcrumb-item a{
+                text-decoration: none;
+            }
+
         </style>
     </head>
 
@@ -53,7 +57,7 @@
         <div class="container mt-2">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Αρχική</a></li>
+                    <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap//index.php">Αρχική</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Προφίλ</li>
                 </ol>
             </nav>
