@@ -29,7 +29,7 @@ $controller->login();
 <body>
     <div class="container" style="height:100vh;">
         <div class="d-flex justify-content-center mt-5">
-            <img style="object-fit:contain; width:35%" src="../../images/logo2.png" alt="Logo">
+            <img style="object-fit:contain; width:20%" src="../../images/logo2.png" alt="Logo">
         </div>
        
         <hr />
