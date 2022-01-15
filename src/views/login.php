@@ -18,25 +18,27 @@ $controller->login();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../style.css">
+
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../scripts.js"></script>
-    <title>Login</title>
+    <title>Σύνδεση</title>
 </head>
 
 <body>
     <div class="container" style="height:100vh;">
-        </br>
-
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5">
             <img style="object-fit:contain; width:35%" src="../../images/logo2.png" alt="Logo">
         </div>
-        </br>
+       
         <hr />
+        <br>
+        
         <div class="auth-content d-flex justify-content-center align-items-center" style="height:50vh;">
             <form class="col-12 d-flex justify-content-center" method='post' action='login.php'>
                 <div class="col-4">
-                    <h2 class="form-title fw-bold text-center">Σύνδεση</h2>
+                    <h2 class="form-title fw-bold text-center mt-5">Σύνδεση</h2>
                     <div class="pt-4">
                         <div>
                             <label class="fw-bold">Email</label>
@@ -63,7 +65,7 @@ $controller->login();
                             </label>
                         </div>
                         <div>
-                            <button class='btn' style="color:white; background-color:#3366cc; width: 150px;" type="submit" name="login" value='login' class="submit">Login</button>
+                            <button class='btn' style="color:white; background-color:#3366cc; width: 150px;" type="submit" name="login" value='login' class="submit">Σύνδεση</button>
                         </div>
                     </div>
                     <hr />
@@ -74,6 +76,9 @@ $controller->login();
                     </div>
                     <div class="d-flex mt-2 justify-content-center">
                         <button type="button" class='btn' onclick="location.href='register.php'" style="color:white; background-color:#3366cc; width: 150px;" name="register">Κάνε εγγραφή</button>
+                    </div>
+                    <div class="text-center">
+                        <a style="text-decoration: none; color:black" href="/Doatap/index.php">Αρχική <i class="bi bi-house-door"></i></a>
                     </div>
                 </div>
             </form>

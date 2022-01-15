@@ -17,31 +17,30 @@ $controller->register();
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../style.css">
+
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../scripts.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
 
-    <title>Register</title>
+    <title>Εγγραφή</title>
 </head>
 
 <body>
     <div class="container" style="height:100vh;">
-        </br>
-
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5">
             <img style="object-fit:contain; width:20%" src="../../images/logo2.png" alt="Logo">
         </div>
-        </br>
+        
         <hr />
-        <div class="auth-content d-flex justify-content-center align-items-center" style="height:50vh;">
+        <br>
 
-
+        <div class="auth-content d-flex justify-content-center align-items-center mt-5" style="height:50vh;">
             <form class="col-12 d-flex justify-content-center" action="register.php" method="post">
                 <div class="col-4">
-
-                    <h2 class="form-title fw-bold text-center">Register</h2>
+                    <h2 class="form-title fw-bold text-center mt-5">Εγγραφή</h2>
                     <div class="error"> <?php echo $controller->getErrors('users') ?? '' ?> </div>
                     <div class="pt-4">
                         <div>
@@ -91,6 +90,10 @@ $controller->register();
                     <div class="d-flex justify-content-center pt-4">
                         <button type="submit" name="register" value="user" class="btn" style="color:white; background-color:#3366cc; width: 150px;">Εγγραφή</button>
                     </div>
+                    <div class="text-center">
+                        <a style="text-decoration: none; color:black" href="/Doatap/index.php">Αρχική <i class="bi bi-house-door"></i></a>
+                    </div>
+                    
                 </div>
             </form>
         </div>
