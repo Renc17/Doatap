@@ -76,7 +76,8 @@
                 }
                 $i++;
             }
-
+            
+            $query = $query . " ORDER BY created_at DESC";
             $stmt = $this->executeQuery($query, $conditiions);
             $rows = $stmt->get_result();
             $results = array();
