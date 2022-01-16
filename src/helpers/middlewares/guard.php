@@ -39,4 +39,22 @@ function loggedInStatus(){
     }
 }
 
+function isAdmin(){
+    if (empty($_SESSION['id'])) {
+        header("location: login.php");
+    }
+    if($_SESSION['role'] == 'admin'){
+        return true;
+    }
+}
+
+function isUser(){
+    if (empty($_SESSION['id'])) {
+        header("location: login.php");
+    }
+    if($_SESSION['role'] == 'user'){
+        return true;
+    }
+}
+
 ?>
