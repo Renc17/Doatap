@@ -25,9 +25,6 @@ $controller->create();
     <title>Νέα Αίτηση</title>
 
     <style>
-        *{
-            background-color: #fff;
-        }
 
         input[type="text"]{
             height: 30px;
@@ -75,6 +72,9 @@ $controller->create();
             text-decoration: none;
         }
 
+        .error{
+            color: red;
+        }
         
     </style>
 </head>
@@ -200,8 +200,8 @@ $controller->create();
                         </div>
                     </div>
 
-                    <div class="d-flex flex-row mt-2">
-                        <div class="radio-toolbar col-md-4">
+                    <div class="d-flex flex-row justify-content-between mt-2">
+                        <div class="radio-toolbar col-md-3">
                             <input type="radio" id="id" name="identification" value="Ταυτότητα" checked>
                             <label for="id">Ταυτότητα</label>
 
@@ -215,6 +215,8 @@ $controller->create();
                             <label>ΑΦΜ</label>
                             <input type="text" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
                             <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
+                        </div>
+                        <div class="col-md-3">
                         </div>
                     </div>
 
@@ -260,7 +262,7 @@ $controller->create();
                             <div class="error"> <?php echo $controller->getErrors('living_city') ?? '' ?> </div>
                         </div>
                         <div class="col-md-3">
-                            <label>Τόπος Διαμονής</label>
+                            <label>Περιοχή Διαμονής</label>
                             <input type="text" name="living_area" value="<?php echo $controller->getData('living_area'); ?>" class="text-input">
                             <div class="error"> <?php echo $controller->getErrors('living_area') ?? '' ?> </div>
                         </div>
@@ -511,15 +513,18 @@ $controller->create();
 
             <div style="overflow:hidden;">
                 <div class="m-3 float-end">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                    <button id="submitBtn" type="submit" name="submit-form" value='register'>Submit</button>
-                    <button type="submit" name="submit-form" value='draft'>Draft</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
+                    <button id="submitBtn" type="submit" name="submit-form" value='register'>Υποβολή</button>
+                    <button type="submit" name="submit-form" value='draft'>Αποθήκευση</button>
                 </div>
             </div>
 
         </form>
     </div>
+    <?php 
+        include(BASE_URL. 'includes\footer.php'); 
+    ?>
     <script type="text/javascript" src="request.js"></script>
 </body>
 

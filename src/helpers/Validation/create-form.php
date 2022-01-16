@@ -288,7 +288,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('study_type', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('study_type', 'field must not contain numerical');
             }
         }
@@ -299,7 +299,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('diploma_recognition', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('diploma_recognition', 'field must not contain numerical');
             }
         }
@@ -343,7 +343,7 @@ class CreateForm {
         if(empty($field)){
             $this->addError('department', 'field cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('department', 'field must not contain numerical');
             }
         }
@@ -353,10 +353,6 @@ class CreateForm {
         $field = trim($this->data['university']);
         if(empty($field)){
             $this->addError('university', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('university', 'field must not contain numerical');
-            }
         }
     }
 
@@ -566,10 +562,6 @@ class CreateForm {
         $field = trim($this->data['identification']);
         if(empty($field)){
             return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('identification', 'field must not contain numerical');
-            }
         }
     }
 
@@ -728,7 +720,7 @@ class CreateForm {
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('department', 'field must not contain numerical');
             }
         }
@@ -739,7 +731,7 @@ class CreateForm {
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
                 $this->addError('university', 'field must not contain numerical');
             }
         }
