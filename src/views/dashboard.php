@@ -20,6 +20,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../style.css">
 
@@ -41,6 +45,10 @@
 
             .breadcrumb-item a{
                 text-decoration: none;
+            }
+
+            .breadcrumb-item.active{
+                font-weight: bold;
             }
 
         </style>
@@ -70,7 +78,7 @@
                     </h2>
                 </div>
             </div>
-            <hr class="mt-5" style="border: 3px solid black;">
+            <hr class="mt-5" style="border: 3px solid black; opacity: 1;">
         </div>
 
         <div class="container">
