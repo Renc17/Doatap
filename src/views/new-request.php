@@ -533,7 +533,7 @@ $controller->create();
     <?php 
         include(BASE_URL. 'includes\footer.php'); 
     ?>
-    <script type="text/javascript" src="request.js"></script>
+    <script type="text/javascript" src="scripts/request.js"></script>
 </body>
 
 </html>

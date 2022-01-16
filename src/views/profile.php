@@ -155,6 +155,6 @@
         <?php 
             include(BASE_URL. 'includes\footer.php'); 
         ?>
-        <script type="text/javascript" src="edit.js"></script>
+        <script type="text/javascript" src="scripts/edit.js"></script>
     </body>
 </html>
