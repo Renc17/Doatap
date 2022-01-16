@@ -64,7 +64,7 @@ class FormController{
                 return;
             }else{
                 if($_POST['submit-form'] == 'draft'){
-                    $this->data['status'] = 'draft';
+                    $this->data['status'] = 'drafted';
                 }else {
                     $this->data['status'] = 'submitted';
                 }
