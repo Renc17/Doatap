@@ -488,7 +488,7 @@ $controller->create();
 
                     <div class="d-flex flex-row justify-content-between mt-2">
                         <div class="col-md-3">
-                            <label>.<br>Εργασία Μεταπτυχιακού Τίτλου</label>
+                            <label>Εργασία Μεταπτυχιακού Τίτλου</label>
                             <div class="value"> <?php echo $controller->getFiles('Ergasia_met') ?? '' ?> </div>
                             <input type="file" name="Ergasia_met" value="" />
                             <div class="error"> <?php echo $controller->getErrors('Ergasia_met') ?? '' ?> </div>

@@ -97,18 +97,18 @@
     <div class="container mt-5">
         <h5>Μενού</h5>
         <hr class="col-4">
-        <div class="row col-5">
+        <div class="row col-md-8">
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Home</a>
+                <a href="#" style="font-weight: bold; text-decoration: none">Αρχική</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Fuck</a>
+                <a href="#" style="font-weight: bold; text-decoration: none">Ανακοινώσεις</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">You</a>
+                <a href="#" style="font-weight: bold; text-decoration: none">Επικοινωνία</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Bitch</a>
+                <a href="#" style="font-weight: bold; text-decoration: none">FAQ</a>
             </div>
         </div>
     </div>

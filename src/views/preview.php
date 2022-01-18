@@ -31,6 +31,7 @@ $formPreview = $controller->getFormPreview($_GET['id']);
     <style>
         label{
             font-weight: bold;
+            padding-bottom: 2px;
         }
 
         .breadcrumb-item a{
@@ -51,6 +52,11 @@ $formPreview = $controller->getFormPreview($_GET['id']);
 
         .modal-content{
             background-color: transparent;
+        }
+
+        button.file{
+            padding: 0;
+            text-align: start;
         }
     </style>
 </head>
@@ -83,8 +89,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
             </div>
         <?php } ?>
 
-        <div class="container-fluid">
-            <form id="regForm" method='post' action='request.php' enctype="multipart/form-data">
+        <div class="container">
+            <form id="regForm" method='post' action='preview.php' enctype="multipart/form-data">
 
                 <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
                 <h6 class="text-center fw-lighter mb-5">Υποβλήθηκε <i class="bi bi-dot"></i> <?php echo $formPreview['data'][35] ?></h6>
@@ -269,11 +275,11 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                 <div class="container mt-5" style="width: 70%;">
 
                     <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Παράβολο</label>
-                            
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#parabolo">
-                            <?php echo $formPreview['files'][1] ?> <i class="bi bi-image"></i>
+                        <div class="d-flex flex-column col-md-3">                  
+                            <label>Παράβολο</label>                         
+                                                                             
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#parabolo">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="parabolo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -299,10 +305,11 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-md-3 d-flex flex-column">
                             <label>Αντίγραφο Ταυτότητας</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#id">
-                            <?php echo $formPreview['files'][2] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#id">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -328,8 +335,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Υπεύθυνη Δήλωση</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#dilosi">
-                            <?php echo $formPreview['files'][4] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#dilosi">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="dilosi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -358,8 +365,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                     <div class="d-flex flex-row justify-content-between mt-2">
                         <div class="col-md-3 d-flex flex-column">
                             <label>Έντυπο Συγκατάθεσης</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#sinkatathesi">
-                            <?php echo $formPreview['files'][13] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#sinkatathesi">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="sinkatathesi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -385,8 +392,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Απολυτήριο Λυκείου</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#hs_diploma">
-                            <?php echo $formPreview['files'][5] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#hs_diploma">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="hs_diploma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -412,8 +419,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Πτυχίο</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#diploma">
-                            <?php echo $formPreview['files'][6] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#diploma">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="diploma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -442,8 +449,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                     <div class="d-flex flex-row justify-content-between mt-2">
                         <div class="col-md-3 d-flex flex-column">
                             <label>Μεταπτυχιακός Τίτλος</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#master">
-                            <?php echo $formPreview['files'][7] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="master" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -469,8 +476,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Πιστοποιητικό Μαθημάτων</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#master_certif">
-                            <?php echo $formPreview['files'][8] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master_certif">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="master_certif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -496,8 +503,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Πιστοποιητικό Πανεπιστημίου</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#collage_certf">
-                            <?php echo $formPreview['files'][9] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#collage_certf">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="collage_certf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -525,9 +532,15 @@ $formPreview = $controller->getFormPreview($_GET['id']);
 
                     <div class="d-flex flex-row justify-content-between mt-2">
                         <div class="col-md-3 d-flex flex-column">
-                            <label>.<br>Εργασία Μεταπτυχιακού Τίτλου</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#master_prj">
-                            <?php echo $formPreview['files'][10] ?> <i class="bi bi-image"></i>
+                            <?php if(isAdmin()){ ?>
+                                <div class="d-flex ">
+                                    <label for="no">Oxi</label>
+                                    <input type="checkbox" id="no" name="parabolo" value="Oxi">
+                                </div>
+                            <?php } ?>
+                            <label>Εργασία Μεταπτυχιακού Τίτλου</label>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master_prj">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="master_prj" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -553,8 +566,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Πιστοποιητικό Πανεπιστημίου (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#collage_certif_master">
-                            <?php echo $formPreview['files'][11] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#collage_certif_master">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="collage_certif_master" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -580,8 +593,8 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         </div>
                         <div class="col-md-3 d-flex flex-column">
                             <label>Πιστοποιητικό Μαθημάτων (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#class_certif">
-                            <?php echo $formPreview['files'][12] ?> <i class="bi bi-image"></i>
+                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#class_certif">
+                            Ανάγνωση <i class="bi bi-image"></i>
                             </button>
 
                             <div class="modal fade" id="class_certif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -615,7 +628,29 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                         <p><?php echo $formPreview['data'][34] ?></p>
                     </div>
                 </div>
+
+                <?php if(isAdmin()){ ?>
+                    <div class="container mt-5" style="width: 70%;">
+                        <div class="col-md-5 d-flex flex-column">
+                            <label for="comment">Σχόλεια </label>
+                            <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $controller->getData('comment'); ?>" class="text-input"></textarea>
+                            <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
+                        </div>
+                    </div>
+                <?php } ?>
             
+                <?php if(isAdmin()){ ?>
+                    <div class="container mt-5" style="width: 70%;">
+                        <div class="d-flex flex-row justify-content-center p-3">
+                            <div class="col-md-3 text-center">
+                                <button class="process" type="submit" name="submit-form" value='register'>Απόρηψη</button>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <button class="process" type="submit" name="submit-form" value='register'>Αποδοχή</button>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             </form>
         </div>
 
