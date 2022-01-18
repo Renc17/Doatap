@@ -57,7 +57,7 @@ $controller->login();
                     <h5 class="fw-bold">Δεν έχεις λογαριασμό;</h5>
                 </div>
                 <div class="d-flex mt-2 mb-5 justify-content-center">
-                    <button type="button" class='btn' onclick="location.href='register.php'" style="color:white; background-color:#3366cc; width: 150px;" name="register">Κάνε εγγραφή</button>
+                    <button type="button" class='btn' onclick="location.href='register.php'" style="color:white; background-color:#0071bc; width: 150px;" name="register">Κάνε εγγραφή</button>
                 </div>
                 <div class="text-center">
                     <a style="color:black" href="/Doatap/index.php">Αρχική <i class="bi bi-house-door"></i></a>
@@ -99,7 +99,7 @@ $controller->login();
                                 </label>
                             </div>
                             <div>
-                                <button class='btn' style="color:white; background-color:#3366cc; width: 150px;" type="submit" name="login" value='login' class="submit">Σύνδεση</button>
+                                <button class='btn' style="color:white; background-color:#0071bc; width: 150px;" type="submit" name="login" value='login' class="submit">Σύνδεση</button>
                             </div>
                         </div>
                     </div>
