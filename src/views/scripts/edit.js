@@ -1,4 +1,7 @@
-function myFunction() {
+function toggleEdit() {
+
+    // window.location.href = "http://localhost/Doatap/src/views/profile.php";
+  
     var y = document.getElementById("details");
     var x = document.getElementById("form");
 

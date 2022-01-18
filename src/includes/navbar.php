@@ -28,12 +28,19 @@
                     <div class="btn-group dropstart" role="group">
                         <button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu p-3 text-center" style="width: 250px;">
-                            <li class="">
-                                <a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black">Έξοδος Λογαριασμού</a>
+                            <li class="text-start nav-options">
+                                <button onclick="toggleEdit()" class ="btn">Edit Profile</button>
+                            </li>
+                            <li class="text-start nav-options">
+                                <button class ="btn"><a href="/Doatap/src/views/requests.php" style="text-decoration: none; color: black" >Οι Αιτήσεις μου</a></button>
+                            </li>
+                            <li class="text-start nav-options">
+                                <button class="btn"><a href="/Doatap/src/helpers/auth/delete.php" style="text-decoration: none; color: black" >Διαγραφή Λογαριασμού</a></button>
                             </li>
                             <hr>
-                            <li class="">
-                                <a href="/Doatap/src/helpers/auth/delete.php" class="btn-danger p-2" style="text-decoration: none; color: white" >Διαγραφή Λογαριασμού</a>
+                            <li class="text-start nav-options">
+                                <button class="btn"><a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black">Έξοδος</a></button>
+                                
                             </li>
                         </ul>
                     </div>

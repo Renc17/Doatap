@@ -320,3 +320,7 @@ button:hover {
 .sgn{
   border: 1px solid #33353d;
 }
+
+.nav-options:hover{
+  background-color: #f1f1f1;
+}

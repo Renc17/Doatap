@@ -194,6 +194,7 @@
 
     <?php include(BASE_URL. 'includes\footer.php');  ?>
     <script type="text/javascript" src="/Doatap/src/views/scripts/faq.js"></script>
+    <script type="text/javascript" src="/Doatap/src/views/scripts/edit.js"></script>
 </body>
 
 </html>
