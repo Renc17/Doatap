@@ -94,7 +94,7 @@
         
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <h5>Μενού</h5>
         <hr class="col-4">
         <div class="row col-md-8">
@@ -102,13 +102,13 @@
                 <a href="#" style="font-weight: bold; text-decoration: none">Αρχική</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
+                <a href="#" style="font-weight: bold; text-decoration: none">Οδηγός</a>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
                 <a href="#" style="font-weight: bold; text-decoration: none">Ανακοινώσεις</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
                 <a href="#" style="font-weight: bold; text-decoration: none">Επικοινωνία</a>
-            </div>
-            <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">FAQ</a>
             </div>
         </div>
     </div>

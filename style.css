@@ -75,8 +75,8 @@
 }
 
 .site-footer a:hover {
-  color: #3366cc;
-  text-decoration: none;
+  color: white;
+  text-decoration: underline;
 }
 
 .footer-links {
@@ -318,7 +318,7 @@ button:hover {
 }
 
 .sgn{
-  border: 1px solid #33353d;
+  border: 1px solid #0071bc;
 }
 
 .nav-options:hover{
