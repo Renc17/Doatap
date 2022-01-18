@@ -47,7 +47,7 @@
                             <input type="text" placeholder="Όνομα" name="name" value=""  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
                         </div>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-3">
                         <div>
                             <label class="fw-bold">Επώνυμο</label>
                         </div>
@@ -55,7 +55,7 @@
                             <input type="text" placeholder="Επώνυμο" name="surname" value="" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
                         </div>
                     </div>
-                    <div class="mt-2">
+                    <div class="mt-3">
                         <div>
                             <label class="fw-bold">Email</label>
                         </div>
@@ -64,21 +64,17 @@
                         </div>
                     </div>
                    
-                    <div class="mt-2">
+                    <div class="mt-3">
                         <div>
                             <label class="fw-bold">Παραλήπτης</label>
                         </div>
                         <div class="mt-1">
-                            <select name="gender" id="gender" class="form-select">
-                                <option value="Διεύθυνση Αναγνώρισης Ακαδημαϊκών Τίτλων">Διεύθυνση Αναγνώρισης Ακαδημαϊκών Τίτλων</option>
-                                <option value="Διεύθυνση Ενημέρωσης">Διεύθυνση Ενημέρωσης</option>
-                                <option value="Διεύθυνση Διοικητικών και Οικονομικών Υπηρεσιών">Διεύθυνση Διοικητικών και Οικονομικών Υπηρεσιών</option>
-                            </select>
+                            Διεύθυνση Ενημέρωσης
                         </div>
                     </div>
                     <div class="mt-5">
                         <div>
-                            <label class="fw-bold">Σχόλια</label>
+                            <label class="fw-bold">Ρωτήστε μας</label>
                         </div>
                         <div class="mt-1">
                             <textarea placeholder="" name="comment" rows="5" cols="50" class="text-input pt-1"></textarea>
