@@ -87,6 +87,29 @@
             return $results;
         }
 
+        function JoinedSelection($table1 , $table2, $conditiions) {
+            $query = "SELECT * FROM $table1 JOIN $table2";
+
+            $i=0;
+            foreach($conditiions as $key => $_){
+                if ($i === 0) {
+                    $query = $query . " WHERE $key=?";
+                } else {
+                    $query = $query . " AND $key=?";
+                }
+                $i++;
+            }
+            
+            $query = $query . " ORDER BY created_at DESC";
+            $stmt = $this->executeQuery($query, $conditiions);
+            $rows = $stmt->get_result();
+            $results = array();
+            while ($row = $rows->fetch_array(MYSQLI_NUM)) {
+                $results[] = $row;
+            }
+            return $results;
+        }
+
         function delete($table, $conditiions){
             $query = "DELETE FROM $table";
 

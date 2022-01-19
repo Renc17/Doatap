@@ -102,9 +102,9 @@
                                     <div class="card" style="width: 18rem;">
                                         <div class="card-body">
                                             <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                            <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
-                                            <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
-                                            <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
+                                            <div class="card-text text-black-50"><?php echo $form['data']['15'] ?></div>
+                                            <div class="card-text">Status : <?php echo $form['data']['20'] ?></div>
+                                            <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['23'] ?></div>
                                             <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
                                         </div>
                                     </div>
@@ -117,19 +117,23 @@
 
                 <div class="tab-pane fade" id="checked" role="tabpanel" aria-labelledby="checked-tab">
                     <div class="row justify-content-start">
-                        <?php foreach($drafts as $form){ ?>
-                        <div class="col-3 mt-4">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                    <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
-                                    <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
-                                    <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
-                                    <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
+                    <?php 
+                        if(empty($drafts)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αποθηκευμένες αιτήσεις </h5> <?php 
+                        } else {
+                            foreach($drafts as $form){ ?>
+                            <div class="col-3 mt-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
+                                        <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
+                                        <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
+                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php } ?>
+                        <?php }} ?>
                     </div>
                 </div>
             </div>
