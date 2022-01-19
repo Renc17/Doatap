@@ -28,6 +28,12 @@ $controller->register();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <title>Εγγραφή</title>
+
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,54 +47,98 @@ $controller->register();
 
         <div class="auth-content d-flex justify-content-center align-items-center mt-5" style="height:50vh;">
             <form class="col-12 d-flex justify-content-center" action="register.php" method="post">
-                <div class="col-4">
+                <div class="col-md-5 col-sm-12">
                     <h2 class="form-title fw-bold text-center mt-5">Εγγραφή</h2>
                     <div class="error"> <?php echo $controller->getErrors('users') ?? '' ?> </div>
-                    <div class="pt-4">
-                        <div>
-                            <label class="fw-bold">Όνομα</label>
+
+                    <div class="mt-3 d-flex justify-content-around">
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Όνομα</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="text" placeholder="Όνομα" name="name" value="<?php echo $controller->getName(); ?>"  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
+                            </div>
                         </div>
-                        <div class="mt-1">
-                            <input type="text" placeholder="Όνομα" name="name" value="<?php echo $controller->getName(); ?>"  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                            <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <div>
-                            <label class="fw-bold">Επώνυμο</label>
-                        </div>
-                        <div class="mt-1">
-                            <input type="text" placeholder="Επώνυμο" name="surname" value="<?php echo $controller->getSurname(); ?>"style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                            <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <div>
-                            <label class="fw-bold">Email</label>
-                        </div>
-                        <div class="mt-1">
-                            <input type="email" placeholder="example@gmail.com" name="email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                            <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
+
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Επώνυμο</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="text" placeholder="Επώνυμο" name="surname" value="<?php echo $controller->getSurname(); ?>"style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-2">
-                        <div>
-                            <label class="fw-bold">Κωδικός</label>
+                    
+                    <div class="mt-3 d-flex justify-content-around">
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Email</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="email" placeholder="example@gmail.com" name="email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
+                            </div>
                         </div>
-                        <div class="mt-1">
-                            <input type="password" placeholder="Κωδικός" name="password" value="<?php echo $controller->getPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                            <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
+
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Επαλήθευση Email</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="email" placeholder="example@gmail.com" name="confirm_email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-2">
-                        <div>
-                            <label class="fw-bold">Επαλήθευση Κωδικού</label>
+                    
+                    <div class="mt-3 d-flex justify-content-around">
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Κωδικός</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="password" placeholder="Κωδικός" name="password" value="<?php echo $controller->getPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
+                            </div>
                         </div>
-                        <div class="mt-1">
-                            <input type="password" placeholder="Κωδικός" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                            <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">Επαλήθευση Κωδικού</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="password" placeholder="Κωδικός" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="mt-3 d-flex justify-content-around">
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">ΑΦΜ</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="text" placeholder="ΑΦΜ" name="afm" value="<?php echo $controller->getAFM(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <div>
+                                <label class="fw-bold">ΑΜΚΑ</label>
+                            </div>
+                            <div class="mt-1">
+                                <input type="text" placeholder="ΑΜΚΑ" name="amka" value="<?php echo $controller->getAMKA(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
                     <div class="d-flex justify-content-center pt-4">
                         <button type="submit" name="register" value="user" class="btn" style="color:white; background-color:#3366cc; width: 150px;">Εγγραφή</button>
                     </div>
