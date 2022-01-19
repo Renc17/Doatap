@@ -3,39 +3,6 @@
 class CreateForm {
     private $data;
     private $files;
-    private $fields = [
-        'name',
-        'surname',
-        'gender',
-        'father_name',
-        'mother_name',
-        'amka',
-        'afm',
-        'birth_country',
-        'birth_city',
-        'birth_date',
-        'identification',
-        'ID_num',
-        'release_date',
-        'release_country',
-        'living_country',
-        'living_city',
-        'living_area',
-        'address',
-        'cel',
-        'email',
-        'diploma_type',
-        'study_type',
-        'diploma_recognition',
-        'evaluation',
-        'study_process',
-        'study_country',
-        'university',
-        'department',
-        'credits',
-        'start_date',
-        'diploma_date'
-    ];
     private $errors = array();
     private $validation_data = array();
 
@@ -45,41 +12,29 @@ class CreateForm {
     }
 
     function validateForm(){
-        foreach ($this->fields as $field) {
-            if(!array_key_exists($field, $this->data)){
-                trigger_error("Form: $field doesn't exist");
-                exit();
-            }
+        if(!array_key_exists('consent', $this->data)){
+            $this->addError('consent', 'Πρέπει να συμφωνείσεται με τους όρους');
         }
-
+        
+        
         $this->validateName();
         $this->validateSurname();
         $this->validateFatherName();
         $this->validateMotherName();
-        $this->validateAddress();
-        $this->validateBirthCity();
-        $this->validateBirthCountry();
-        $this->validateBirthDate();
+        $this->validateRoad();
+        $this->validateNumber();
+        $this->validateCity();
+        $this->validatePobox();
         $this->validateCel();
         $this->validateEmail();
         $this->validateAFM();
         $this->validateAMKA();
-        $this->validateCredits();
-        $this->validateID();
         $this->validateIdentification();
+        $this->validateID();
         $this->validateDepartment();
-        $this->validateDiplomaType();
-        $this->validateDiplomaDate();
+        $this->validateStudyCycle();
         $this->validateUniversity();
-        $this->validateStartDate();
-        $this->validateStudyCountry();
-        $this->validateStudyProcess();
-        $this->validateStudyType();
-        $this->validateReleaseCountry();
-        $this->validateReleaseDate();
-        $this->validateLivingArea();
-        $this->validateLivingCity();
-        $this->validateLivingCountry();
+        $this->validateDiplomaCountry();
 
         $this->validateFiles();
 
@@ -105,8 +60,8 @@ class CreateForm {
         if(empty($name)){
             $this->addError('name', 'name cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $name)){
-                $this->addError('name', 'name must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $name)){
+                $this->addError('name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -116,8 +71,8 @@ class CreateForm {
         if(empty($surname)){
             $this->addError('surname', 'surname cannot be empty');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $surname)){
-                $this->addError('surname', 'surname must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $surname)){
+                $this->addError('surname', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -125,10 +80,10 @@ class CreateForm {
     function validateFatherName(){
         $field = trim($this->data['father_name']);
         if(empty($field)){
-            $this->addError('father_name', 'field cannot be empty');
+            $this->addError('father_name', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('father_name', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('father_name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -136,43 +91,10 @@ class CreateForm {
     function validateMotherName(){
         $field = trim($this->data['mother_name']);
         if(empty($field)){
-            $this->addError('mother', 'field cannot be empty');
+            $this->addError('mother', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('mother', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateBirthCountry(){
-        $field = trim($this->data['birth_country']);
-        if(empty($field)){
-            $this->addError('birth_country', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('birth_country', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateBirthCity(){
-        $field = trim($this->data['birth_city']);
-        if(empty($field)){
-            $this->addError('birth_city', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('birth_city', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateBirthDate(){
-        $field = trim($this->data['birth_date']);
-        if(empty($field)){
-            $this->addError('birth_date', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('birth_date', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('mother', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -180,10 +102,10 @@ class CreateForm {
     function validateIdentification(){
         $field = trim($this->data['identification']);
         if(empty($field)){
-            $this->addError('identification', 'field cannot be empty');
+            $this->addError('identification', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('identification', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('identification', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -191,149 +113,88 @@ class CreateForm {
     function validateID(){
         $field = trim($this->data['ID_num']);
         if(empty($field)){
-            $this->addError('ID_num', 'field cannot be empty');
+            $this->addError('ID_num', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/[A-Z]{2}[0-9]{6}$/', $field)){
-                $this->addError('ID_num', $field .' must not contain numerical');
+            if(!preg_match('/[A-Z\s]{2}[0-9]{6}$/', $field)){
+                $this->addError('ID_num', 'Το πεδίο δεν πρέπει να περιέχει 2 κεφαλαία γράμματα και 6 ψηφία');
             }
         }
     }
 
-    function validateReleaseDate(){
-        $field = trim($this->data['release_date']);
-        if(empty($field)){
-            $this->addError('release_date', 'field cannot be empty');
+
+    function validateRoad(){
+        $road = trim($this->data['road']);
+        if(empty($road)){
+            $this->addError('road', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('release_date', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $road)){
+                $this->addError('road', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
 
-    function validateReleaseCountry(){
-        $field = trim($this->data['release_country']);
-        if(empty($field)){
-            $this->addError('release_country', 'field cannot be empty');
+    function validateNumber(){
+        $number = trim($this->data['number']);
+        if(empty($number)){
+            $this->addError('number', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('release_country', 'field must not contain numerical');
+            if(!preg_match('/^[0-9]*$/u', $number)){
+                $this->addError('number', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
 
-    function validateLivingCountry(){
-        $field = trim($this->data['living_country']);
-        if(empty($field)){
-            $this->addError('living_country', 'field cannot be empty');
+    function validateCity(){
+        $city = trim($this->data['city']);
+        if(empty($city)){
+            $this->addError('city', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_country', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $city)){
+                $this->addError('city', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
 
-    function validateLivingCity(){
-        $field = trim($this->data['living_city']);
-        if(empty($field)){
-            $this->addError('living_city', 'field cannot be empty');
+    function validatePobox(){
+        $pobox = trim($this->data['pobox']);
+        if(empty($pobox)){
+            $this->addError('pobox', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_city', 'field must not contain numerical');
+            if(!preg_match('/^[0-9]{5}+$/u', $pobox)){
+                $this->addError('pobox', 'Το πεδίο πρέπει να περιέχει 5 ψηφία');
             }
         }
     }
 
-    function validateLivingArea(){
-        $field = trim($this->data['living_area']);
-        if(empty($field)){
-            $this->addError('living_area', 'field cannot be empty');
+    function validateStudyCycle(){
+        $study_cycle = trim($this->data['study_cycle']);
+        if(empty($study_cycle)){
+            $this->addError('study_cycle', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_area', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $study_cycle)){
+                $this->addError('study_cycle', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
-
-    function validateAddress(){
-        $field = trim($this->data['address']);
+   
+    function validateDiplomaCountry(){
+        $field = trim($this->data['diploma_country']);
         if(empty($field)){
-            $this->addError('address', 'field cannot be empty');
+            $this->addError('diploma_country', 'Το πεδίο είναι υποχρεωτικό');
+        }else{
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('diploma_country', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+            }
         }
     }
 
     function validateCel(){
         $field = trim($this->data['cel']);
         if(empty($field)){
-            $this->addError('cel', 'field cannot be empty');
+            $this->addError('cel', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[0-9]*$/', $field)){
-                $this->addError('cel', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDiplomaType(){
-        $field = trim($this->data['diploma_type']);
-        if(empty($field)){
-            $this->addError('diploma_type', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('diploma_type', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateStudyType(){
-        $field = trim($this->data['study_type']);
-        if(empty($field)){
-            $this->addError('study_type', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('study_type', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDiplomaRecognition(){
-        $field = trim($this->data['diploma_recognition']);
-        if(empty($field)){
-            $this->addError('diploma_recognition', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('diploma_recognition', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateEvaluation(){
-        $field = trim($this->data['evaluation']);
-        if(empty($field)){
-            $this->addError('evaluation', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('evaluation', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateStudyProcess(){
-        $field = trim($this->data['study_process']);
-        if(empty($field)){
-            $this->addError('study_process', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('study_process', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateStudyCountry(){
-        $field = trim($this->data['study_country']);
-        if(empty($field)){
-            $this->addError('study_country', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('study_country', 'field must not contain numerical');
+            if(!preg_match('/^[0-9]{10}$/', $field)){
+                $this->addError('cel', 'Το πεδίο δεν πρέπει να περιέχει 10 ψηφία');
             }
         }
     }
@@ -341,10 +202,10 @@ class CreateForm {
     function validateDepartment(){
         $field = trim($this->data['department']);
         if(empty($field)){
-            $this->addError('department', 'field cannot be empty');
+            $this->addError('department', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('department', 'field must not contain numerical');
+                $this->addError('department', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -352,29 +213,7 @@ class CreateForm {
     function validateUniversity(){
         $field = trim($this->data['university']);
         if(empty($field)){
-            $this->addError('university', 'field cannot be empty');
-        }
-    }
-
-    function validateStartDate(){
-        $field = trim($this->data['start_date']);
-        if(empty($field)){
-            $this->addError('start_date', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('start_date', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDiplomaDate(){
-        $field = trim($this->data['diploma_date']);
-        if(empty($field)){
-            $this->addError('diploma_date', 'field cannot be empty');
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('diploma_date', 'field must not contain numerical');
-            }
+            $this->addError('university', 'Το πεδίο είναι υποχρεωτικό');
         }
     }
 
@@ -384,7 +223,7 @@ class CreateForm {
             $this->addError('email', 'email cannot be empty');
         }else{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $this->addError('email', 'email is not valid');
+                $this->addError('email', 'Το email δεν είναι έγκυρο');
             }
         }
     }
@@ -392,11 +231,11 @@ class CreateForm {
     function validateAFM(){
         $afm = trim($this->data['afm']);
         if(empty($afm)){
-            $this->addError('afm', 'afm cannot be empty');
+            $this->addError('afm', 'Το πεδίο είναι υποχρεωτικό');
             return;
         }else{
-            if(!preg_match('/^[0-9]*$/', $afm)){
-                $this->addError('afm', 'name must contain numerical');
+            if(!preg_match('/^[0-9]{9}$/', $afm)){
+                $this->addError('afm', 'Το πεδίο δεν πρέπει να περιέχει 9 ψηφία');
             }
         }
     }
@@ -407,60 +246,38 @@ class CreateForm {
             $this->addError('amka', 'amka cannot be empty');
             return;
         }else{
-            if(!preg_match('/^[0-9]*$/', $amka)){
-                $this->addError('amka', 'name must contain numerical');
+            if(!preg_match('/^[0-9]{11}$/', $amka)){
+                $this->addError('amka', 'Το πεδίο δεν πρέπει να περιέχει 11 ψηφία');
             }
         }
     }
 
-    function validateCredits(){
-        $credits = trim($this->data['credits']);
-        if(empty($credits)){
-            $this->addError('credits', 'credit cannot be empty');
-            return;
-        }else{
-            if(!preg_match('/^[0-9]*$/', $credits)){
-                $this->addError('credits', 'must contain numerical');
-            }
-        }
-    }
+
+
+
+
 
     function validateDraftForm(){
-        foreach ($this->fields as $field) {
-            if(!array_key_exists($field, $this->data)){
-                trigger_error("Form: $field doesn't exist");
-                exit();
-            }
-        }
+        
 
         $this->validateDraftName();
         $this->validateDraftSurname();
         $this->validateDraftFatherName();
         $this->validateDraftMotherName();
-        $this->validateDraftAddress();
-        $this->validateDraftBirthCity();
-        $this->validateDraftBirthCountry();
-        $this->validateDraftBirthDate();
+        $this->validateDraftRoad();
+        $this->validateDraftNumber();
+        $this->validateDraftCity();
+        $this->validateDraftPobox();
         $this->validateDraftCel();
         $this->validateDraftEmail();
         $this->validateDraftAFM();
         $this->validateDraftAMKA();
-        $this->validateDraftCredits();
-        $this->validateDraftID();
         $this->validateDraftIdentification();
+        $this->validateDraftID();
         $this->validateDraftDepartment();
-        $this->validateDraftDiplomaType();
-        $this->validateDraftDiplomaDate();
+        $this->validateDraftStudyCycle();
         $this->validateDraftUniversity();
-        $this->validateDraftStartDate();
-        $this->validateDraftStudyCountry();
-        $this->validateDraftStudyProcess();
-        $this->validateDraftStudyType();
-        $this->validateDraftReleaseCountry();
-        $this->validateDraftReleaseDate();
-        $this->validateDraftLivingArea();
-        $this->validateDraftLivingCity();
-        $this->validateDraftLivingCountry();
+        $this->validateDraftDiplomaCountry();
 
         $this->validateDraftFiles();
 
@@ -486,8 +303,8 @@ class CreateForm {
         if(empty($name)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $name)){
-                $this->addError('name', 'name must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $name)){
+                $this->addError('name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -497,8 +314,8 @@ class CreateForm {
         if(empty($surname)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $surname)){
-                $this->addError('surname', 'surname must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $surname)){
+                $this->addError('surname', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -508,8 +325,8 @@ class CreateForm {
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('father_name', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('father_name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -519,41 +336,8 @@ class CreateForm {
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('mother', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftBirthCountry(){
-        $field = trim($this->data['birth_country']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('birth_country', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftBirthCity(){
-        $field = trim($this->data['birth_city']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('birth_city', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftBirthDate(){
-        $field = trim($this->data['birth_date']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('birth_date', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('mother', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -571,70 +355,74 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/[A-Z]{2}[0-9]{6}$/', $field)){
-                $this->addError('ID_num', $field .' must not contain numerical');
+                $this->addError('ID_num', 'Το πεδίο δεν πρέπει να περιέχει 2 κεφαλαία γράμματα και 6 ψηφία');
             }
         }
     }
 
-    function validateDraftReleaseDate(){
-        $field = trim($this->data['release_date']);
+    function validateDraftRoad(){
+        $road = trim($this->data['road']);
+        if(empty($road)){
+            return;
+        }else{
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $road)){
+                $this->addError('road', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+            }
+        }
+    }
+
+    function validateDraftNumber(){
+        $number = trim($this->data['number']);
+        if(empty($number)){
+            return;
+        }else{
+            if(!preg_match('/^[0-9]*$/u', $number)){
+                $this->addError('name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+            }
+        }
+    }
+
+    function validateDraftCity(){
+        $city = trim($this->data['city']);
+        if(empty($city)){
+            return;
+        }else{
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $city)){
+                $this->addError('city', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+            }
+        }
+    }
+
+    function validateDraftPobox(){
+        $pobox = trim($this->data['pobox']);
+        if(empty($pobox)){
+            return;
+        }else{
+            if(!preg_match('/^[0-9]{5}+$/u', $pobox)){
+                $this->addError('pobox', 'Το πεδίο πρέπει να περιέχει 5 ψηφία');
+            }
+        }
+    }
+
+    function validateDraftStudyCycle(){
+        $study_cycle = trim($this->data['study_cycle']);
+        if(empty($study_cycle)){
+            return;
+        }else{
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $study_cycle)){
+                $this->addError('study_cycle', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+            }
+        }
+    }
+   
+    function validateDraftDiplomaCountry(){
+        $field = trim($this->data['diploma_country']);
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('release_date', 'field must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
+                $this->addError('diploma_country', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
-        }
-    }
-
-    function validateDraftReleaseCountry(){
-        $field = trim($this->data['release_country']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('release_country', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftLivingCountry(){
-        $field = trim($this->data['living_country']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_country', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftLivingCity(){
-        $field = trim($this->data['living_city']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_city', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftLivingArea(){
-        $field = trim($this->data['living_area']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('living_area', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftAddress(){
-        $field = trim($this->data['address']);
-        if(empty($field)){
-            return;
         }
     }
 
@@ -644,73 +432,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $field)){
-                $this->addError('cel', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftDiplomaType(){
-        $field = trim($this->data['diploma_type']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('diploma_type', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftStudyType(){
-        $field = trim($this->data['study_type']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('study_type', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftDiplomaRecognition(){
-        $field = trim($this->data['diploma_recognition']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('diploma_recognition', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftEvaluation(){
-        $field = trim($this->data['evaluation']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('evaluation', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftStudyProcess(){
-        $field = trim($this->data['study_process']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('study_process', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftStudyCountry(){
-        $field = trim($this->data['study_country']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}]+$/u', $field)){
-                $this->addError('study_country', 'field must not contain numerical');
+                $this->addError('cel', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -721,7 +443,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('department', 'field must not contain numerical');
+                $this->addError('department', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -732,29 +454,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('university', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftStartDate(){
-        $field = trim($this->data['start_date']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('start_date', 'field must not contain numerical');
-            }
-        }
-    }
-
-    function validateDraftDiplomaDate(){
-        $field = trim($this->data['diploma_date']);
-        if(empty($field)){
-            return;
-        }else{
-            if(!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $field)){
-                $this->addError('diploma_date', 'field must not contain numerical');
+                $this->addError('university', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -765,7 +465,7 @@ class CreateForm {
             return;
         }else{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $this->addError('email', 'email is not valid');
+                $this->addError('email', 'Το email δεν είναι έγκυρο');
             }
         }
     }
@@ -776,7 +476,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $afm)){
-                $this->addError('afm', 'name must contain numerical');
+                $this->addError('afm', 'Το πεδίο δεν πρέπει να περιέχει 10 ψηφία');
             }
         }
     }
@@ -787,18 +487,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $amka)){
-                $this->addError('amka', 'name must contain numerical');
-            }
-        }
-    }
-
-    function validateDraftCredits(){
-        $credits = trim($this->data['credits']);
-        if(empty($credits)){
-            return;
-        }else{
-            if(!preg_match('/^[0-9]*$/', $credits)){
-                $this->addError('credits', 'must contain numerical');
+                $this->addError('amka', 'Το πεδίο δεν πρέπει να περιέχει 10 ψηφία');
             }
         }
     }

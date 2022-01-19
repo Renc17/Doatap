@@ -44,28 +44,6 @@ $controller->create();
             margin-top: 20px;
         }
 
-        .radio-toolbar input[type="radio"] {
-            opacity: 0;
-            position: fixed;
-            width: 0;
-        }
-
-        .radio-toolbar label {
-            display: inline-block;
-            background-color: #fff;
-            padding: 10px 20px;
-            font-family: sans-serif, Arial;
-            font-size: 16px;
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-        }
-
-        .radio-toolbar input[type="radio"]:checked + label {
-            background-color: #fff;
-            border-color: #026CD7;
-            
-        }
-
         a.btn{
             border: 1px solid rgba(0, 0, 0, 0.3);
             border-radius: 10px;
@@ -111,31 +89,31 @@ $controller->create();
 
             <div class="status-bar">
                 <div class="row steps-bar m-auto">
-                    <div class=" d-flex justify-content-between step col-3">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
                         <div>
                             <span >Στοιχεία <br> Αιτούντος</span>
                         </div>
-                        <div>
-                            <hr class="bar">
+                        <div class="d-flex align-items-center next-step-arrow">
+                            <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
                         </div>
                     </div>
                     
-                    <div class=" d-flex justify-content-between step col-3">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
                         <div>
                             <span >Τίτλος <br> Σπουδών</span>
                         </div>
-                        <div>
-                            <hr class="bar">
+                        <div class="d-flex align-items-center next-step-arrow">
+                            <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
                         </div>
                     </div>
 
 
-                    <div class=" d-flex justify-content-between step col-3">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
                         <div>
                             <span >Επισυναπτόμενα <br> Έγγραφα</span>
                         </div>
-                        <div>
-                            <hr class="bar">
+                        <div class="d-flex align-items-center next-step-arrow">
+                            <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
                         </div>
                     </div>
 
@@ -150,147 +128,97 @@ $controller->create();
                     <h6 class="fw-bolder mb-2">Προσωπικά Στοιχεία</h6>
                     <hr class="form-bar">
                 
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3">
-                            <label>Όνομα</label>
-                            <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
-                            <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Επώνυμο</label>
-                            <input type="text" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
-                            <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Φύλο</label>
-                            <select name="gender" id="gender" class="form-select">
-                                <option value="Άνδρας">Άνδρας</option>
-                                <option value="Γυναίκα">Γυναίκα</option>
-                                <option value="Άλλο">Άλλο</option>
-                            </select>
-                            <div class="error"> <?php echo $controller->getErrors('gender') ?? '' ?> </div>
-                        </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>Όνομα</label>
+                        <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
+                        <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>Επώνυμο</label>
+                        <input type="text" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
+                        <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
+                    </div>
+ 
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>Πατρώνυμο</label>
+                        <input type="text" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
+                        <div class="error"> <?php echo $controller->getErrors('father_name') ?? '' ?> </div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>Μητρώνυμο</label>
+                        <input type="text" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
+                        <div class="error"> <?php echo $controller->getErrors('mother_name') ?? '' ?> </div>
+                    </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>ΑΜΚΑ</label>
+                        <input type="text" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
+                        <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Πατρώνυμο</label>
-                            <input type="text" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('father_name') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Μητρώνυμο</label>
-                            <input type="text" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('mother_name') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>ΑΜΚΑ</label>
-                            <input type="text" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
-                            <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
-                        </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>ΑΦΜ</label>
+                        <input type="text" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
+                        <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Χώρα Γέννησης</label>
-                            <input type="text" name="birth_country" value="<?php echo $controller->getData('birth_country'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('birth_country') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πόλη Γέννησης</label>
-                            <input type="text" name="birth_city" value="<?php echo $controller->getData('birth_city'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('birth_city') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Γέννησης</label>
-                            <input type="text" name="birth_date" value="<?php echo $controller->getData('birth_date'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('birth_date') ?? '' ?> </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="radio-toolbar col-md-3">
-                            <input type="radio" id="id" name="identification" value="Ταυτότητα" checked>
+                    <div class="radio-toolbar mt-3">
+                        <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="id">Ταυτότητα</label>
-
-                            <input type="radio" id="passport" name="identification" value="Διαβατήριο">
+                            <input type="radio" id="id" name="identification" value="Ταυτότητα" checked>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="passport">Διαβατήριο</label>
-
-                            <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
+                            <input type="radio" id="passport" name="identification" value="Διαβατήριο">
                         </div>
-                        
-                        <div class="col-md-3">
-                            <label>ΑΦΜ</label>
-                            <input type="text" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
-                            <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                        </div>
+                        <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Αριθμός Ταυτότητας</label>
-                            <input type="text" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Έκδοσης</label>
-                            <input type="text" name="release_date" value="<?php echo $controller->getData('release_date'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('release_date') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Χώρα Έκδοσης</label>
-                            <select name="release_country" id="release_country" class="form-select">
-                                <option value="Ελλάδα">Ελλάδα</option>
-                                <option value="Γαλλία">Γαλλία</option>
-                                <option value="Αγγλία">Αγγλία</option>
-                            </select>
-                            <div class="error"> <?php echo $controller->getErrors('release_country') ?? '' ?> </div>
-                        </div>
+                    <div class="col-md-4 d-flex flex-column mt-3">
+                        <label>Αρ. Ταυτότητας/Διαβατηρίου</label>
+                        <input type="text" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input" placeholder="<?php echo $controller->getData('ID_num'); ?>">
+                        <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
                     </div>
-
 
                     <h6 class="fw-bolder mb-2 mt-5">Στοιχεία Επικοινωνίας</h6>
                     <hr class="form-bar">
 
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3">
-                            <label>Χώρα Διαμονής</label>
-                            <select name="living_country" id="living_country" class="form-select">
-                                <option value="Ελλάδα">Ελλάδα</option>
-                                <option value="Γαλλία">Γαλλία</option>
-                                <option value="Αγγλία">Αγγλία</option>
-                            </select>
-                            <div class="error"> <?php echo $controller->getErrors('living_country') ?? '' ?> </div>
+                    <div class="d-flex flex-column justify-content-between">
+                        <div class="col-md-5 d-flex flex-column">
+                            <label>Οδος</label>
+                            <input type="text" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input">
+                            <div class="error"> <?php echo $controller->getErrors('road') ?? '' ?> </div>
                         </div>
-                        <div class="col-md-3">
-                            <label>Πόλη Διαμονής</label>
-                            <input type="text" name="living_city" value="<?php echo $controller->getData('living_city'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('living_city') ?? '' ?> </div>
+                        
+                        <div class="col-md-5 d-flex flex-column mt-3">
+                            <label>Πόλη</label>
+                            <input type="text" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input">
+                            <div class="error"> <?php echo $controller->getErrors('city') ?? '' ?> </div>
                         </div>
-                        <div class="col-md-3">
-                            <label>Περιοχή Διαμονής</label>
-                            <input type="text" name="living_area" value="<?php echo $controller->getData('living_area'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('living_area') ?? '' ?> </div>
-                        </div>
-                    </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Διεύθυνση</label>
-                            <input type="text" name="address" value="<?php echo $controller->getData('address'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('address') ?? '' ?> </div>
+                        <div class="d-flex justify-content-between col-md-5 mt-3">
+                            <div class="col-md-5 d-flex flex-column">
+                                <label>Αριθμος</label>
+                                <input type="text" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('number') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-5 d-flex flex-column">
+                                <label>Τ.Κ</label>
+                                <input type="text" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('pobox') ?? '' ?> </div>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <label>Αριθμός Τηλεφώνου</label>
-                            <input type="text" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
-                            <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Email</label>
-                            <input type="text" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
-                            <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
+
+                        <div class="d-flex justify-content-between col-md-5 mt-3">
+                            <div class="col-md-5 d-flex flex-column">
+                                <label>Τηλ.</label>
+                                <input type="text" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
+                                <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
+                            </div>
+                            <div class="col-md-5 d-flex flex-column">
+                                <label>Email</label>
+                                <input type="text" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
+                                <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -301,87 +229,36 @@ $controller->create();
                         <h6 class="fw-bolder mb-2">Στοιχεία τίτλου προς αναγνώριση</h6>
                         <hr class="form-bar">
 
-                        <div class="d-flex flex-row justify-content-between">
-                            <div class="radio-toolbar col-md-6">
-                                <input type="radio" id="Πτυχίο" name="diploma_type" value="Βασικό Πτυχίο" checked>
+                        <div class="d-flex flex-column justify-content-between col-md-6">
+                            <div class="mt-2">
+                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" checked>
                                 <label for="Πτυχίο">Βασικό Πτυχίο</label>
-
-                                <input type="radio" id="Μεταπτυχιακό" name="diploma_type" value="Μεταπτυχιακό">
+                            </div>
+                            
+                            <div class="mt-2">
+                                <input type="radio" id="Μεταπτυχιακό" name="study_cycle" value="Μεταπτυχιακό">
                                 <label for="Μεταπτυχιακό">Μεταπτυχιακό</label>
-
-                                <input type="radio" id="Διδακτορικό" name="diploma_type" value="Διδακτορικό">
+                            </div>
+                            
+                            <div class="mt-2">
+                                <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό">
                                 <label for="Διδακτορικό">Διδακτορικό</label>
-
-                                <div class="error"> <?php echo $controller->getErrors('diploma_type') ?? '' ?> </div>
                             </div>
+                            
+                            <div class="error"> <?php echo $controller->getErrors('study_cycle') ?? '' ?> </div>
                         </div>
 
-                        <div class="d-flex flex-row justify-content-between mt-2">
-                            <div class="col-md-5">
-                                <label>Τύπος Φοίτησης</label>
-                                <div class="radio-toolbar">
-                                    <input type="radio" id="Τακτική" name="study_type" value="Τακτική" checked>
-                                    <label for="Τακτική">Τακτική</label>
-
-                                    <input type="radio" id="Μερική" name="study_type" value="Μερική">
-                                    <label for="Μερική">Μερική</label>
-
-                                    <div class="error"> <?php echo $controller->getErrors('study_type') ?? '' ?> </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <label>Αντιστοιχία Πτυχίου</label>
-                                <div class="radio-toolbar">
-                                    <input type="radio" id="Ναι" name="diploma_recognition" value="Ναι" checked>
-                                    <label for="Ναι">Ναι</label>
-
-                                    <input type="radio" id="Όχι" name="diploma_recognition" value="Όχι" >
-                                    <label for="Όχι">Όχι</label>
-
-
-                                    <div class="error"> <?php echo $controller->getErrors('diploma_recognition') ?? '' ?> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-between mt-2">
-                            <div class="col-md-5">
-                                <label>Συνεκτίμηση Πτυχίου</label>
-                                <div class="radio-toolbar">
-                                    <input type="radio" id="Ναι" name="evaluation" value="Ναι" checked>
-                                    <label for="Ναι">Ναι</label>
-
-                                    <input type="radio" id="Όχι" name="evaluation" value="Όχι">
-                                    <label for="Όχι">Όχι</label>
-
-                                    <div class="error"> <?php echo $controller->getErrors('evaluation') ?? '' ?> </div>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <label>Τρόπος Φοίτησης</label>
-                                <div class="radio-toolbar">
-                                    <input type="radio" id="Συμβατικός" name="study_process" value="Συμβατικός" checked>
-                                    <label for="Συμβατικός">Συμβατικός</label>
-
-                                    <input type="radio" id="Εξ' αποστάσεως" name="study_process" value="Εξ' αποστάσεως" >
-                                    <label for="Εξ' αποστάσεως">Εξ' αποστάσεως</label>
-
-                                    <div class="error"> <?php echo $controller->getErrors('study_process') ?? '' ?> </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-between mt-2">
+                        <div class="d-flex flex-column justify-content-between mt-4">
                             <div class="col-md-3">
-                                <label>Χώρα Σπουδών</label>
-                                <select name="study_country" id="study_country" class="form-select">
+                                <label>Χώρα Εκδοσης Πτυχίου</label>
+                                <select name="diploma_country" id="diploma_country" class="form-select">
                                     <option value="Ελλάδα">Ελλάδα</option>
                                     <option value="Γαλλία">Γαλλία</option>
                                     <option value="Αγγλία">Αγγλία</option>
                                 </select>
-                                <div class="error"> <?php echo $controller->getErrors('study_country') ?? '' ?> </div>
+                                <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 mt-2">
                                 <label>Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
                                     <option value="ΕΚΠΑ">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
@@ -392,28 +269,10 @@ $controller->create();
                                 </select>
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
-                            <div class="col-md-3">
-                                <label>Τίτλος Σπουδών</label>
+                            <div class="col-md-3 mt-2">
+                                <label>Τμήμα Σπουδων</label>
                                 <input type="text" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-row justify-content-between mt-2">
-                            <div class="col-md-3">
-                                <label>Πιστ. Μονάδες (credits)</label>
-                                <input type="text" name="credits" value="<?php echo $controller->getData('credits'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('credits') ?? '' ?> </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label>Ημερομηνία Εγγραφής</label>
-                                <input type="text" name="start_date" value="<?php echo $controller->getData('start_date'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('start_date') ?? '' ?> </div>
-                            </div>
-                            <div class="col-md-3">
-                                <label>Ημερομηνία Αποφοίτησης</label>
-                                <input type="text" name="diploma_date" value="<?php echo $controller->getData('diploma_date'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('diploma_date') ?? '' ?> </div>
                             </div>
                         </div>
                 </div>
@@ -421,110 +280,63 @@ $controller->create();
 
             <div class="tab">
                 <div class="container mt-5" style="width: 70%;">
+                    <h6 class="fw-bolder mb-2">Δικαιολογητικά</h6>
+                    <hr class="form-bar">
+
                     <div class="error"> <?php echo $controller->getErrors('upload') ?? '' ?> </div>
 
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3">
-                            <label>Παράβολο</label>
-                            <div class="value"> <?php echo $controller->getFiles('parabolo') ?? '' ?> </div>
-                            <input type="file" name="parabolo" value=""/>
-                            <div class="error"> <?php echo $controller->getErrors('parabolo') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
+                    <div class="d-flex flex-column justify-content-between">
+                       
+                        <div class="col-md-3 mt-2">
                             <label>Αντίγραφο Ταυτότητας</label>
-                            <div class="value"> <?php echo $controller->getFiles('taytotita') ?? '' ?> </div>
-                            <input type="file" name="taytotita" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('taytotita') ?? '' ?> </div>
+                            <div class="value"> <?php echo $controller->getFiles('identification') ?? '' ?> </div>
+                            <input type="file" name="identification" value="" />
+                            <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                         </div>
-                        <div class="col-md-3">
-                            <label>Υπεύθυνη Δήλωση</label>
-                            <div class="value"> <?php echo $controller->getFiles('ypey8hnh_dhlwsh') ?? '' ?> </div>
-                            <input type="file" name="ypey8hnh_dhlwsh" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('ypey8hnh_dhlwsh') ?? '' ?> </div>
-                        </div>
-                    </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Έντυπο Συγκατάθεσης</label>
-                            <div class="value"> <?php echo $controller->getFiles('entypo_sygkatathesis') ?? '' ?> </div>
-                            <input type="file" name="entypo_sygkatathesis" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('entypo_sygkatathesis') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Απολυτήριο Λυκείου</label>
-                            <div class="value"> <?php echo $controller->getFiles('apolytirio_lykeiou') ?? '' ?> </div>
-                            <input type="file" name="apolytirio_lykeiou" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('apolytirio_lykeiou') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mt-2">
                             <label>Πτυχίο</label>
-                            <div class="value"> <?php echo $controller->getFiles('Ptyxio') ?? '' ?> </div>
-                            <input type="file" name="Ptyxio" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('Ptyxio') ?? '' ?> </div>
+                            <div class="value"> <?php echo $controller->getFiles('diploma') ?? '' ?> </div>
+                            <input type="file" name="diploma" value="" />
+                            <div class="error"> <?php echo $controller->getErrors('diploma') ?? '' ?> </div>
                         </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Μεταπτυχιακός Τίτλος</label>
-                            <div class="value"> <?php echo $controller->getFiles('metaptixiako') ?? '' ?> </div>
-                            <input type="file" name="metaptixiako" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('metaptixiako') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πιστοποιητικό Μαθημάτων</label>
-                            <div class="value"> <?php echo $controller->getFiles('pist_mathimaton') ?? '' ?> </div>
-                            <input type="file" name="pist_mathimaton" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('pist_mathimaton') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πιστοποιητικό Πανεπιστημίου</label>
-                            <div class="value"> <?php echo $controller->getFiles('pist_panepistimiou') ?? '' ?> </div>
-                            <input type="file" name="pist_panepistimiou" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('pist_panepistimiou') ?? '' ?> </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Εργασία Μεταπτυχιακού Τίτλου</label>
-                            <div class="value"> <?php echo $controller->getFiles('Ergasia_met') ?? '' ?> </div>
-                            <input type="file" name="Ergasia_met" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('Ergasia_met') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πιστοποιητικό Πανεπιστημίου (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <div class="value"> <?php echo $controller->getFiles('pist_panep_sinek') ?? '' ?> </div>
-                            <input type="file" name="pist_panep_sinek" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('pist_panep_sinek') ?? '' ?> </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πιστοποιητικό Μαθημάτων (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <div class="value"> <?php echo $controller->getFiles('pist_math_sinek') ?? '' ?> </div>
-                            <input type="file" name="pist_math_sinek" value="" />
-                            <div class="error"> <?php echo $controller->getErrors('pist_math_sinek') ?? '' ?> </div>
+                       
+                        <div class="col-md-3 mt-2">
+                            <label>Αναλυτική Βαθμολογία</label>
+                            <div class="value"> <?php echo $controller->getFiles('grades') ?? '' ?> </div>
+                            <input type="file" name="grades" value="" />
+                            <div class="error"> <?php echo $controller->getErrors('grades') ?? '' ?> </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="tab">Οριστική Υποβολή:
+            <div class="tab">
                 <div class="container mt-5" style="width: 70%;">
-                    <div class="col-md-5 d-flex flex-column">
-                        <label for="comment">Σχόλεια Αιτούντα</label>
-                        <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $controller->getData('comment'); ?>" class="text-input"></textarea>
-                        <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
+                    <h6 class="fw-bolder mb-2">Οριστική Υποβολή</h6>
+                    <hr class="form-bar">
+
+                    <div class="d-flex flex-column mt-4">
+                        <div class="d-flex flex-column col-8 ">
+                            <label for="comment">Σχόλεια Αιτούντα</label>
+                            <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $controller->getData('comment'); ?>" class="text-input"></textarea>
+                            <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
+                        </div>
+                        <div class="mt-5 d-flex flex-row align-items-center col-12">
+                            <input type="checkbox" id="consent" name="consent" value="yes">
+                            <label for="consent" class="p-3">Εξουσιοδοτώ τον ΔΟΑΤΑΠ να ζητήσει οποιοδήποτε απαραίτητο έγγραφο και οποιαδήποτε πληροφορία σχετικά με το ακαδημαϊκό μου πτυχίο προκειμένου να διεκπεραιώσει την αναγνώριση του ανωτέρου πτυχίου.</label><br>
+                            <div class="error"> <?php echo $controller->getErrors('consent') ?? '' ?> </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div style="overflow:hidden;">
                 <div class="m-3 float-end">
+                    <button class="btn" type="submit" name="submit-form" value='draft'>Αποθήκευση</button>
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
                     <button id="submitBtn" type="submit" name="submit-form" value='register'>Υποβολή</button>
-                    <button type="submit" name="submit-form" value='draft'>Αποθήκευση</button>
                 </div>
             </div>
 

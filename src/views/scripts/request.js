@@ -60,7 +60,7 @@ function validateForm() {
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
-        document.getElementsByClassName("bar")[currentTab].className += " finish";
+        document.getElementsByClassName("next-step-arrow")[currentTab].className += " finish";
     }
     return valid; // return the valid status
 }
@@ -74,7 +74,7 @@ function fixStepIndicator(n) {
     //... and adds the "active" class on the current step:
     x[n].className += " active";
 
-    var i, x = document.getElementsByClassName("bar");
+    var i, x = document.getElementsByClassName("next-step-arrow");
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
     }
