@@ -16,7 +16,8 @@
 
     $formPreview = $formController->getFormPreview(15);   // for form preview view
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,11 +95,8 @@
                 </div>
                 <div class="edit-btn d-flex align-items-center">
                     <div>
-                        <button onclick="toggleEdit()" class="edit-user" type="submit" name="edit" value='update'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                            </svg>
+                        <button onclick="toggleEdit()" class="edit-user" type="text" name="edit" value="edit">
+                            <i class="bi bi-pencil-square"></i>
                         </button>
                     </div>
                 </div>
@@ -122,23 +120,23 @@
             <form id="form" method='post' action='profile.php' class="mt-4" style="display: none;">
                 <div class="text-black-50">
                     <h6 class="AFM d-flex align-items-center m-1 col-md-4">
-                        <label>ΑΦΜ</label>
-                        <input class="ms-3" type="text" name="AFM" value="<?php echo $_SESSION['AFM'] ?>" placeholder="<?php echo $_SESSION['AFM'] ?>" class="text-input" >
+                        <label for="afm">ΑΦΜ</label>
+                        <input class="ms-3" id="afm" type="text" name="AFM" value="<?php echo $_SESSION['AFM'] ?>" placeholder="<?php echo $_SESSION['AFM'] ?>" class="text-input" >
                         <div class="error"> <?php echo $controller->getErrors('AFM') ?? '' ?> </div>
                     </h6>
                     <h6 class="AMKA d-flex align-items-center m-1 col-md-4">
-                        <label>ΑΜΚΑ</label>
-                        <input class="ms-3" type="text" name="AMKA" value="<?php echo $_SESSION['AMKA'] ?>" placeholder="<?php echo $_SESSION['AMKA'] ?>" class="text-input" >
+                        <label for="amka">ΑΜΚΑ</label>
+                        <input class="ms-3" id="amka" type="text" name="AMKA" value="<?php echo $_SESSION['AMKA'] ?>" placeholder="<?php echo $_SESSION['AMKA'] ?>" class="text-input" >
                         <div class="error"> <?php echo $controller->getErrors('AMKA') ?? '' ?> </div>
                     </h6>
                     <h6 class="cel d-flex align-items-center m-1 col-md-4">
-                        <label>Τηλ</label>
-                        <input class="ms-3" type="text" name="cel" value="<?php echo $_SESSION['cel'] ?>" placeholder="<?php echo $_SESSION['cel'] ?>" class="text-input" >
+                        <label for="cel">Τηλ</label>
+                        <input class="ms-3" id="cel" type="text" name="cel" value="<?php echo $_SESSION['cel'] ?>" placeholder="<?php echo $_SESSION['cel'] ?>" class="text-input" >
                         <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
                     </h6>
                 </div>
                 <button class = 'btn border border-3 rounded-pill float-end' type="submit" name="edit" value='update' class="submit">Ανανέωση</button>
-                <button onclick="toggleEdit()" class = 'btn float-end text-black-50'>Ακυρο</button>
+                <button onclick="toggleEdit()" class='btn float-end text-black-50' type="text" value="cancel" name="cancel">Ακυρο</button>
             </form>
             <hr class="mt-5" style="border: 3px solid black;">
 

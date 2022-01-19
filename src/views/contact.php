@@ -26,6 +26,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <title>Επικοινωνία</title>
+    <style>
+        textarea{
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,43 +47,35 @@
                     
                     <div class="pt-4">
                         <div>
-                            <label class="fw-bold">Όνομα</label>
+                            <label class="fw-bold" for="name">Όνομα</label>
                         </div>
                         <div class="mt-1">
-                            <input type="text" placeholder="Όνομα" name="name" value=""  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                            <input type="text" id="name" placeholder="Όνομα" name="name" value=""  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
                         </div>
                     </div>
                     <div class="mt-3">
                         <div>
-                            <label class="fw-bold">Επώνυμο</label>
+                            <label class="fw-bold" for="surname">Επώνυμο</label>
                         </div>
                         <div class="mt-1">
-                            <input type="text" placeholder="Επώνυμο" name="surname" value="" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                            <input type="text" id="surname" placeholder="Επώνυμο" name="surname" value="" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
                         </div>
                     </div>
                     <div class="mt-3">
                         <div>
-                            <label class="fw-bold">Email</label>
+                            <label class="fw-bold" for="email">Email</label>
                         </div>
                         <div class="mt-1">
-                            <input type="email" placeholder="example@gmail.com" name="email" value="" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                            <input type="email" id="email" placeholder="example@gmail.com" name="email" value="" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
                         </div>
                     </div>
                    
-                    <div class="mt-3">
-                        <div>
-                            <label class="fw-bold">Παραλήπτης</label>
-                        </div>
-                        <div class="mt-1">
-                            Διεύθυνση Ενημέρωσης
-                        </div>
-                    </div>
                     <div class="mt-5">
                         <div>
-                            <label class="fw-bold">Ρωτήστε μας</label>
+                            <label class="fw-bold" for="ask">Ρωτήστε μας</label>
                         </div>
                         <div class="mt-1">
-                            <textarea placeholder="" name="comment" rows="5" cols="50" class="text-input pt-1"></textarea>
+                            <textarea placeholder="Θέλω να ρωτήσω..." id="ask" name="comment" rows="5" cols="50" class="text-input pt-1"></textarea>
                         </div>
                     </div>
 

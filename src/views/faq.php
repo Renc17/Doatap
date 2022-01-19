@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <title>ΔΟΑΤΑΠ</title>
@@ -57,12 +58,6 @@
     <div class="container-fluid">
         <div class="header text-center">
             <h2 class="fw-bold">Πως μπορούμε να βοηθήσουμε;</h2>
-            <div class="d-flex container justify-content-center">
-                <div class="d-flex flex-row col-md-6 mt-3">
-                    <input type="text" placeholder="Type keywords" >
-                    <button type="submit" class="btn"><i class="bi bi-search"></i></button>
-                </div>
-            </div>
         </div>
         
         <div class="container mt-5">

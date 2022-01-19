@@ -72,19 +72,19 @@ $controller->login();
                         <h2 class="form-title fw-bold text-center mt-5">Σύνδεση</h2>
                         <div class="pt-4">
                             <div>
-                                <label class="fw-bold">Email</label>
+                                <label class="fw-bold" for="email">Email</label>
                             </div>
                             <div>
-                                <input type="text" placeholder="example@gmail.com" name="email" style="border:1px solid #d9dadc" value="<?php echo $controller->getEmail(); ?>" class="text-input w-100 pt-1">
+                                <input type="text" id="email" placeholder="example@gmail.com" name="email" style="border:1px solid #d9dadc" value="<?php echo $controller->getEmail(); ?>" class="text-input w-100 pt-1">
                                 <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                             </div>
                         </div>
                         <div class="pt-2">
                             <div>
-                                <label class="fw-bold">Κωδικός</label>
+                                <label class="fw-bold" for="password">Κωδικός</label>
                             </div>
                             <div>
-                                <input type="password" placeholder="Κωδικός" name="password" style="border:1px solid #d9dadc" value="<?php echo $controller->getPassword(); ?>" class="text-input w-100 pt-1">
+                                <input type="password" id="password" placeholder="Κωδικός" name="password" style="border:1px solid #d9dadc" value="<?php echo $controller->getPassword(); ?>" class="text-input w-100 pt-1">
                                 <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
                             </div>
                         </div>

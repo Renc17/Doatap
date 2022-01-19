@@ -129,35 +129,35 @@ $controller->create();
                     <hr class="form-bar">
                 
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>Όνομα</label>
-                        <input type="text" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
+                        <label for="name">Όνομα</label>
+                        <input type="text" id="name" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                     </div>
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>Επώνυμο</label>
-                        <input type="text" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
+                        <label for="surname">Επώνυμο</label>
+                        <input type="text" id="surname" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                     </div>
  
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>Πατρώνυμο</label>
-                        <input type="text" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
+                        <label for="father">Πατρώνυμο</label>
+                        <input type="text" id="father" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('father_name') ?? '' ?> </div>
                     </div>
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>Μητρώνυμο</label>
-                        <input type="text" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
+                        <label for="mother">Μητρώνυμο</label>
+                        <input type="text" id="mother" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
                         <div class="error"> <?php echo $controller->getErrors('mother_name') ?? '' ?> </div>
                     </div>
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>ΑΜΚΑ</label>
-                        <input type="text" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
+                        <label for="amka">ΑΜΚΑ</label>
+                        <input type="text" id="amka" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
                         <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                     </div>
 
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>ΑΦΜ</label>
-                        <input type="text" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
+                        <label for="afm">ΑΦΜ</label>
+                        <input type="text" id="afm" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                     </div>
 
@@ -174,8 +174,8 @@ $controller->create();
                     </div>
 
                     <div class="col-md-4 d-flex flex-column mt-3">
-                        <label>Αρ. Ταυτότητας/Διαβατηρίου</label>
-                        <input type="text" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input" placeholder="<?php echo $controller->getData('ID_num'); ?>">
+                        <label for="ident">Αρ. Ταυτότητας/Διαβατηρίου</label>
+                        <input type="text" id="ident" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input" placeholder="<?php echo $controller->getData('ID_num'); ?>">
                         <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
                     </div>
 
@@ -184,39 +184,39 @@ $controller->create();
 
                     <div class="d-flex flex-column justify-content-between">
                         <div class="col-md-5 d-flex flex-column">
-                            <label>Οδος</label>
-                            <input type="text" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input">
+                            <label for="road">Οδος</label>
+                            <input type="text" id="road" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input">
                             <div class="error"> <?php echo $controller->getErrors('road') ?? '' ?> </div>
                         </div>
                         
                         <div class="col-md-5 d-flex flex-column mt-3">
-                            <label>Πόλη</label>
-                            <input type="text" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input">
+                            <label for="city">Πόλη</label>
+                            <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input">
                             <div class="error"> <?php echo $controller->getErrors('city') ?? '' ?> </div>
                         </div>
 
                         <div class="d-flex justify-content-between col-md-5 mt-3">
                             <div class="col-md-5 d-flex flex-column">
-                                <label>Αριθμος</label>
-                                <input type="text" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input">
+                                <label for="number">Αριθμος</label>
+                                <input type="text" id="number" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input">
                                 <div class="error"> <?php echo $controller->getErrors('number') ?? '' ?> </div>
                             </div>
                             <div class="col-md-5 d-flex flex-column">
-                                <label>Τ.Κ</label>
-                                <input type="text" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input">
+                                <label for="pobox">Τ.Κ</label>
+                                <input type="text" id="pobox" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input">
                                 <div class="error"> <?php echo $controller->getErrors('pobox') ?? '' ?> </div>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-between col-md-5 mt-3">
                             <div class="col-md-5 d-flex flex-column">
-                                <label>Τηλ.</label>
-                                <input type="text" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
+                                <label for="cel">Τηλ.</label>
+                                <input type="text" id="cel" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
                                 <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
                             </div>
                             <div class="col-md-5 d-flex flex-column">
-                                <label>Email</label>
-                                <input type="text" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
                                 <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                             </div>
                         </div>
@@ -250,7 +250,7 @@ $controller->create();
 
                         <div class="d-flex flex-column justify-content-between mt-4">
                             <div class="col-md-3">
-                                <label>Χώρα Εκδοσης Πτυχίου</label>
+                                <label for="diploma_country">Χώρα Εκδοσης Πτυχίου</label>
                                 <select name="diploma_country" id="diploma_country" class="form-select">
                                     <option value="Ελλάδα">Ελλάδα</option>
                                     <option value="Γαλλία">Γαλλία</option>
@@ -259,7 +259,7 @@ $controller->create();
                                 <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
-                                <label>Πανεπιστήμιο</label>
+                                <label for="university">Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
                                     <option value="ΕΚΠΑ">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
                                     <option value="ΠΑΔΑ">Πανεπιστήμιο Δυτικής Αττικής</option>
@@ -270,8 +270,8 @@ $controller->create();
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
-                                <label>Τμήμα Σπουδων</label>
-                                <input type="text" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
+                                <label for="department">Τμήμα</label>
+                                <input type="text" id="department" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
@@ -288,23 +288,23 @@ $controller->create();
                     <div class="d-flex flex-column justify-content-between">
                        
                         <div class="col-md-3 mt-2">
-                            <label>Αντίγραφο Ταυτότητας</label>
+                            <label for="id_copy">Αντίγραφο Ταυτότητας</label>
                             <div class="value"> <?php echo $controller->getFiles('identification') ?? '' ?> </div>
-                            <input type="file" name="identification" value="" />
+                            <input type="file" id="id_copy" name="identification" value="" />
                             <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                         </div>
 
                         <div class="col-md-3 mt-2">
-                            <label>Πτυχίο</label>
+                            <label for="diploma">Πτυχίο</label>
                             <div class="value"> <?php echo $controller->getFiles('diploma') ?? '' ?> </div>
-                            <input type="file" name="diploma" value="" />
+                            <input type="file" id="diploma" name="diploma" value="" />
                             <div class="error"> <?php echo $controller->getErrors('diploma') ?? '' ?> </div>
                         </div>
                        
                         <div class="col-md-3 mt-2">
-                            <label>Αναλυτική Βαθμολογία</label>
+                            <label for="grades">Αναλυτική Βαθμολογία</label>
                             <div class="value"> <?php echo $controller->getFiles('grades') ?? '' ?> </div>
-                            <input type="file" name="grades" value="" />
+                            <input type="file" id="grades" name="grades" value="" />
                             <div class="error"> <?php echo $controller->getErrors('grades') ?? '' ?> </div>
                         </div>
                     </div>

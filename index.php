@@ -1,5 +1,5 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>ΔΟΑΤΑΠ</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -70,7 +70,7 @@
 
         <div class="d-flex justify-content-center mt-5 align-items center">
                 <div class="col-md-3 d-flex flex-column">
-                    <div class="p-5 choice m-auto">
+                    <div class="p-5 choice m-auto d-flex align-items-center">
                         <i class="bi bi-box-arrow-in-right"></i>
                     </div>
                     <div class="text mt-4">
@@ -84,7 +84,7 @@
                 <div class="m-auto"><i class="bi bi-chevron-double-right"></i></div>
 
                 <div class="col-md-3 d-flex flex-column">
-                    <div class="p-5 choice m-auto">
+                    <div class="p-5 choice m-auto d-flex align-items-center">
                         <i class="bi bi-file-pdf"></i>
                     </div>
                     <div class="text mt-4">
@@ -98,7 +98,7 @@
                 <div class="m-auto"><i class="bi bi-chevron-double-right"></i></div>
 
                 <div class="col-md-3 d-flex flex-column">
-                    <div class="p-5 choice m-auto">
+                    <div class="p-5 choice m-auto d-flex align-items-center">
                         <i class="bi bi-credit-card-2-back"></i>
                     </div>
                     <div class="text mt-4">
