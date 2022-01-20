@@ -220,7 +220,7 @@ class CreateForm {
     function validateEmail(){
         $email = trim($this->data['email']);
         if(empty($email)){
-            $this->addError('email', 'email cannot be empty');
+            $this->addError('email', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
                 $this->addError('email', 'Το email δεν είναι έγκυρο');
@@ -243,7 +243,7 @@ class CreateForm {
     function validateAMKA(){
         $amka = trim($this->data['amka']);
         if(empty($amka)){
-            $this->addError('amka', 'amka cannot be empty');
+            $this->addError('amka', 'Το πεδίο είναι υποχρεωτικό');
             return;
         }else{
             if(!preg_match('/^[0-9]{11}$/', $amka)){
@@ -355,7 +355,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/[A-Z]{2}[0-9]{6}$/', $field)){
-                $this->addError('ID_num', 'Το πεδίο δεν πρέπει να περιέχει 2 κεφαλαία γράμματα και 6 ψηφία');
+                $this->addError('ID_num', 'Το πεδίο πρέπει να περιέχει 2 κεφαλαία γράμματα και 6 ψηφία');
             }
         }
     }
@@ -377,7 +377,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/u', $number)){
-                $this->addError('name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('name', 'Το πεδίο πρέπει να περιέχει μόνο ψηφία');
             }
         }
     }
@@ -388,7 +388,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $city)){
-                $this->addError('city', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('city', 'Το πεδίο πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -432,7 +432,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $field)){
-                $this->addError('cel', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('cel', 'Το πεδίο πρέπει να περιέχει μόνο ψηφία');
             }
         }
     }
@@ -443,7 +443,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('department', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('department', 'Το πεδίο πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -454,7 +454,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('university', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('university', 'Το πεδίο πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -476,7 +476,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $afm)){
-                $this->addError('afm', 'Το πεδίο δεν πρέπει να περιέχει 10 ψηφία');
+                $this->addError('afm', 'Το πεδίο πρέπει να περιέχει 9 ψηφία');
             }
         }
     }
@@ -487,7 +487,7 @@ class CreateForm {
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $amka)){
-                $this->addError('amka', 'Το πεδίο δεν πρέπει να περιέχει 10 ψηφία');
+                $this->addError('amka', 'Το πεδίο πρέπει να περιέχει 11 ψηφία');
             }
         }
     }

@@ -24,7 +24,8 @@ $controller->create();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="../../scripts.js"></script>
     <title>Νέα Αίτηση</title>
 
@@ -88,8 +89,8 @@ $controller->create();
             <h6 class="text-center fw-lighter mb-5">Προσωρινά Αποθγκευμένο</h6>
 
             <div class="status-bar">
-                <div class="row steps-bar m-auto">
-                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
+                <div class="row steps-bar justify-content-center m-auto">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-2">
                         <div>
                             <span >Στοιχεία <br> Αιτούντος</span>
                         </div>
@@ -98,7 +99,7 @@ $controller->create();
                         </div>
                     </div>
                     
-                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-2">
                         <div>
                             <span >Τίτλος <br> Σπουδών</span>
                         </div>
@@ -117,8 +118,15 @@ $controller->create();
                         </div>
                     </div>
 
-                    <div class=" d-flex justify-content-between step col-3">
-                        <span >Οριστική <br> Υποβολή</span>
+                    <div class=" d-flex align-items-center justify-content-between step col-md-2">
+                        <span >Σχόλεια <br>& Οροι</span>
+                        <div class="d-flex align-items-center next-step-arrow">
+                            <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
+                        </div>
+                    </div>
+
+                    <div class=" d-flex justify-content-between align-items-center step col-md-1">
+                        <span class="text-center">Πληρωμή & Αποστολή</span>
                     </div>
                 </div>
             </div>
@@ -128,34 +136,44 @@ $controller->create();
                     <h6 class="fw-bolder mb-2">Προσωπικά Στοιχεία</h6>
                     <hr class="form-bar">
                 
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="name">Όνομα</label>
                         <input type="text" id="name" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                     </div>
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="surname">Επώνυμο</label>
                         <input type="text" id="surname" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                     </div>
  
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="father">Πατρώνυμο</label>
-                        <input type="text" id="father" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input type="text" id="father" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input col-10">
+                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                <i class="bi bi-info-circle"></i>
+                            </button>
+                        </div>
                         <div class="error"> <?php echo $controller->getErrors('father_name') ?? '' ?> </div>
                     </div>
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="mother">Μητρώνυμο</label>
-                        <input type="text" id="mother" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input type="text" id="mother" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input col-10">
+                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                <i class="bi bi-info-circle"></i>
+                            </button>
+                        </div>
                         <div class="error"> <?php echo $controller->getErrors('mother_name') ?? '' ?> </div>
                     </div>
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="amka">ΑΜΚΑ</label>
                         <input type="text" id="amka" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
                         <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                     </div>
 
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="afm">ΑΦΜ</label>
                         <input type="text" id="afm" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
                         <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
@@ -173,9 +191,14 @@ $controller->create();
                         <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                     </div>
 
-                    <div class="col-md-4 d-flex flex-column mt-3">
+                    <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="ident">Αρ. Ταυτότητας/Διαβατηρίου</label>
-                        <input type="text" id="ident" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input" placeholder="<?php echo $controller->getData('ID_num'); ?>">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input type="text" id="ident" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input col-10" placeholder="<?php echo $controller->getData('ID_num'); ?>">
+                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο Αρ. Ταυτότητας/Διαβατηρίου αποτελείται από δύο γράμματα και 6 ψηφία">
+                                <i class="bi bi-info-circle"></i>
+                            </button>
+                        </div>
                         <div class="error"> <?php echo $controller->getErrors('ID_num') ?? '' ?> </div>
                     </div>
 
@@ -183,42 +206,59 @@ $controller->create();
                     <hr class="form-bar">
 
                     <div class="d-flex flex-column justify-content-between">
-                        <div class="col-md-5 d-flex flex-column">
+                        <div class="col-md-6 d-flex flex-column">
                             <label for="road">Οδος</label>
-                            <input type="text" id="road" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input type="text" id="road" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input col-10">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
                             <div class="error"> <?php echo $controller->getErrors('road') ?? '' ?> </div>
                         </div>
                         
-                        <div class="col-md-5 d-flex flex-column mt-3">
+                        <div class="col-md-6 d-flex flex-column mt-3">
                             <label for="city">Πόλη</label>
-                            <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input col-10">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
                             <div class="error"> <?php echo $controller->getErrors('city') ?? '' ?> </div>
                         </div>
 
-                        <div class="d-flex justify-content-between col-md-5 mt-3">
-                            <div class="col-md-5 d-flex flex-column">
-                                <label for="number">Αριθμος</label>
-                                <input type="text" id="number" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('number') ?? '' ?> </div>
+                        <div class="d-flex flex-column col-md-6 mt-3">
+                            <label for="number">Αριθμος</label>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input type="text" id="number" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input col-10">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο ένα ψηφίο">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
                             </div>
-                            <div class="col-md-5 d-flex flex-column">
-                                <label for="pobox">Τ.Κ</label>
-                                <input type="text" id="pobox" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('pobox') ?? '' ?> </div>
-                            </div>
+                            <div class="error"> <?php echo $controller->getErrors('number') ?? '' ?> </div>
                         </div>
 
-                        <div class="d-flex justify-content-between col-md-5 mt-3">
-                            <div class="col-md-5 d-flex flex-column">
-                                <label for="cel">Τηλ.</label>
-                                <input type="text" id="cel" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input">
-                                <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
+                        <div class="col-md-6 d-flex flex-column mt-3">
+                            <label for="pobox">Τ.Κ</label>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input type="text" id="pobox" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input col-10">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Το Τ.Κ αποτελείται απο 5 ψηφία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
                             </div>
-                            <div class="col-md-5 d-flex flex-column">
-                                <label for="email">Email</label>
-                                <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
-                                <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
-                            </div>
+                            <div class="error"> <?php echo $controller->getErrors('pobox') ?? '' ?> </div>
+                        </div>
+
+                        <div class="col-md-5 d-flex flex-column mt-3">
+                            <label for="cel">Τηλ.</label>
+                            <input type="text" id="cel" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input" placeholder="69********">
+                            <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
+                        </div>
+                        <div class="col-md-5 d-flex flex-column mt-3">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
+                            <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                         </div>
                     </div>
                 </div>
@@ -252,7 +292,7 @@ $controller->create();
                             <div class="col-md-3">
                                 <label for="diploma_country">Χώρα Εκδοσης Πτυχίου</label>
                                 <select name="diploma_country" id="diploma_country" class="form-select">
-                                    <option value="Ελλάδα">Ελλάδα</option>
+                                    <option value="Ελλάδα">Γερμανία</option>
                                     <option value="Γαλλία">Γαλλία</option>
                                     <option value="Αγγλία">Αγγλία</option>
                                 </select>
@@ -271,7 +311,12 @@ $controller->create();
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="department">Τμήμα</label>
-                                <input type="text" id="department" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
+                                <div class="d-flex align-items-center">
+                                    <input type="text" id="department" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
@@ -287,24 +332,39 @@ $controller->create();
 
                     <div class="d-flex flex-column justify-content-between">
                        
-                        <div class="col-md-3 mt-2">
+                        <div class="col-md-5 mt-2">
                             <label for="id_copy">Αντίγραφο Ταυτότητας</label>
                             <div class="value"> <?php echo $controller->getFiles('identification') ?? '' ?> </div>
-                            <input type="file" id="id_copy" name="identification" value="" />
+                            <div class="d-flex align-items-center col-12">
+                                <input type="file" id="id_copy" name="identification" value="" />
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο .pdf ή .jpeg αρχεία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
                             <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                         </div>
 
-                        <div class="col-md-3 mt-2">
+                        <div class="col-md-5 mt-2">
                             <label for="diploma">Πτυχίο</label>
                             <div class="value"> <?php echo $controller->getFiles('diploma') ?? '' ?> </div>
-                            <input type="file" id="diploma" name="diploma" value="" />
+                            <div class="d-flex align-items-center col-12">
+                                <input type="file" id="diploma" name="diploma" value="" />
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο .pdf ή .jpeg αρχεία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
                             <div class="error"> <?php echo $controller->getErrors('diploma') ?? '' ?> </div>
                         </div>
                        
-                        <div class="col-md-3 mt-2">
+                        <div class="col-md-5 mt-2">
                             <label for="grades">Αναλυτική Βαθμολογία</label>
                             <div class="value"> <?php echo $controller->getFiles('grades') ?? '' ?> </div>
-                            <input type="file" id="grades" name="grades" value="" />
+                            <div class="d-flex align-items-center col-12">
+                                <input type="file" id="grades" name="grades" value="" />
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο .pdf ή .jpeg αρχεία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
                             <div class="error"> <?php echo $controller->getErrors('grades') ?? '' ?> </div>
                         </div>
                     </div>
@@ -331,6 +391,98 @@ $controller->create();
                 </div>
             </div>
 
+            <div class="tab">
+                <div class="container mt-5" style="width: 70%;">
+                    <h6 class="fw-bolder mb-2">Τροπος Πληρωμής</h6>
+                    <hr class="form-bar">
+
+                    <div class="d-flex flex-column">
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
+                            <input type="radio" id="deposit" name="payment" value="deposit" checked>
+                            <div class="d-flex flex-column align-items-center justify-content-end">
+                                <label for="deposit">Κατάθεση στην Τράπεζα της Ελλάδος</label>
+                                <p class="text-black-50" style="font-size: smaller;">IBAN: GR05 0100 0240 0000 0002 6072 595</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
+                            <input type="radio" id="credit" name="payment" value="credit" data-bs-toggle="modal" data-bs-target="#creditModal">
+                            <div class="d-flex flex-column align-items-center justify-content-end">
+                                <label for="credit">Χρεωστική/Πιστωτική</label>
+                                <p id="credit-payment" style="font-size: smaller; color:chocolate; display:none">Η Πληρωμή Ολοκληρώθηκε</p>
+                            </div>
+
+                            <div class="modal fade" id="creditModal" tabindex="-1" aria-labelledby="creditModalLabel" aria-hidden="true">
+                                <div class="modal-dialog  modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="creditModalLabel">Χρεωστική/Πιστωτική</h5>
+                                            <button type="button" id="close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <iframe 
+                                                id="paymentsIframe" 
+                                                class="visible m-auto" 
+                                                width="100%" 
+                                                height="400px" 
+                                                frameborder="0" 
+                                                scrolling="yes" 
+                                                src="http://localhost/Doatap/src/views/payment.php">
+                                            </iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
+                            <input type="radio" id="paypal" name="payment" value="paypal" data-bs-toggle="modal" data-bs-target="#paypalModal">
+                            <div class="d-flex flex-column align-items-center justify-content-end">
+                                <label for="paypal">PayPal</label>
+                            </div>
+                      
+                            <div class="modal fade" id="paypalModal" tabindex="-1" aria-labelledby="paypalModalLabel" aria-hidden="true">
+                                <div class="modal-dialog  modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="paypalModalLabel">PayPal</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h6 class="fw-bolder mb-2 mt-5">Τροπος Αποστολής</h6>
+                    <hr class="form-bar">
+
+                    <div class="d-flex flex-column">
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
+                            <input type="radio" id="e-statement" name="after_issued" value="e-statement" onclick="digitalOnly()" checked>
+                            <label for="e-statement">e-statement</label>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
+                            <input type="radio" id="delivery" name="after_issued" value="delivery" onclick="showAddress()">
+                            <div class="d-flex flex-column align-items-center justify-content-end">
+                                <label for="delivery">Αποστολή Εντυπου</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3" onclick="showAddress()">
+                            <input type="radio" id="both" name="after_issued" value="both">
+                            <label for="both">Και τα δύο παραπανώ</label>
+                        </div>
+
+                        <div id="address-panel" class="panel mt-2" style="display: none;">
+                            <p style="font-size: smaller; color:chocolate;">Το έντυπο θα αποσταλεί στην διευθυνση που δηλώσατε στο πρώτο βήμα</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div style="overflow:hidden;">
                 <div class="m-3 float-end">
                     <button class="btn" type="submit" name="submit-form" value='draft'>Αποθήκευση</button>
@@ -346,6 +498,12 @@ $controller->create();
         include(BASE_URL. 'includes\footer.php'); 
     ?>
     <script type="text/javascript" src="scripts/request.js"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 
 </html>

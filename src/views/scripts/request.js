@@ -10,6 +10,7 @@ function showTab(n) {
         document.getElementById("prevBtn").style.display = "none";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("nextBtn").style.display = "inline";
     }
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").style.display = "none";
@@ -34,7 +35,6 @@ function nextPrev(n) {
     // if you have reached the end of the form...
     if (currentTab >= x.length) {
         // ... the form gets submitted:
-        console.log('hello');
         document.getElementById("regForm").submit();
         return false;
     }
@@ -75,8 +75,23 @@ function fixStepIndicator(n) {
     x[n].className += " active";
 
     var i, x = document.getElementsByClassName("next-step-arrow");
-    for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
+    if(x){
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        x[n].className += " active";
     }
-    x[n].className += " active";
+}
+
+function CreditPayment(){
+    parent.document.getElementById("credit-payment").style.display = "inline";
+    parent.document.getElementById("close").click();
+}
+
+function showAddress(){
+    document.getElementById("address-panel").style.display = "inline";
+}
+
+function digitalOnly(){
+    document.getElementById("address-panel").style.display = "none";
 }
