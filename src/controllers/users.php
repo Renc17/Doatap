@@ -99,16 +99,19 @@ class UserController{
                 $this->setName($_POST['name']);
                 $this->setSurname($_POST['surname']);
                 $this->setEmail($_POST['email']);
+                $this->setAFM($_POST['afm']);
+                $this->setAMKA($_POST['amka']);
             }else{
                 unset($_POST['register'], $_POST['confirm_password'], $_POST['confirm_email']);
                 $_POST['role'] = 'user';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         
-                $user_id = $this->db->create(self::$table, $_POST, 'email');
-                if($user_id){
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
+                if($user){
                     $this->errors['users'] = 'Ο χρήστης έχει λογαριασμό';
                     return;
                 }
+                $this->db->create(self::$table, $_POST, 'email');
                 header('location: login.php');
             }
         }
