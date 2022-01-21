@@ -10,8 +10,8 @@
     $formController =  new FormController($database);
     $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
-    $rejected = $formController->allFormsByStatus('rejected');
-    $issued = $formController->allFormsByStatus('checked');
+    $rejected = $formController->getFormsByStatus('rejected');
+    $issued = $formController->getFormsByStatus('checked');
 ?>
 
 <!DOCTYPE html>
