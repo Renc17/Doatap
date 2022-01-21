@@ -26,8 +26,11 @@ class CreateUser {
         $this->validateName();
         $this->validateSurname();
         $this->validateEmail();
-        $this->validatePaswword();
+        $this->validateConfirmEmail();
+        $this->validatePassword();
         $this->validateConfirmPassword();
+        $this->validateAFM();
+        $this->validateAMKA();
         return $this->errors;
     }
 
@@ -64,7 +67,16 @@ class CreateUser {
         }
     }
 
-    function validatePaswword(){
+    function validateConfirmEmail(){
+        $confirm = trim($this->data['confirm_email']);
+        $email = trim($this->data['confirm_email']);
+        
+        if($confirm != $email){
+            $this->addError('confirm_email', 'email doesnt match');
+        }
+    }
+
+    function validatePassword(){
         $password = trim($this->data['password']);
         if(empty($password)){
             $this->addError('password', 'password cannot be empty');
@@ -83,6 +95,29 @@ class CreateUser {
             $this->addError('confirm_password', 'password confirmation doesnt match');
         }
     }
+
+    function validateAFM(){
+        $afm = trim($this->data['afm']);
+        if(empty($afm)){
+            $this->addError('afm', 'surname cannot be empty');
+        }else{
+            if(!preg_match('/^[0-9]{9}$/', $afm)){
+                $this->addError('afm', 'surname must not contain numerical');
+            }
+        }
+    }
+
+    function validateAMKA(){
+        $amka = trim($this->data['amka']);
+        if(empty($amka)){
+            $this->addError('amka', 'amka cannot be empty');
+        }else{
+            if(!preg_match('/^[0-9]{11}$/', $amka)){
+                $this->addError('amka', 'amka must not contain numerical');
+            }
+        }
+    }
+
 
     function addError($key, $value){
         $this->errors[$key] = $value;

@@ -100,7 +100,7 @@ class UserController{
                 $this->setSurname($_POST['surname']);
                 $this->setEmail($_POST['email']);
             }else{
-                unset($_POST['register'], $_POST['confirm_password']);
+                unset($_POST['register'], $_POST['confirm_password'], $_POST['confirm_email']);
                 $_POST['role'] = 'user';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         

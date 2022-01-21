@@ -90,7 +90,7 @@ $controller->register();
                             </div>
                             <div class="mt-1">
                                 <input type="email" id="confirm email" placeholder="example@gmail.com" name="confirm_email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
+                                <div class="error"> <?php echo $controller->getErrors('confirm_email') ?? '' ?> </div>
                             </div>
                         </div>
                     </div>

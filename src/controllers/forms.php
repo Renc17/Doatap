@@ -75,7 +75,7 @@ class FormController{
                         $this->files[$key] = null;
                         continue;
                     }
-                    $hashed_name = uniqid() .$file["name"];
+                    $hashed_name = uniqid();
                     $didUpload = move_uploaded_file($file["tmp_name"], BASE_URL. 'assets\uploads\\' .$hashed_name);
                     if (!$didUpload) {
                         $this->errors['upload'] = 'An error occurred. Please contact the administrator.';
