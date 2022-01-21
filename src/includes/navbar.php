@@ -33,7 +33,7 @@
                             <!-- <button class="btn text-start nav-options col-12" onclick="toggleEdit()" ><li >Edit Profile</li></button> -->
                             <li ><a href="/Doatap/src/views/new-request.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Νέα Αίτηση</button></a></li>
                             <li ><a href="/Doatap/src/views/requests.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Οι Αιτήσεις μου</button></a></li>
-                            <li ><a href="/Doatap/src/helpers/auth/delete.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Διαγραφή Λογαριασμού</button></a></li>
+                            <li ><div id="user-id" name="<?php echo $_SESSION["id"];?>" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12" onclick="alertDeleteUser()">Διαγραφή Λογαριασμού</button></div></li>
                             <hr>
                         <?php } ?>
                             <li ><a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black"><button class="btn text-start nav-options col-12">Έξοδος</button></a></li>
@@ -58,4 +58,5 @@
             ?>
         </div>
     </div>
+    <script type="text/javascript" src="../views/scripts/alerts.js"></script>
 </nav>

@@ -108,7 +108,7 @@
                             <div class="col-3 mt-4">
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <h5 class="card-title col-10">Αναγνώριση ισοτιμίας</h5>
                                         <div class="card-text text-black-50"><?php echo $form[15] ?></div>
                                         <div class="card-text text-black-50"><?php echo $form[17] ?></div>
                                         <div class="card-text text-black-50">Τμήμα <?php echo $form[18] ?></div>
@@ -124,7 +124,7 @@
                 </div>
 
                 <div class="tab-pane fade show active" id="drafted" role="tabpanel" aria-labelledby="drafted-tab">
-                    <div class="row justify-content-start">
+                    <div class="row justify-content-start mt-5">
                     <?php 
                         if(empty($drafts)) {
                             ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αποθηκευμένες αιτήσεις </h5> <?php 
@@ -133,12 +133,15 @@
                             <div class="col-3 mt-4">
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body">
-                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="card-title col-10">Αναγνώριση ισοτιμίας</h5>
+                                            <div class="text-black-50 border border-0 col-1" onclick="alertDeleteForm()" ><i class="bi bi-trash"></i></div>
+                                        </div>
                                         <div class="card-text text-black-50"><?php echo $form[15] ?></div>
                                         <div class="card-text text-black-50"><?php echo $form[17] ?></div>
                                         <div class="card-text text-black-50"><?php echo $form[18] ?></div>
                                         <div class="card-text mt-2 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
-                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
+                                        <a id="form-id" href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" name="<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
                                     </div>
                                 </div>
                             </div>
@@ -201,5 +204,6 @@
         <?php 
             include(BASE_URL. 'includes\footer.php'); 
         ?>
+        <script type="text/javascript" src="scripts/alerts.js"></script>
     </body>
 </html>
