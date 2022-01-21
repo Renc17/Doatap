@@ -44,7 +44,7 @@ $controller->login();
 <body>
     <div class="container">
         <div class="d-flex justify-content-start mt-5">
-            <img style="object-fit:contain; width:20%" src="../../images/logo2.png" alt="Logo">
+            <img style="object-fit:contain; width:20%" src="../assets/images/logo2.png" alt="Logo">
         </div>
        
         <br>
