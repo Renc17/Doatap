@@ -109,7 +109,7 @@ $controller->create();
                     </div>
 
 
-                    <div class=" d-flex align-items-center justify-content-around step col-md-3">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-2">
                         <div>
                             <span >Επισυναπτόμενα <br> Έγγραφα</span>
                         </div>
@@ -118,7 +118,7 @@ $controller->create();
                         </div>
                     </div>
 
-                    <div class=" d-flex align-items-center justify-content-between step col-md-2">
+                    <div class=" d-flex align-items-center justify-content-around step col-md-2">
                         <span >Σχόλεια <br>& Οροι</span>
                         <div class="d-flex align-items-center next-step-arrow">
                             <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
