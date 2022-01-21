@@ -123,6 +123,14 @@ input.invalid {
   background-color: #ffdddd;
 }
 
+div.invalid {
+  display: block;
+}
+
+.unchecked {
+  display: none;
+}
+
 /* Hide all steps by default: */
 .tab {
   display: none;

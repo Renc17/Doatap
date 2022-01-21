@@ -384,8 +384,11 @@ $controller->create();
                         </div>
                         <div class="mt-5 d-flex flex-row align-items-center col-12">
                             <input type="checkbox" id="consent" name="consent" value="yes">
-                            <label for="consent" class="p-3">Εξουσιοδοτώ τον ΔΟΑΤΑΠ να ζητήσει οποιοδήποτε απαραίτητο έγγραφο και οποιαδήποτε πληροφορία σχετικά με το ακαδημαϊκό μου πτυχίο προκειμένου να διεκπεραιώσει την αναγνώριση του ανωτέρου πτυχίου.</label><br>
-                            <div class="error"> <?php echo $controller->getErrors('consent') ?? '' ?> </div>
+                            <div class="d-flex flex-column">
+                                <label for="consent" class="p-3">Εξουσιοδοτώ τον ΔΟΑΤΑΠ να ζητήσει οποιοδήποτε απαραίτητο έγγραφο και οποιαδήποτε πληροφορία σχετικά με το ακαδημαϊκό μου πτυχίο προκειμένου να διεκπεραιώσει την αναγνώριση του ανωτέρου πτυχίου.</label><br>
+                                <div id="checkbox-error" class="error unchecked">Πρέπει να συμφωνείσεται με τους όρους</div>
+                                <div class="error"> <?php echo $controller->getErrors('consent') ?? '' ?> </div>
+                            </div>
                         </div>
                     </div>
                 </div>

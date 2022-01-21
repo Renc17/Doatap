@@ -47,6 +47,15 @@ function validateForm() {
     var x, y, i, valid = true;
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
+    checkbox = x[currentTab].getElementsByTagName("input").namedItem("consent");
+    
+    if(checkbox){
+        if(!checkbox.checked){
+            unchecked = document.getElementById("checkbox-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
         // If a field is empty...
