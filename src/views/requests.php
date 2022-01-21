@@ -10,6 +10,8 @@
     $formController =  new FormController($database);
     $drafts = $formController->getFormsByStatus('drafted');
     $submitted = $formController->getFormsByStatus('submitted');
+    $rejected = $formController->allFormsByStatus('rejected');
+    $issued = $formController->allFormsByStatus('checked');
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
 
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="../../scripts.js"></script>
-        <title>Νέα Αίτηση</title>
+        <title>Οι Αιτήσεις Μου</title>
 
         <style>
             button.edit-user{
@@ -81,41 +83,45 @@
             <div class="d-flex justify-content-center">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="Submitted-tab" data-bs-toggle="tab" data-bs-target="#Submitted" type="button" role="tab" aria-controls="Submitted" aria-selected="true">Υποβλήθηκε</button>
+                        <button class="nav-link active" id="drafted-tab" data-bs-toggle="tab" data-bs-target="#drafted" type="button" role="tab" aria-controls="drafted" aria-selected="true">Προσχέδιο</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Προσχέδιο</button>
+                        <button class="nav-link" id="Submitted-tab" data-bs-toggle="tab" data-bs-target="#Submitted" type="button" role="tab" aria-controls="Submitted" aria-selected="false">Υποβλήθηκε</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Ελεγμένα</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" style="color: red;" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
                     </li>
                 </ul>
             </div>
 
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="Submitted" role="tabpanel" aria-labelledby="Submitted-tab">
-                
+                <div class="tab-pane" id="Submitted" role="tabpanel" aria-labelledby="Submitted-tab">
                     <div class="row justify-content-start mt-5">
                         <?php 
                         if(empty($submitted)) {
                             ?> <h5 class="text-center mt-5"> Δεν υπάρχουν νέες υποβολές </h5> <?php 
                         } else {
                             foreach($submitted as $form){ ?>
-                                <div class="col-3 mt-4">
-                                    <div class="card" style="width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                            <div class="card-text text-black-50"><?php echo $form['data']['15'] ?></div>
-                                            <div class="card-text">Status : <?php echo $form['data']['20'] ?></div>
-                                            <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['23'] ?></div>
-                                            <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
-                                        </div>
+                            <div class="col-3 mt-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <div class="card-text text-black-50"><?php echo $form[15] ?></div>
+                                        <div class="card-text mt-1 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
+                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
                                     </div>
                                 </div>
+                            </div>
                         <?php } 
                         }
                         ?>
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="checked" role="tabpanel" aria-labelledby="checked-tab">
+                <div class="tab-pane fade show active" id="drafted" role="tabpanel" aria-labelledby="drafted-tab">
                     <div class="row justify-content-start">
                     <?php 
                         if(empty($drafts)) {
@@ -126,14 +132,59 @@
                                 <div class="card" style="width: 18rem;">
                                     <div class="card-body">
                                         <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                        <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
-                                        <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
-                                        <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
-                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
+                                        <div class="card-text text-black-50"><?php echo $form[15] ?></div>
+                                        <div class="card-text mt-1 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
+                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
                                     </div>
                                 </div>
                             </div>
                         <?php }} ?>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="checked" role="tabpanel" aria-labelledby="checked-tab">
+                    <div class="row justify-content-start mt-5">
+                        <?php 
+                        if(empty($checked)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αρχεία </h5> <?php 
+                        } else {
+                            foreach($checked as $form){ ?>
+                            <div class="col-3 mt-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <div class="card-text text-black-50"><?php echo $form[15] ?></div>
+                                        <div class="card-text mt-1 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
+                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } 
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
+                    <div class="row justify-content-start mt-5">
+                        <?php 
+                        if(empty($rejected)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αρχεία </h5> <?php 
+                        } else {
+                            foreach($rejected as $form){ ?>
+                            <div class="col-3 mt-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
+                                        <div class="card-text text-black-50"><?php echo $form[15] ?></div>
+                                        <div class="card-text mt-1 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
+                                        <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } 
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
