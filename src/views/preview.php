@@ -230,7 +230,7 @@ if(!$formPreview){
                                                 class="embed-responsive-item" 
                                                 src="/Doatap/src/assets/uploads/<?php echo $formPreview[27] ?>"
                                                 height="600px",
-                                                width="600px"
+                                                width="100%"
                                                 >
                                             </iframe>
                                         </div>
