@@ -6,6 +6,10 @@ require(BASE_URL . 'helpers\middlewares\guard.php');
 
 $controller =  new FormController($database);
 $formPreview = $controller->getFormPreview($_GET['id']);
+if(!$formPreview){
+    print('This form doesnt exist or has been deleted');
+    return;
+}
 ?>
 
 <!DOCTYPE html>
