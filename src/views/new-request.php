@@ -292,20 +292,35 @@ $controller->create();
                             <div class="col-md-3">
                                 <label for="diploma_country">Χώρα Εκδοσης Πτυχίου</label>
                                 <select name="diploma_country" id="diploma_country" class="form-select">
-                                    <option value="Ελλάδα">Γερμανία</option>
-                                    <option value="Γαλλία">Γαλλία</option>
                                     <option value="Αγγλία">Αγγλία</option>
+                                    <option value="Γερμανία">Γερμανία</option>
+                                    <option value="Γαλλία">Γαλλία</option>
                                 </select>
                                 <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="university">Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
-                                    <option value="ΕΚΠΑ">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
-                                    <option value="ΠΑΔΑ">Πανεπιστήμιο Δυτικής Αττικής</option>
-                                    <option value="ΠΑΝΤΕΙΟΝ">Πάντειον Πανεπιστήμιο</option>
-                                    <option value="ΑΠΘ">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
-                                    <option value="ΕΜΠ">Εθνικό Μετσόβιο Πολυτεχνείο</option>
+                                    <option value="University of Oxford">University of Oxford</option>
+                                    <option value="University of Cambridgeς">University of Cambridge</option>
+                                    <option value="Imperial College London">Imperial College London</option>
+                                    <option value="The University of Edinburgh">The University of Edinburgh</option>
+                                    <option value="The University of Manchester">The University of Manchester</option>
+                                    <option value="University of Glasgow">University of Glasgow</option>
+
+                                    <option value="Ludwig-Maximilians-University (LMU) Munich">Ludwig-Maximilians-University (LMU) Munich</option>
+                                    <option value="Technical University of Munich">Technical University of Munich</option>
+                                    <option value="University of Tübingen">University of Tübingen</option>
+                                    <option value="Freie Universität Berlin">Freie Universität Berlin</option>
+                                    <option value="University of Freiburg">University of Freiburgn</option>
+                                    <option value="University of Bonn">University of Bonn</option>
+
+                                    <option value="Sorbonne University">Sorbonne University</option>
+                                    <option value="Institut Polytechnique de Paris">Institut Polytechnique de Paris</option>
+                                    <option value="Paris-Saclay University">Paris-Saclay University</option>
+                                    <option value="University of Paris">University of Paris</option>
+                                    <option value="PSL Research University">PSL Research University</option>
+                                    <option value="University of Montpellier">University of Montpellier</option>
                                 </select>
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
