@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand col-1" href="/Doatap/index.php"><img style="object-fit:contain; width:100%" src="/Doatap/images/logo2.png" alt="Doatap"></a>
+        <a class="navbar-brand col-1" href="/Doatap/index.php"><img style="object-fit:contain; width:100%" src="/Doatap/src/assets/images/logo2.png" alt="Doatap"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,12 +29,14 @@
                         <button type="button" value="text" class="btn dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="border: 1px solid #0071bc;"><i style="font-size:x-small" class="bi bi-chevron-left"></i></button>
                         <ul class="dropdown-menu p-3" style="width: 250px;">
                             
-                            <button class="btn text-start nav-options col-12" onclick="toggleEdit()" ><li >Edit Profile</li></button>
-                            <button class="btn text-start nav-options col-12"><li ><a href="/Doatap/src/views/new-request.php" style="text-decoration: none; color: black" >Νέα Αίτηση</a></li></button>
-                            <button class="btn text-start nav-options col-12"><li ><a href="/Doatap/src/views/requests.php" style="text-decoration: none; color: black" >Οι Αιτήσεις μου</a></li></button>
-                            <button class="btn text-start nav-options col-12"><li ><a href="/Doatap/src/helpers/auth/delete.php" style="text-decoration: none; color: black" >Διαγραφή Λογαριασμού</a></li></button>
+                        <?php if ($_SESSION["role"] === "user"){ ?>
+                            <!-- <button class="btn text-start nav-options col-12" onclick="toggleEdit()" ><li >Edit Profile</li></button> -->
+                            <li ><a href="/Doatap/src/views/new-request.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Νέα Αίτηση</button></a></li>
+                            <li ><a href="/Doatap/src/views/requests.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Οι Αιτήσεις μου</button></a></li>
+                            <li ><a href="/Doatap/src/helpers/auth/delete.php" style="text-decoration: none; color: black" ><button class="btn text-start nav-options col-12">Διαγραφή Λογαριασμού</button></a></li>
                             <hr>
-                            <button class="btn text-start nav-options col-12"><li ><a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black">Έξοδος</a></li></button>
+                        <?php } ?>
+                            <li ><a href="/Doatap/src/helpers/auth/logout.php" style="text-decoration: none; color: black"><button class="btn text-start nav-options col-12">Έξοδος</button></a></li>
                                 
                             
                         </ul>
@@ -55,6 +57,5 @@
             }
             ?>
         </div>
-
-        
+    </div>
 </nav>
