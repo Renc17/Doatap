@@ -181,10 +181,6 @@ class CreateForm {
         $field = trim($this->data['diploma_country']);
         if(empty($field)){
             $this->addError('diploma_country', 'Το πεδίο είναι υποχρεωτικό');
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('diploma_country', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
-            }
         }
     }
 
@@ -354,7 +350,7 @@ class CreateForm {
         if(empty($field)){
             return;
         }else{
-            if(!preg_match('/[A-Z]{2}[0-9]{6}$/', $field)){
+            if(!preg_match('/[A-Z\s]{2}[0-9]{6}$/', $field)){
                 $this->addError('ID_num', 'Το πεδίο πρέπει να περιέχει 2 κεφαλαία λατινικά γράμματα και 6 ψηφία');
             }
         }
@@ -419,10 +415,6 @@ class CreateForm {
         $field = trim($this->data['diploma_country']);
         if(empty($field)){
             return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('diploma_country', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
-            }
         }
     }
 
@@ -452,10 +444,6 @@ class CreateForm {
         $field = trim($this->data['university']);
         if(empty($field)){
             return;
-        }else{
-            if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('university', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
-            }
         }
     }
 
