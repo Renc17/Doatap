@@ -55,6 +55,17 @@
                 font-weight: bold;
             }
 
+            #search {
+                background-image: url('/Doatap/src/assets/images/searchicon.png'); /* Add a search icon to input */
+                background-position: 10px 12px; /* Position the search icon */
+                background-repeat: no-repeat; /* Do not repeat the icon image */
+                width: 100%; /* Full-width */
+                font-size: 16px; /* Increase font-size */
+                padding: 12px 20px 12px 40px; /* Add some padding */
+                border: 1px solid #ddd; /* Add a grey border */
+                margin-bottom: 12px; /* Add some space below the input */
+            }
+
         </style>
     </head>
 
@@ -110,15 +121,17 @@
                 <div class="tab-pane fade show active" id="Submitted" role="tabpanel" aria-labelledby="Submitted-tab">
                 
                     <div class="row justify-content-start mt-5">
+                        <input type="text" id="search" onkeyup="search()" placeholder="Αναζήτησε Αρ. Ταυτότητας/Διαβατηρίου...">
                         <?php 
                         if(empty($submitted)) {
                             ?> <h5 class="text-center mt-5"> Δεν υπάρχουν νέες υποβολές </h5> <?php 
                         } else { ?>
-                            <table class="table">
+                            <table id="dashboard" class="table">
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Αρ.Ταυτότητας/Διαβατηρίου</th>
                                     <th scope="col">Ον/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
                                     <th scope="col">Επισκόπηση</th>
@@ -129,6 +142,7 @@
                                     <tr>
                                         <th scope="row"><?php echo $form[0] ?></th>
                                         <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[8] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
@@ -214,5 +228,6 @@
         <?php 
             include(BASE_URL. 'includes\footer.php'); 
         ?>
+        <script type="text/javascript" src="scripts/search.js"></script>
     </body>
 </html>
