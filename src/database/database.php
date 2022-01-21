@@ -77,7 +77,6 @@
                 $i++;
             }
             
-            $query = $query . " ORDER BY created_at DESC";
             $stmt = $this->executeQuery($query, $conditiions);
             $rows = $stmt->get_result();
             $results = array();
@@ -87,9 +86,9 @@
             return $results;
         }
 
-        function JoinedSelection($table1 , $table2, $join, $conditiions) {
+        function JoinedSelection($table1 , $table2, $conditiions) {
             $query = "SELECT * FROM $table1 JOIN $table2 ON";
-            $query = $query . " $table1.$join[0]=$table2.$join[1]";
+            $query = $query . " $table1.id=$table2.id";
 
             $i=0;
             foreach($conditiions as $key => $_){
@@ -102,7 +101,6 @@
             }
             
             $query = $query . " ORDER BY created_at DESC";
-
             $stmt = $this->executeQuery($query, $conditiions);
             $rows = $stmt->get_result();
             $results = array();

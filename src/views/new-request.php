@@ -466,13 +466,13 @@ $controller->create();
                             <label for="e-statement">e-statement</label>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="delivery" name="after_issued" value="delivery" onclick="showAddress()">
+                            <input type="radio" id="delivery" name="after_issued" value="Αποστολή Εντυπου" onclick="showAddress()">
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="delivery">Αποστολή Εντυπου</label>
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3" onclick="showAddress()">
-                            <input type="radio" id="both" name="after_issued" value="both">
+                            <input type="radio" id="both" name="after_issued" value="Αποστολή Εντυπου και e-statement">
                             <label for="both">Και τα δύο παραπανώ</label>
                         </div>
 

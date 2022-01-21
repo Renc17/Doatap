@@ -84,7 +84,7 @@ class FormController{
                 }
                 
                 $form_id = $this->db->create(self::$table, $this->data, null);
-                $this->files['form_id'] = $form_id;
+                $this->files['id'] = $form_id;
                 $this->db->create(self::$files_table, $this->files, null);
                 header('location: profile.php');
             }
@@ -100,32 +100,21 @@ class FormController{
     }
 
     function allFormsByStatus($status){ 
-        $forms = $this->db->JoinedSelection(self::$table, self::$files_table, [0 => 'id', 1 => 'form_id'], ['status' => $status]);
+        $forms = $this->db->JoinedSelection(self::$table, self::$files_table, ['status' => $status]);
         return $forms;
 
     }
 
     function getFormPreview($id){
-        $complete_form = array();
-        $form = $this->db->select(self::$table, ['id' => $id]);
-        if(empty($form)){
-            return [];
-        }
-        $form = $form[0];
-        $files = $this->db->select(self::$files_table, ['form_id' => $form[0]])[0];
-
-        $complete_form['data'] = $form;
-        $complete_form['files'] = $files;
-        
-        return $complete_form;
+        $form = $this->db->JoinedSelection(self::$table, self::$files_table, 
+        [
+            'forms.id' => $id        
+        ]);
+        return $form[0];
     }
 
     function getFormsByStatus($status){
         $forms = $this->db->JoinedSelection(self::$table, self::$files_table, 
-        [
-            0 => 'id', 
-            1 => 'form_id'
-        ], 
         [
             'user_id' => $_SESSION['id'],
             'status' => $status

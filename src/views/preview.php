@@ -6,6 +6,8 @@ require(BASE_URL . 'helpers\middlewares\guard.php');
 
 $controller =  new FormController($database);
 $formPreview = $controller->getFormPreview($_GET['id']);
+
+print_r($formPreview);
 ?>
 
 <!DOCTYPE html>
@@ -93,119 +95,90 @@ $formPreview = $controller->getFormPreview($_GET['id']);
             <form id="regForm" method='post' action='preview.php' enctype="multipart/form-data">
 
                 <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
-                <h6 class="text-center fw-lighter mb-5">Υποβλήθηκε <i class="bi bi-dot"></i> <?php echo $formPreview['data'][35] ?></h6>
+                <h6 class="text-center fw-lighter mb-5"><?php echo $formPreview[23] ?> <i class="bi bi-dot"></i> <?php echo $formPreview[22] ?></h6>
                 
                 <div class="container mt-5" style="width: 70%;">
                     <h6 class="fw-bolder mb-2">Προσωπικά Στοιχεία</h6>
                     <hr class="form-bar">
                 
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3">
+                    <div class="d-flex flex-row justify-content-between col-md-6">
+                        <div class="col-md-6">
                             <label>Όνομα</label>
-                            <p><?php echo $formPreview['data'][1] ?></p>
+                            <p><?php echo $formPreview[1] ?></p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label>Επώνυμο</label>
-                            <p><?php echo $formPreview['data'][2] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Φύλο</label>
-                            <p><?php echo $formPreview['data'][3] ?></p>
+                            <p><?php echo $formPreview[2] ?></p>
                         </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
+                    <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
+                        <div class="col-md-6">
                             <label>Πατρώνυμο</label>
-                            <p><?php echo $formPreview['data'][4] ?></p>
+                            <p><?php echo $formPreview[3] ?></p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label>Μητρώνυμο</label>
-                            <p><?php echo $formPreview['data'][5] ?></p>
+                            <p><?php echo $formPreview[4] ?></p>
                         </div>
-                        <div class="col-md-3">
+                    </div>
+
+                    <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
+                        <div class="col-md-6">
                             <label>ΑΜΚΑ</label>
-                            <p><?php echo $formPreview['data'][6] ?></p>
+                            <p><?php echo $formPreview[5] ?></p>
                         </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Χώρα Γέννησης</label>
-                            <p><?php echo $formPreview['data'][8] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Πόλη Γέννησης</label>
-                            <p><?php echo $formPreview['data'][9] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Γέννησης</label>
-                            <p><?php echo $formPreview['data'][10] ?></p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Ταυτοποίηση</label>
-                            <p><?php echo $formPreview['data'][11] ?></p>
-                        </div>
-                        
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <label>ΑΦΜ</label>
-                            <p><?php echo $formPreview['data'][7] ?></p>
-                        </div>
-                        <div class="col-md-3">
+                            <p><?php echo $formPreview[6] ?></p>
                         </div>
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
+                    <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
+                        <div class="col-md-6">
+                            <label>Ταυτοποίηση</label>
+                            <p><?php echo $formPreview[7] ?></p>
+                        </div>
+                        <div class="col-md-6">
                             <label>Αριθμός Ταυτότητας</label>
-                            <p><?php echo $formPreview['data'][12] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Έκδοσης</label>
-                            <p><?php echo $formPreview['data'][13] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Χώρα Έκδοσης</label>
-                            <p><?php echo $formPreview['data'][14] ?></p>
+                            <p><?php echo $formPreview[8] ?></p>
                         </div>
                     </div>
 
 
-                    <h6 class="fw-bolder mb-2 mt-5">Στοιχεία Επικοινωνίας</h6>
+                    <h6 class="fw-bolder mb-2 mt-5">Στοιχεία Τιμολόγησης/Αποστολής</h6>
                     <hr class="form-bar">
 
-                    <div class="d-flex flex-row justify-content-between">
-                        <div class="col-md-3">
-                            <label>Χώρα Διαμονής</label>
-                            <p><?php echo $formPreview['data'][15] ?></p>
+                    <div class="d-flex justify-content-between col-md-6">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row justify-content-start">
+                                <div><?php echo $formPreview[9] ?></div>
+                                <div class="ps-2"><?php echo $formPreview[11] ?></div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-start">
+                                <div><?php echo $formPreview[10] ?></div>
+                                <div class="ps-2"><?php echo $formPreview[12] ?></div>
+                            </div>
+                            <div class="">
+                                <div><?php echo $formPreview[13] ?></div>
+                            </div>
+                            <div class="">
+                                <div><?php echo $formPreview[14] ?></div>
+                            </div>
+                            
                         </div>
-                        <div class="col-md-3">
-                            <label>Πόλη Διαμονής</label>
-                            <p><?php echo $formPreview['data'][16] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Περιοχή Διαμονής</label>
-                            <p><?php echo $formPreview['data'][17] ?></p>
+                        <div class="d-flex flex-column">
+                            <div class="">
+                                <label>Τροπος Πληρωμής</label>
+                                <div><?php echo $formPreview[24] ?></div>
+                            </div>
+                            <div class="mt-3">
+                                <label>Τροπος Αποστολής</label>
+                                <div><?php echo $formPreview[25] ?></div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Διεύθυνση</label>
-                            <p><?php echo $formPreview['data'][18] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Αριθμός Τηλεφώνου</label>
-                            <p><?php echo $formPreview['data'][19] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Email</label>
-                            <p><?php echo $formPreview['data'][20] ?></p>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 <div class="container mt-5" style="width: 70%;">
@@ -215,98 +188,32 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                     <div class="d-flex flex-row justify-content-between">
                         <div class="col-md-6">
                             <label>Κύκλος Φοίτησης</label>
-                            <p><?php echo $formPreview['data'][21] ?></p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-5">
-                            <label>Τύπος Φοίτησης</label>
-                            <p><?php echo $formPreview['data'][22] ?></p>
-                        </div>
-                        <div class="col-md-5">
-                            <label>Αντιστοιχία Πτυχίου</label>
-                            <p><?php echo $formPreview['data'][23] ?></p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-5">
-                            <label>Συνεκτίμηση Πτυχίου</label>
-                            <p><?php echo $formPreview['data'][24] ?></p>
-                        </div>
-                        <div class="col-md-5">
-                            <label>Τρόπος Φοίτησης</label>
-                            <p><?php echo $formPreview['data'][25] ?></p>
+                            <p><?php echo $formPreview[15] ?></p>
                         </div>
                     </div>
 
                     <div class="d-flex flex-row justify-content-between mt-2">
                         <div class="col-md-3">
-                            <label>Χώρα Σπουδών</label>
-                            <p><?php echo $formPreview['data'][26] ?></p>
+                            <label>Χώρα Εκδοσης Πτυχίου</label>
+                            <p><?php echo $formPreview[16] ?></p>
                         </div>
                         <div class="col-md-3">
                             <label>Πανεπιστήμιο</label>
-                            <p><?php echo $formPreview['data'][27] ?></p>
+                            <p><?php echo $formPreview[17] ?></p>
                         </div>
                         <div class="col-md-3">
-                            <label>Τίτλος Σπουδών</label>
-                            <p><?php echo $formPreview['data'][28] ?></p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3">
-                            <label>Πιστ. Μονάδες (credits)</label>
-                            <p><?php echo $formPreview['data'][29] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Εγγραφής</label>
-                            <p><?php echo $formPreview['data'][30] ?></p>
-                        </div>
-                        <div class="col-md-3">
-                            <label>Ημερομηνία Αποφοίτησης</label>
-                            <p><?php echo $formPreview['data'][31] ?></p>
+                            <label>Τμήμα</label>
+                            <p><?php echo $formPreview[18] ?></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="container mt-5" style="width: 70%;">
+                    <h6 class="fw-bolder mb-2">Δικαιολογητικά</h6>
+                    <hr class="form-bar">
 
                     <div class="d-flex flex-row justify-content-between">
-                        <div class="d-flex flex-column col-md-3">                  
-                            <label>Παράβολο</label>                         
-                                                                             
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#parabolo">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="parabolo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][1] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                    
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 d-flex flex-column">
+                        <div class="col-md-4 d-flex flex-column">
                             <label>Αντίγραφο Ταυτότητας</label>
                             <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#id">
                             Ανάγνωση <i class="bi bi-image"></i>
@@ -315,26 +222,24 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                             <div class="modal fade" id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body d-flex justify-content-center">
-                                        <div class="embed-responsive embed-responsive-21by9 col-12">
-                                            <iframe 
-                                                class="embed-responsive-item" 
-                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][2] ?>"
-                                                height="600px",
-                                                width="100%"
-                                                >
-                                            </iframe>
+                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <div class="embed-responsive embed-responsive-21by9 col-12">
+                                                <iframe 
+                                                    class="embed-responsive-item" 
+                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview[27] ?>"
+                                                    height="600px",
+                                                    width="100%"
+                                                    >
+                                                </iframe>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Υπεύθυνη Δήλωση</label>
+                        <div class="col-md-4 d-flex flex-column">
+                            <label>Πτυχίο</label>
                             <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#dilosi">
                             Ανάγνωση <i class="bi bi-image"></i>
                             </button>
@@ -342,14 +247,12 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                             <div class="modal fade" id="dilosi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
                                         <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
+                                            <div class="embed-responsive embed-responsive-21by9 col-12">
                                                 <iframe 
                                                     class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][4] ?>"
+                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview[28] ?>"
                                                     height="600px"
                                                     width="100%"
                                                     >
@@ -360,11 +263,9 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Έντυπο Συγκατάθεσης</label>
+                        <div class="col-md-4 d-flex flex-column">
+                            <label>Αναλυτική Βαθμολογία</label>
                             <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#sinkatathesi">
                             Ανάγνωση <i class="bi bi-image"></i>
                             </button>
@@ -372,242 +273,12 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                             <div class="modal fade" id="sinkatathesi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
                                         <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
+                                            <div class="embed-responsive embed-responsive-21by9 col-12">
                                                 <iframe 
                                                     class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][13] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Απολυτήριο Λυκείου</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#hs_diploma">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="hs_diploma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][5] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Πτυχίο</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#diploma">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="diploma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][6] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Μεταπτυχιακός Τίτλος</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="master" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][7] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Πιστοποιητικό Μαθημάτων</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master_certif">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="master_certif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][8] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Πιστοποιητικό Πανεπιστημίου</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#collage_certf">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="collage_certf" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][9] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row justify-content-between mt-2">
-                        <div class="col-md-3 d-flex flex-column">
-                            <?php if(isAdmin()){ ?>
-                                <div class="d-flex ">
-                                    <label for="no">Oxi</label>
-                                    <input type="checkbox" id="no" name="parabolo" value="Oxi">
-                                </div>
-                            <?php } ?>
-                            <label>Εργασία Μεταπτυχιακού Τίτλου</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#master_prj">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="master_prj" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][10] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Πιστοποιητικό Πανεπιστημίου (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#collage_certif_master">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="collage_certif_master" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][11] ?>"
-                                                    height="600px"
-                                                    width="100%"
-                                                    >
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column">
-                            <label>Πιστοποιητικό Μαθημάτων (Συνεκτίμηση Μεταπτυχιακού)</label>
-                            <button type="button" class="btn file" data-bs-toggle="modal" data-bs-target="#class_certif">
-                            Ανάγνωση <i class="bi bi-image"></i>
-                            </button>
-
-                            <div class="modal fade" id="class_certif" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body d-flex justify-content-center">
-                                            <div class="ratio ratio-4x3 col-12">
-                                                <iframe 
-                                                    class="embed-responsive-item" 
-                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview['files'][12] ?>"
+                                                    src="/Doatap/src/assets/uploads/<?php echo $formPreview[29] ?>"
                                                     height="600px"
                                                     width="100%"
                                                     >
@@ -625,7 +296,7 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                     <h6 class="fw-bolder mb-2">Σχόλεια Αιτούντα</h6>
                     <hr class="form-bar">
                     <div class="col-md-5 d-flex flex-column">
-                        <p><?php echo $formPreview['data'][34] ?></p>
+                        <p><?php echo $formPreview[20] ?? 'N/A' ?></p>
                     </div>
                 </div>
 
