@@ -9,7 +9,7 @@ $formPreview = $controller->getFormPreview($_GET['id']);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 
 <head>
     <meta charset="UTF-8">

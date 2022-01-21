@@ -13,7 +13,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 
     <head>
         <meta charset="UTF-8">

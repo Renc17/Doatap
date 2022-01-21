@@ -99,18 +99,10 @@ class FormController{
         return;
     }
 
-    function allFormsByStatus($status){
-        $all_forms = array();
-        $complete_form = array();
+    function allFormsByStatus($status){ 
+        $forms = $this->db->JoinedSelection(self::$table, self::$files_table, [0 => 'id', 1 => 'form_id'], ['status' => $status]);
+        return $forms;
 
-        $forms = $this->db->select(self::$table, ['status' => $status]);
-        foreach($forms as $key => $form){
-            $form = $this->db->select(self::$files_table, ['form_id' => $form[0]]);
-            $complete_form['data'] = $forms[$key];
-            $complete_form['files'] = $form;
-            $all_forms[$key] = $complete_form;
-        }
-        return $all_forms;
     }
 
     function getFormPreview($id){
@@ -129,27 +121,16 @@ class FormController{
     }
 
     function getFormsByStatus($status){
-        $all_forms = array();
-        $complete_form = array();
-
-        $forms = $this->db->select(self::$table, 
+        $forms = $this->db->JoinedSelection(self::$table, self::$files_table, 
+        [
+            0 => 'id', 
+            1 => 'form_id'
+        ], 
         [
             'user_id' => $_SESSION['id'],
             'status' => $status
         ]);
-        if(empty($forms)){
-            return [];
-        }
-
-        foreach($forms as $key => $form){
-            $form = $this->db->select(self::$files_table, ['form_id' => $form[0]]);
-            $complete_form['data'] = $forms[$key];
-            $complete_form['files'] = $form;
-            $all_forms[$key] = $complete_form;
-        }
-        return $all_forms;
-
-        // $this->db->JoinedSelection(self::$table, );
+        return $forms;
     }
 
     function AdminCheckedForm($id){

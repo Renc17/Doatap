@@ -8,16 +8,9 @@
 
     $logout_path = '..\helpers\auth\logout.php';
     $delete_path = '..\helpers\auth\delete.php';
-
-    require(BASE_URL. 'controllers\forms.php');
-    $formController =  new FormController($database);
-    $drafts = $formController->getFormsByStatus('drafted');
-    $submitted = $formController->getFormsByStatus('submitted');
-
-    $formPreview = $formController->getFormPreview(15);   // for form preview view
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

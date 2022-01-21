@@ -11,10 +11,13 @@
 
     require(BASE_URL. 'controllers\forms.php');
     $formController =  new FormController($database);
+    
     $forms = $formController->allFormsByStatus('checked');
     $submitted = $formController->allFormsByStatus('submitted');
+    $rejected = $formController->allFormsByStatus('rejected');
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="el">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +27,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../style.css">
 
@@ -96,6 +100,9 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Ελεγμένα</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" style="color: red;" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
+                    </li>
                 </ul>
             </div>
             
@@ -106,41 +113,97 @@
                         <?php 
                         if(empty($submitted)) {
                             ?> <h5 class="text-center mt-5"> Δεν υπάρχουν νέες υποβολές </h5> <?php 
-                        } else {
-                            foreach($submitted as $form){ ?>
-                                <div class="col-3 mt-4">
-                                    <div class="card" style="width: 18rem;">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                            <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
-                                            <div class="card-text text-black-50 mt-3"><?php echo $form['data']['1'] .' ' .$form['data']['2']  ?></div>
-                                            <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
-                                            <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
-                                            <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
-                                        </div>
-                                    </div>
-                                </div>
-                        <?php } 
-                        }
-                        ?>
+                        } else { ?>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Δημιουργήθηκε</th>
+                                    <th scope="col">Επισκόπηση</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($submitted as $form){ ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $form[0] ?></th>
+                                        <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[1] .' ' .$form[2]  ?></td>
+                                        <td><?php echo $form[22] ?></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="checked" role="tabpanel" aria-labelledby="checked-tab">
-                    <div class="row justify-content-start">
-                        <?php foreach($forms as $form){ ?>
-                        <div class="col-3 mt-4">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Αναγνώριση ισοτιμίας</h5>
-                                    <div class="card-text text-black-50"><?php echo $form['data']['21'] ?></div>
-                                    <div class="card-text text-black-50 mt-3"><?php echo $form['data']['1'] .' ' .$form['data']['2']  ?></div>
-                                    <div class="card-text">Status : <?php echo $form['data']['33'] ?></div>
-                                    <div class="card-text mt-2 text-black-50">Created at  <?php echo $form['data']['35'] ?></div>
-                                    <a href="/Doatap/src/views/preview.php?id=<?php echo $form['data']['0']?>" class="btn mt-3">Ανάγνωση</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row justify-content-start mt-5">
+                    <?php 
+                        if(empty($forms)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν ελεγμένες αιτήσεις </h5> <?php 
+                        } else { ?>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Δημιουργήθηκε</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Επισκόπηση</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($forms as $form){ ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $form[0] ?></th>
+                                        <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[1] .' ' .$form[2]  ?></td>
+                                        <td><?php echo $form[22] ?></td>
+                                        <td><?php echo $form[23] ?></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
+                    <div class="row justify-content-start mt-5">
+                    <?php 
+                        if(empty($rejected)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αιτήσεις </h5> <?php 
+                        } else { ?>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Δημιουργήθηκε</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Επισκόπηση</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($rejected as $form){ ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $form[0] ?></th>
+                                        <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[1] .' ' .$form[2]  ?></td>
+                                        <td><?php echo $form[22] ?></td>
+                                        <td><?php echo $form[23] ?></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         <?php } ?>
                     </div>
                 </div>
