@@ -6,8 +6,6 @@ require(BASE_URL . 'helpers\middlewares\guard.php');
 
 $controller =  new FormController($database);
 $formPreview = $controller->getFormPreview($_GET['id']);
-
-print_r($formPreview);
 ?>
 
 <!DOCTYPE html>
