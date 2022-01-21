@@ -38,6 +38,9 @@ $controller->login();
             border-left: 3px solid rgba(186,184,184,0.59);
             height: 500px;
         }
+        .error{
+            color: red;
+        }
     </style>
 </head>
 
