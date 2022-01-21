@@ -20,6 +20,8 @@ $controller->register();
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../style.css">
 
+    <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../scripts.js"></script>
     
@@ -39,7 +41,7 @@ $controller->register();
 <body>
     <div class="container" style="height:100vh;">
         <div class="d-flex justify-content-center mt-5">
-            <img style="object-fit:contain; width:20%" src="../../images/logo2.png" alt="Logo">
+            <img style="object-fit:contain; width:20%" src="../assets/images/logo2.png" alt="Logo">
         </div>
         
         <hr/>
@@ -47,7 +49,7 @@ $controller->register();
 
         <div class="auth-content d-flex justify-content-center align-items-center mt-5" style="height:50vh;">
             <form class="col-12 d-flex justify-content-center" action="register.php" method="post">
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-7 col-sm-12">
                     <h2 class="form-title fw-bold text-center mt-5">Εγγραφή</h2>
                     <div class="error"> <?php echo $controller->getErrors('users') ?? '' ?> </div>
 
@@ -57,9 +59,16 @@ $controller->register();
                                 <label class="fw-bold" for="name">Όνομα</label>
                             </div>
                             <div class="mt-1">
-                                <input type="text" id="name" placeholder="Όνομα" name="name" value="<?php echo $controller->getName(); ?>"  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="text" id="name" placeholder="Όνομα" name="name" value="<?php echo $controller->getName(); ?>"  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                             </div>
+
+                            
                         </div>
 
                         <div class="m-2">
@@ -67,9 +76,15 @@ $controller->register();
                                 <label class="fw-bold" for="surname">Επώνυμο</label>
                             </div>
                             <div class="mt-1">
-                                <input type="text" id="surname" placeholder="Επώνυμο" name="surname" value="<?php echo $controller->getSurname(); ?>"style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="text" id="surname" placeholder="Επώνυμο" name="surname" value="<?php echo $controller->getSurname(); ?>"style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                             </div>
+                            
                         </div>
                     </div>
                     
@@ -79,7 +94,12 @@ $controller->register();
                                 <label class="fw-bold" for="email">Email</label>
                             </div>
                             <div class="mt-1">
-                                <input type="email" id="email" placeholder="example@gmail.com" name="email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="email" id="email" placeholder="example@gmail.com" name="email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ένα έγκυρο email">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                             </div>
                         </div>
@@ -89,7 +109,12 @@ $controller->register();
                                 <label class="fw-bold" for="confirm email">Επαλήθευση Email</label>
                             </div>
                             <div class="mt-1">
-                                <input type="email" id="confirm email" placeholder="example@gmail.com" name="confirm_email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="email" id="confirm email" placeholder="example@gmail.com" name="confirm_email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανα το email">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('confirm_email') ?? '' ?> </div>
                             </div>
                         </div>
@@ -101,18 +126,32 @@ $controller->register();
                                 <label class="fw-bold" for="password">Κωδικός</label>
                             </div>
                             <div class="mt-1">
-                                <input type="password" id="password" placeholder="Κωδικός" name="password" value="<?php echo $controller->getPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="password" id="password" placeholder="Κωδικός" name="password" value="<?php echo $controller->getPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο κωδικός πρέπει να είναι περιέχει 6-12 ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('password') ?? '' ?> </div>
                             </div>
+
+                            
                         </div>
                         <div class="m-2">
                             <div>
                                 <label class="fw-bold" for="confirm password">Επαλήθευση Κωδικού</label>
                             </div>
                             <div class="mt-1">
-                                <input type="password" id="confirm password" placeholder="Κωδικός" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="password" id="confirm password" placeholder="Κωδικός" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανα τον κωδικό">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('confirm_password') ?? '' ?> </div>
                             </div>
+
+                            
                         </div>
                     </div>
 
@@ -122,16 +161,28 @@ $controller->register();
                                 <label class="fw-bold" for="afm">ΑΦΜ</label>
                             </div>
                             <div class="mt-1">
-                                <input type="text" id="afm" placeholder="ΑΦΜ" name="afm" value="<?php echo $controller->getAFM(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="text" id="afm" placeholder="ΑΦΜ" name="afm" value="<?php echo $controller->getAFM(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Το ΑΦΜ πρέπει να περιέχει 9 ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                             </div>
+
+                            
                         </div>
                         <div class="m-2">
                             <div>
                                 <label class="fw-bold" for="amka">ΑΜΚΑ</label>
                             </div>
                             <div class="mt-1">
-                                <input type="text" id="amka" placeholder="ΑΜΚΑ" name="amka" value="<?php echo $controller->getAMKA(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <input type="text" id="amka" placeholder="ΑΜΚΑ" name="amka" value="<?php echo $controller->getAMKA(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Το ΑΜΚΑ πρέπει να περιέχει 11 ψηφία">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
                                 <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                             </div>
                         </div>
@@ -150,6 +201,12 @@ $controller->register();
             </form>
         </div>
     </div>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 
 </html>
