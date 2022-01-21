@@ -147,7 +147,7 @@ $formPreview = $controller->getFormPreview($_GET['id']);
                     <h6 class="fw-bolder mb-2 mt-5">Στοιχεία Τιμολόγησης/Αποστολής</h6>
                     <hr class="form-bar">
 
-                    <div class="d-flex justify-content-between col-md-6">
+                    <div class="d-flex justify-content-between col-md-8">
                         <div class="d-flex flex-column">
                             <div class="d-flex flex-row justify-content-start">
                                 <div><?php echo $formPreview[9] ?></div>

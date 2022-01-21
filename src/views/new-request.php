@@ -216,17 +216,6 @@ $controller->create();
                             </div>
                             <div class="error"> <?php echo $controller->getErrors('road') ?? '' ?> </div>
                         </div>
-                        
-                        <div class="col-md-6 d-flex flex-column mt-3">
-                            <label for="city">Πόλη</label>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input col-10">
-                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
-                                    <i class="bi bi-info-circle"></i>
-                                </button>
-                            </div>
-                            <div class="error"> <?php echo $controller->getErrors('city') ?? '' ?> </div>
-                        </div>
 
                         <div class="d-flex flex-column col-md-6 mt-3">
                             <label for="number">Αριθμος</label>
@@ -237,6 +226,17 @@ $controller->create();
                                 </button>
                             </div>
                             <div class="error"> <?php echo $controller->getErrors('number') ?? '' ?> </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex flex-column mt-3">
+                            <label for="city">Πόλη</label>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input col-10">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
+                            <div class="error"> <?php echo $controller->getErrors('city') ?? '' ?> </div>
                         </div>
 
                         <div class="col-md-6 d-flex flex-column mt-3">
