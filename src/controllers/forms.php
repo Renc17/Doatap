@@ -130,7 +130,7 @@ class FormController{
         $effected_rows = $this->db->update(self::$table, $id, 
         [
             'status'=> 'checked',
-            'updated_at' => date("Y-m-d",$t)
+            'created_at' => date("Y-m-d",$t)
         ]);
         if($effected_rows)
             header('location: dashboard.php');
