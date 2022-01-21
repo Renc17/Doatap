@@ -138,12 +138,12 @@ $controller->create();
                 
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="name">Όνομα</label>
-                        <input type="text" id="name" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>">
+                        <input type="text" id="name" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                     </div>
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="surname">Επώνυμο</label>
-                        <input type="text" id="surname" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>">
+                        <input type="text" id="surname" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                     </div>
  
@@ -169,13 +169,13 @@ $controller->create();
                     </div>
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="amka">ΑΜΚΑ</label>
-                        <input type="text" id="amka" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" >
+                        <input type="text" id="amka" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                     </div>
 
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="afm">ΑΦΜ</label>
-                        <input type="text" id="afm" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>">
+                        <input type="text" id="afm" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                     </div>
 
@@ -257,7 +257,7 @@ $controller->create();
                         </div>
                         <div class="col-md-5 d-flex flex-column mt-3">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>">
+                            <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>" readonly>
                             <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                         </div>
                     </div>
