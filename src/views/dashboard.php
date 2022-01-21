@@ -185,7 +185,6 @@
                                     <th scope="col">Αρ.Ταυτότητας/Διαβατηρίου</th>
                                     <th scope="col">Ον/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
-                                    <th scope="col">Status</th>
                                     <th scope="col">Επισκόπηση</th>
                                     <th scope="col">e-statement</th>
                                     </tr>
@@ -198,7 +197,6 @@
                                         <td><?php echo $form[8] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
-                                        <td><?php echo $form[23] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
 
                                         <td><button type="button" class="btn border border-2 col-md-12 m-auto" data-bs-toggle="modal" data-bs-target="#id">
