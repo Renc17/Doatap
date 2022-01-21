@@ -66,6 +66,22 @@
                 margin-bottom: 12px; /* Add some space below the input */
             }
 
+            #search-checked {
+                background-image: url('/Doatap/src/assets/images/searchicon.png'); /* Add a search icon to input */
+                background-position: 10px 12px; /* Position the search icon */
+                background-repeat: no-repeat; /* Do not repeat the icon image */
+                width: 100%; /* Full-width */
+                font-size: 16px; /* Increase font-size */
+                padding: 12px 20px 12px 40px; /* Add some padding */
+                border: 1px solid #ddd; /* Add a grey border */
+                margin-bottom: 12px; /* Add some space below the input */
+            }
+
+            .modal-dialog{
+                max-width: 55%;
+                max-height: 100%;
+            }
+
         </style>
     </head>
 
@@ -156,19 +172,22 @@
 
                 <div class="tab-pane fade" id="checked" role="tabpanel" aria-labelledby="checked-tab">
                     <div class="row justify-content-start mt-5">
+                    <input type="text" id="search-checked" onkeyup="searchChecked()" placeholder="Αναζήτησε Αρ. Ταυτότητας/Διαβατηρίου...">
                     <?php 
                         if(empty($forms)) {
                             ?> <h5 class="text-center mt-5"> Δεν υπάρχουν ελεγμένες αιτήσεις </h5> <?php 
                         } else { ?>
-                            <table class="table">
+                            <table id="dashboard-checked" class="table">
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Αρ.Ταυτότητας/Διαβατηρίου</th>
                                     <th scope="col">Ον/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Επισκόπηση</th>
+                                    <th scope="col">e-statement</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -176,10 +195,37 @@
                                     <tr>
                                         <th scope="row"><?php echo $form[0] ?></th>
                                         <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[8] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
                                         <td><?php echo $form[23] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+
+                                        <td><button type="button" class="btn border border-2 col-md-12 m-auto" data-bs-toggle="modal" data-bs-target="#id">
+                                                e-statement</i>
+                                            </button>
+                                        </td>
+                                        <div class="modal fade" id="id" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="d-flex align-items-center">
+                                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
+                                                        <button type="button" class="btn float-end" style="background-color: white"><i class="bi bi-download"></i></button>
+                                                    </div>
+                                                    <div class="modal-body d-flex justify-content-center">
+                                                        <div class="embed-responsive embed-responsive-21by9 col-12">
+                                                            <iframe 
+                                                                class="embed-responsive-item" 
+                                                                src="/Doatap/src/views/e-statement.php?id=<?php echo $form[26] ?>"
+                                                                height="600px",
+                                                                width="100%"
+                                                                >
+                                                            </iframe>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
