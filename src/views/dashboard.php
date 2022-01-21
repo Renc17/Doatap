@@ -161,7 +161,7 @@
                                         <td><?php echo $form[8] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
-                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
@@ -197,7 +197,7 @@
                                         <td><?php echo $form[8] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
-                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
 
                                         <td><button type="button" class="btn border border-2 col-md-12 m-auto" data-bs-toggle="modal" data-bs-target="#id">
                                                 e-statement</i>
@@ -214,7 +214,7 @@
                                                         <div class="embed-responsive embed-responsive-21by9 col-12">
                                                             <iframe 
                                                                 class="embed-responsive-item" 
-                                                                src="/Doatap/src/views/e-statement.php?id=<?php echo $form[26] ?>"
+                                                                src="/Doatap/src/views/e-statement.php?id=<?php echo $form[0] ?>"
                                                                 height="600px",
                                                                 width="100%"
                                                                 >
@@ -257,7 +257,7 @@
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
                                         <td><?php echo $form[23] ?></td>
-                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[26] ?>" class="btn">Ανάγνωση</a></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>

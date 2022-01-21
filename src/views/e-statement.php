@@ -74,11 +74,11 @@ if(!$formPreview){
                 <h6 class="text-center mt-3 mb-4">που απονεμήθηκε από το</h6>
                 <h3 class="text-center text-uppercase mt-3 mb-4"><?php echo $formPreview[17] ?></h3>
                 <h3 class="text-center text-uppercase  mt-3 mb-4"><?php echo $formPreview[16] ?></h3>
-                <h6 class="text-center mt-3 mb-4">στον</h6>
+                <h6 class="text-center mt-3 mb-4">στον/ην</h6>
                 <h3 class="text-center text-uppercase mt-3"><?php echo $formPreview[1] . ' ' .$formPreview[3] .' ' .$formPreview[2] ?></h3>
 
                 <div class="mt-5 col-md-12">
-                    ως πτυχείο ισότιμο προς τα απονεμόμενα από τα Ελληνικά Ανώτατα Εκπαιδευτικά Ιδρύματα.
+                    ως πτυχείο ισότιμο προς τα απονεμόμενα από το Τμήμα <?php echo $formPreview[27] ?> του <?php echo $formPreview[26] ?> των Ελληνικών Ανώτατων Εκπαιδευτικών Ιδρυμάτων.
                 </div>
                 <div class="mt-4 col-md-12 text-end">
                     Αθήνα, <?php echo $formPreview[22] ?>

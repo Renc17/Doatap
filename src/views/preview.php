@@ -228,7 +228,7 @@ if(!$formPreview){
                                         <div class="embed-responsive embed-responsive-21by9 col-12">
                                             <iframe 
                                                 class="embed-responsive-item" 
-                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[27] ?>"
+                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[29] ?>"
                                                 height="600px",
                                                 width="100%"
                                                 >
@@ -253,7 +253,7 @@ if(!$formPreview){
                                         <div class="embed-responsive embed-responsive-21by9 col-12">
                                             <iframe 
                                                 class="embed-responsive-item" 
-                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[28] ?>"
+                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[30] ?>"
                                                 height="600px"
                                                 width="100%"
                                                 >
@@ -279,7 +279,7 @@ if(!$formPreview){
                                         <div class="embed-responsive embed-responsive-21by9 col-12">
                                             <iframe 
                                                 class="embed-responsive-item" 
-                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[29] ?>"
+                                                src="/Doatap/src/assets/uploads/<?php echo $formPreview[31] ?>"
                                                 height="600px"
                                                 width="100%"
                                                 >
@@ -299,10 +299,43 @@ if(!$formPreview){
                 <div class="col-md-5 d-flex flex-column">
                     <p><?php echo $formPreview[20] ?? 'N/A' ?></p>
                 </div>
+
+
+                <?php if(isAdmin()){ ?>
+                <div class="col-md-6 mt-5">
+                    <label for="university">Ισότιμο Πανεπιστήμιο</label>
+                    <select name="university" id="university" class="form-select">
+                        <option value="Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                        <option value="Πανεπιστήμιο Κρήτης">Πανεπιστήμιο Κρήτης</option>
+                        <option value="Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                        <option value="Οικονομικό Πανεπιστήμιο Αθηνών">Οικονομικό Πανεπιστήμιο Αθηνών</option>
+                        <option value="Εθνικό Μετσόβιο Πολυτεχνείο">Εθνικό Μετσόβιο Πολυτεχνείο</option>
+                        <option value="Πανεπιστήμιο Ιωαννίνων">Πανεπιστήμιο Ιωαννίνων</option>
+                        <option value="Πανεπιστήμιο Δυτικής Αττικής">Πανεπιστήμιο Δυτικής Αττικής</option>
+                        <option value="Πανεπιστήμιο Πατρών">Πανεπιστήμιο Πατρών</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 mt-2">
+                    <label for="university">Ισότιμο Τμήμα</label>
+                    <select name="department" id="department" class="form-select">
+                        <option value="ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ">ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ</option>
+                        <option value="ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
+                        <option value="ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
+                        <option value="ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ</option>
+                        <option value="ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ">ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ</option>
+                        <option value="ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ">ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ</option>
+                        <option value="ΤΜΗΜΑ ΦΥΣΙΚΗΣ">ΤΜΗΜΑ ΦΥΣΙΚΗΣ</option>
+                        <option value="ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ">ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ</option>
+                        <option value="ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ">ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ</option>
+                        <option value="ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ</option>
+                    </select>
+                </div>
+                <?php } ?>
             </div>
 
             <div id="form-id" name="<?php echo $formPreview[0];?>" ></div>
-
+            
             <?php if(isAdmin()){ 
                 if($formPreview[23] != 'checked'){ ?>
                 <div class="container mt-5" style="width: 70%;">

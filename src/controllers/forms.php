@@ -125,12 +125,14 @@ class FormController{
         return $forms;
     }
 
-    function AdminCheckedForm($id){
+    function AdminCheckedForm($id, $university, $department){
         $t=time();
         $effected_rows = $this->db->update(self::$table, $id, 
         [
             'status'=> 'checked',
-            'created_at' => date("Y-m-d",$t)
+            'created_at' => date("Y-m-d",$t),
+            'equivalent_university' => $university,
+            'equivalent_department' => $department
         ]);
         if($effected_rows)
             header('location: dashboard.php');

@@ -302,7 +302,7 @@ $controller->create();
                                 <label for="university">Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
                                     <option value="University of Oxford">University of Oxford</option>
-                                    <option value="University of Cambridgeς">University of Cambridge</option>
+                                    <option value="University of Cambridge">University of Cambridge</option>
                                     <option value="Imperial College London">Imperial College London</option>
                                     <option value="The University of Edinburgh">The University of Edinburgh</option>
                                     <option value="The University of Manchester">The University of Manchester</option>
@@ -326,12 +326,14 @@ $controller->create();
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="department">Τμήμα</label>
-                                <div class="d-flex align-items-center">
-                                    <input type="text" id="department" name="department" value="<?php echo $controller->getData('department'); ?>" class="text-input">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
-                                        <i class="bi bi-info-circle"></i>
-                                    </button>
-                                </div>
+                                <select name="department" id="department" class="form-select">
+                                    <option value="ΠΛΗΡΟΦΟΡΙΚΗΣ">ΠΛΗΡΟΦΟΡΙΚΗΣ</option>
+                                    <option value="ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
+                                    <option value="ΝΑΥΤΙΛΙΑΣ">ΝΑΥΤΙΛΙΑΣ</option>
+                                    <option value="ΝΟΣΗΛΕΥΤΙΚΗΣ">ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
+                                    <option value="ΦΥΣΙΚΗΣ">ΦΥΣΙΚΗΣ</option>
+                                    <option value="ΜΑΘΗΜΑΤΙΚΩΝ">ΜΑΘΗΜΑΤΙΚΩΝ</option>
+                                </select>
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
