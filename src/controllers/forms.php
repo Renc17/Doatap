@@ -110,6 +110,9 @@ class FormController{
         [
             'forms.id' => $id        
         ]);
+        if(empty($form)){
+            return null;
+        }
         return $form[0];
     }
 
