@@ -33,8 +33,8 @@ class EditUser{
         if(empty($afm)){
             return;
         }else{
-            if(!preg_match('/^[0-9]*$/', $afm)){
-                $this->addError('AFM', 'AFM must contain numerical');
+            if(!preg_match('/^[0-9]{9}$/', $afm)){
+                $this->addError('AFM', 'Το πεδίο πρέπει να περιέχει 9 ψηφία');
             }
         }
     }
@@ -44,8 +44,8 @@ class EditUser{
         if(empty($amka)){
             return;
         }else{
-            if(!preg_match('/^[0-9]*$/', $amka)){
-                $this->addError('amka', 'amka must contain numerical');
+            if(!preg_match('/^[0-9]{11}$/', $amka)){
+                $this->addError('amka', 'Το πεδίο πρέπει να περιέχει 11 ψηφία');
             }
         }
     }
@@ -56,7 +56,7 @@ class EditUser{
             return;
         }else{
             if(!preg_match('/^[0-9]*$/', $cel)){
-                $this->addError('cel', 'cel must contain numerical');
+                $this->addError('cel', 'Το πεδίο πρέπει να περιέχει ψηφία');
             }
         }
     }

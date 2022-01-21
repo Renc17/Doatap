@@ -106,7 +106,7 @@ class UserController{
         
                 $user_id = $this->db->create(self::$table, $_POST, 'email');
                 if($user_id){
-                    $this->errors['users'] = 'user already exists';
+                    $this->errors['users'] = 'Ο χρήστης έχει λογαριασμό';
                     return;
                 }
                 header('location: login.php');
@@ -144,7 +144,7 @@ class UserController{
                     else if($_SESSION['role'] == 'admin')
                         header('location: dashboard.php');
                 }else {
-                    $this->errors['auth'] = 'Password is not correct';
+                    $this->errors['auth'] = 'Ο κωδικός δεν είναι έγκυρος';
                 }
             }
         }
