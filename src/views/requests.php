@@ -151,7 +151,7 @@
                                         <div class="card-text text-black-50"><?php echo $form[17] ?></div>
                                         <div class="card-text text-black-50"><?php echo $form[18] ?></div>
                                         <div class="card-text mt-2 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
-                                        <a id="form-id" href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" name="<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
+                                        <a id="form-id" href="/Doatap/src/views/draft.php?id=<?php echo $form[0] ?>" name="<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
                                     </div>
                                 </div>
                             </div>

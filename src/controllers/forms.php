@@ -48,7 +48,7 @@ class FormController{
         return $this->email;
     }
 
-    function create(){
+    function create($id){
         if(isset($_POST['submit-form'])){
             $form_validation = new CreateForm($_POST, $_FILES);
             $data = [];
@@ -85,9 +85,18 @@ class FormController{
                     $this->files[$key] = $hashed_name;
                 }
                 
-                $form_id = $this->db->create(self::$table, $this->data, null);
-                $this->files['id'] = $form_id;
-                $this->db->create(self::$files_table, $this->files, null);
+                if($id == null){
+                    $form_id = $this->db->create(self::$table, $this->data, null);
+                    $this->files['id'] = $form_id;
+                    $this->db->create(self::$files_table, $this->files, null);
+                }else{
+                    $effected_rows = $this->db->update(self::$table, $id, $this->data);
+                    if($effected_rows)
+                        header('location: profile.php');
+                    else
+                        $this->errors['checked'] = 'Form doesnt exist';
+                }
+                
                 header('location: profile.php');
             }
         }

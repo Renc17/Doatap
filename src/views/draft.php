@@ -5,7 +5,12 @@ require(BASE_URL . 'controllers\forms.php');
 require(BASE_URL . 'helpers\middlewares\guard.php');
 usersOnly();
 $controller =  new FormController($database);
-$controller->create(null);
+$formPreview = $controller->getFormPreview($_GET['id']);
+if(!$formPreview){
+    print('This form doesnt exist or has been deleted');
+    return;
+}
+$controller->create($_GET['id']);
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +76,7 @@ $controller->create(null);
     <?php 
         include(BASE_URL. 'includes\navbar.php'); 
     ?>
-    
+
     <div class="container mt-2">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -83,10 +88,10 @@ $controller->create(null);
     </div>
 
     <div class="container-fluid">
-        <form id="regForm" method='post' action='new-request.php' enctype="multipart/form-data">
+        <form id="regForm" method='post' action='draft.php?id=<?php echo $_GET['id']; ?>' enctype="multipart/form-data">
 
             <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
-            <h6 class="text-center fw-lighter mb-5">Προσωρινά Αποθγκευμένο</h6>
+            <h6 class="text-center fw-lighter mb-5"><?php echo $formPreview[23] ?> <i class="bi bi-dot"></i> <?php echo $formPreview[22] ?></h6>
 
             <div class="status-bar">
                 <div class="row steps-bar justify-content-center m-auto">
@@ -138,19 +143,19 @@ $controller->create(null);
                 
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="name">Όνομα</label>
-                        <input type="text" id="name" name="name" value="<?php echo $controller->getName(); ?>" class="text-input" placeholder="<?php echo $controller->getName(); ?>" readonly>
+                        <input type="text" id="name" name="name" value="<?php echo $formPreview[1] ?>" class="text-input" placeholder="<?php echo $formPreview[1] ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('name') ?? '' ?> </div>
                     </div>
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="surname">Επώνυμο</label>
-                        <input type="text" id="surname" name="surname" value="<?php echo $controller->getSurname(); ?>" class="text-input" placeholder="<?php echo $controller->getSurname(); ?>" readonly>
+                        <input type="text" id="surname" name="surname" value="<?php echo $formPreview[2] ?>" class="text-input" placeholder="<?php echo $formPreview[2] ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('surname') ?? '' ?> </div>
                     </div>
  
                     <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="father">Πατρώνυμο</label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input type="text" id="father" name="father_name" value="<?php echo $controller->getData('father_name'); ?>" class="text-input col-10">
+                            <input type="text" id="father" name="father_name" value="<?php echo $formPreview[3] ?>" placeholder="<?php echo $formPreview[3] ?>" class="text-input col-10">
                             <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
                                 <i class="bi bi-info-circle"></i>
                             </button>
@@ -160,7 +165,7 @@ $controller->create(null);
                     <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="mother">Μητρώνυμο</label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input type="text" id="mother" name="mother_name" value="<?php echo $controller->getData('mother_name'); ?>" class="text-input col-10">
+                            <input type="text" id="mother" name="mother_name" value="<?php echo $formPreview[4] ?>" placeholder="<?php echo $formPreview[4] ?>" class="text-input col-10">
                             <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
                                 <i class="bi bi-info-circle"></i>
                             </button>
@@ -169,13 +174,13 @@ $controller->create(null);
                     </div>
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="amka">ΑΜΚΑ</label>
-                        <input type="text" id="amka" name="amka" value="<?php echo $controller->getAMKA(); ?>" class="text-input" placeholder="<?php echo $controller->getAMKA(); ?>" readonly>
+                        <input type="text" id="amka" name="amka" value="<?php echo $formPreview[5] ?>" class="text-input" placeholder="<?php echo $formPreview[5] ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('amka') ?? '' ?> </div>
                     </div>
 
                     <div class="col-md-5 d-flex flex-column mt-3">
                         <label for="afm">ΑΦΜ</label>
-                        <input type="text" id="afm" name="afm" value="<?php echo $controller->getAFM(); ?>" class="text-input" placeholder="<?php echo $controller->getAFM(); ?>" readonly>
+                        <input type="text" id="afm" name="afm" value="<?php echo $formPreview[6] ?>" class="text-input" placeholder="<?php echo $formPreview[6] ?>" readonly>
                         <div class="error"> <?php echo $controller->getErrors('afm') ?? '' ?> </div>
                     </div>
 
@@ -194,7 +199,7 @@ $controller->create(null);
                     <div class="col-md-6 d-flex flex-column mt-3">
                         <label for="ident">Αρ. Ταυτότητας/Διαβατηρίου</label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input type="text" id="ident" name="ID_num" value="<?php echo $controller->getData('ID_num'); ?>" class="text-input col-10" placeholder="<?php echo $controller->getData('ID_num'); ?>">
+                            <input type="text" id="ident" name="ID_num" value="<?php echo $formPreview[8] ?>" class="text-input col-10" placeholder="<?php echo $formPreview[8] ?>">
                             <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο Αρ. Ταυτότητας/Διαβατηρίου αποτελείται από δύο γράμματα και 6 ψηφία">
                                 <i class="bi bi-info-circle"></i>
                             </button>
@@ -209,7 +214,7 @@ $controller->create(null);
                         <div class="col-md-6 d-flex flex-column">
                             <label for="road">Οδος</label>
                             <div class="d-flex align-items-center justify-content-between">
-                                <input type="text" id="road" name="road" value="<?php echo $controller->getData('road'); ?>" class="text-input col-10">
+                                <input type="text" id="road" name="road" value="<?php echo $formPreview[9] ?>" placeholder="<?php echo $formPreview[9] ?>" class="text-input col-10">
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
@@ -220,7 +225,7 @@ $controller->create(null);
                         <div class="d-flex flex-column col-md-6 mt-3">
                             <label for="number">Αριθμος</label>
                             <div class="d-flex align-items-center justify-content-between">
-                                <input type="text" id="number" name="number" value="<?php echo $controller->getData('number'); ?>" class="text-input col-10">
+                                <input type="text" id="number" name="number" value="<?php echo $formPreview[11] ?>" placeholder="<?php echo $formPreview[11] ?>" class="text-input col-10">
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο ένα ψηφίο">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
@@ -231,7 +236,7 @@ $controller->create(null);
                         <div class="col-md-6 d-flex flex-column mt-3">
                             <label for="city">Πόλη</label>
                             <div class="d-flex align-items-center justify-content-between">
-                                <input type="text" id="city" name="city" value="<?php echo $controller->getData('city'); ?>" class="text-input col-10">
+                                <input type="text" id="city" name="city" value="<?php echo $formPreview[10] ?>" placeholder="<?php echo $formPreview[10] ?>" class="text-input col-10">
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
@@ -242,7 +247,7 @@ $controller->create(null);
                         <div class="col-md-6 d-flex flex-column mt-3">
                             <label for="pobox">Τ.Κ</label>
                             <div class="d-flex align-items-center justify-content-between">
-                                <input type="text" id="pobox" name="pobox" value="<?php echo $controller->getData('pobox'); ?>" class="text-input col-10">
+                                <input type="text" id="pobox" name="pobox" value="<?php echo $formPreview[12] ?>" placeholder="<?php echo $formPreview[12] ?>" class="text-input col-10">
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Το Τ.Κ αποτελείται απο 5 ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
@@ -252,12 +257,12 @@ $controller->create(null);
 
                         <div class="col-md-5 d-flex flex-column mt-3">
                             <label for="cel">Τηλ.</label>
-                            <input type="text" id="cel" name="cel" value="<?php echo $controller->getData('cel'); ?>" class="text-input" placeholder="69********">
+                            <input type="text" id="cel" name="cel" value="<?php echo $formPreview[13] ?>" placeholder="<?php echo $formPreview[13] ?>" class="text-input">
                             <div class="error"> <?php echo $controller->getErrors('cel') ?? '' ?> </div>
                         </div>
                         <div class="col-md-5 d-flex flex-column mt-3">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" value="<?php echo $controller->getEmail(); ?>" class="text-input" placeholder="<?php echo $controller->getEmail(); ?>" readonly>
+                            <input type="text" id="email" name="email" value="<?php echo $formPreview[14] ?>" class="text-input" placeholder="<?php echo $formPreview[14] ?>" readonly>
                             <div class="error"> <?php echo $controller->getErrors('email') ?? '' ?> </div>
                         </div>
                     </div>
@@ -396,7 +401,7 @@ $controller->create(null);
                     <div class="d-flex flex-column mt-4">
                         <div class="d-flex flex-column col-8 ">
                             <label for="comment">Σχόλεια Αιτούντα</label>
-                            <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $controller->getData('comment'); ?>" class="text-input"></textarea>
+                            <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $formPreview[20] ?>" placeholder="<?php echo $formPreview[20] ?>" class="text-input"></textarea>
                             <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
                         </div>
                         <div class="mt-5 d-flex flex-row align-items-center col-12">
@@ -518,12 +523,7 @@ $controller->create(null);
         include(BASE_URL. 'includes\footer.php'); 
     ?>
     <script type="text/javascript" src="scripts/request.js"></script>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
+    <script type="text/javascript" src="scripts/draft.js"></script>
 </body>
 
 </html>
