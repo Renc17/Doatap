@@ -58,7 +58,7 @@ if(!$formPreview){
                 <div class="coat-of-arms">.</div>
             </div>
             <div class="mt-5">
-                <h3 class="col-md-9 m-auto text-center text-uppercase">Διεπιστημονικοσ οργανισμος αναφνωρισης τιτλων ακαδημαικων και πληροφορησησ</h3>
+                <h3 class="col-md-9 m-auto text-center text-uppercase">Διεπιστημονικοσ οργανισμος αναγνωρισης τιτλων ακαδημαικων και πληροφορησησ</h3>
                 <h4 class="text-center">(Δ.Ο.Α.Τ.Α.Π.)</h4>
                 <h2 class="text-center text-uppercase">πραξη</h2> 
                 <h2 class="text-center text-uppercase">Προεδρου διοικητικου συμβουλιου</h2> 
