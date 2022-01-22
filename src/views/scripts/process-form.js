@@ -17,3 +17,17 @@ function approve(){
     let department = select.value;
     location.href = 'http://localhost/Doatap/src/helpers/form-process/aprrove.php?id='+id+'&university='+university+'&department='+department;
 }
+
+function standBy(){
+    let id = document.getElementById("form-id").getAttribute("name");
+
+    let select = document.getElementById("rec-department");
+    let department = select.value;
+
+    select = document.querySelectorAll("#classes option:checked");
+    var recommendations = ''
+    for (var i = 0; i < select.length; i++) {
+        recommendations += (select[i].value + ', ')
+    }
+    location.href = 'http://localhost/Doatap/src/helpers/form-process/standBy.php?id='+id+'&classes='+recommendations+'&department='+department;
+}

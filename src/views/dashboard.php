@@ -15,6 +15,7 @@
     $forms = $formController->allFormsByStatus('checked');
     $submitted = $formController->allFormsByStatus('submitted');
     $rejected = $formController->allFormsByStatus('rejected');
+    $standBy = $formController->allFormsByStatus('standBy');
 ?>
 <!DOCTYPE html>
 <html lang="el">
@@ -126,6 +127,9 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Ελεγμένα</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="standBy-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" style="color: red;" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
@@ -251,6 +255,40 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach($rejected as $form){ ?>
+                                    <tr>
+                                        <th scope="row"><?php echo $form[0] ?></th>
+                                        <td><?php echo $form[15] ?></td>
+                                        <td><?php echo $form[1] .' ' .$form[2]  ?></td>
+                                        <td><?php echo $form[22] ?></td>
+                                        <td><?php echo $form[23] ?></td>
+                                        <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        <?php } ?>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="standBy" role="tabpanel" aria-labelledby="standBy-tab">
+                    <div class="row justify-content-start mt-5">
+                    <?php 
+                        if(empty($standBy)) {
+                            ?> <h5 class="text-center mt-5"> Δεν εκκρεμούν αιτήσεις </h5> <?php 
+                        } else { ?>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Δημιουργήθηκε</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Επισκόπηση</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($standBy as $form){ ?>
                                     <tr>
                                         <th scope="row"><?php echo $form[0] ?></th>
                                         <td><?php echo $form[15] ?></td>

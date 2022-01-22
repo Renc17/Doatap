@@ -12,6 +12,7 @@
     $submitted = $formController->getFormsByStatus('submitted');
     $rejected = $formController->getFormsByStatus('rejected');
     $issued = $formController->getFormsByStatus('checked');
+    $standBy = $formController->getFormsByStatus('standBy');
 ?>
 
 <!DOCTYPE html>
@@ -96,6 +97,9 @@
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Αναγνωρίστηκε</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" style="color: red;" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
@@ -225,6 +229,34 @@
                                         <div class="card-text text-black-50">Τμήμα <?php echo $form[18] ?></div>
                                         <div class="card-text mt-2 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
                                         <a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } 
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="standBy" role="tabpanel" aria-labelledby="standBy-tab">
+                    <div class="row justify-content-start mt-5">
+                        <?php 
+                        if(empty($standBy)) {
+                            ?> <h5 class="text-center mt-5"> Δεν υπάρχουν αρχεία </h5> <?php 
+                        } else {
+                            foreach($standBy as $form){ ?>
+                            <div class="col-3 mt-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h5 class="card-title col-10">Αναγνώριση ισοτιμίας</h5>
+                                            <div class="text-black-50 border border-0 col-1" onclick="alertDeleteForm()" ><i class="bi bi-trash"></i></div>
+                                        </div>
+                                        <div class="card-text text-black-50"><?php echo $form[15] ?></div>
+                                        <div class="card-text text-black-50"><?php echo $form[17] ?></div>
+                                        <div class="card-text text-black-50">Τμήμα <?php echo $form[18] ?></div>
+                                        <div class="card-text mt-2 text-black-50">Δημιουργήθηκε στις <?php echo $form[22] ?></div>
+                                        <a id="form-id" href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" name="<?php echo $form[0] ?>" class="btn mt-3">Ανάγνωση</a>
                                     </div>
                                 </div>
                             </div>

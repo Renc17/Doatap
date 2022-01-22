@@ -15,6 +15,10 @@ $reasons = [];
 if($formPreview[23] == 'rejected'){
     $reasons = $controller->getRejectReassons($_GET['id']);
 }
+
+if($formPreview[23] == 'standBy'){
+    $reasons = $controller->getStandByReasons($_GET['id']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -106,48 +110,53 @@ if($formPreview[23] == 'rejected'){
             <div class="container mt-5" style="width: 70%;">
                 <h6 class="fw-bolder mb-2">Προσωπικά Στοιχεία</h6>
                 <hr class="form-bar">
-            
-                <div class="d-flex flex-row justify-content-between col-md-6">
-                    <div class="col-md-6">
-                        <label>Όνομα</label>
-                        <p><?php echo $formPreview[1] ?></p>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Επώνυμο</label>
-                        <p><?php echo $formPreview[2] ?></p>
-                    </div>
-                </div>
+                
+                <div class="d-flex">
+                    <div class="col-md-5">
+                        <div class="d-flex">
+                            <div class="col-md-5">
+                                <label>Όνομα</label>
+                                <p><?php echo $formPreview[1] ?></p>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Επώνυμο</label>
+                                <p><?php echo $formPreview[2] ?></p>
+                            </div>
+                        </div>
 
-                <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
-                    <div class="col-md-6">
-                        <label>Πατρώνυμο</label>
-                        <p><?php echo $formPreview[3] ?></p>
+                        <div class="d-flex mt-2">
+                            <div class="col-md-5">
+                                <label>Πατρώνυμο</label>
+                                <p><?php echo $formPreview[3] ?></p>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Μητρώνυμο</label>
+                                <p><?php echo $formPreview[4] ?></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label>Μητρώνυμο</label>
-                        <p><?php echo $formPreview[4] ?></p>
-                    </div>
-                </div>
+                    <div class="col-md-5">
+                        <div class="d-flex mt-2">
+                            <div class="col-md-5">
+                                <label>ΑΜΚΑ</label>
+                                <p><?php echo $formPreview[5] ?></p>
+                            </div>
+                            <div class="col-md-5">
+                                <label>ΑΦΜ</label>
+                                <p><?php echo $formPreview[6] ?></p>
+                            </div>
+                        </div>
 
-                <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
-                    <div class="col-md-6">
-                        <label>ΑΜΚΑ</label>
-                        <p><?php echo $formPreview[5] ?></p>
-                    </div>
-                    <div class="col-md-6">
-                        <label>ΑΦΜ</label>
-                        <p><?php echo $formPreview[6] ?></p>
-                    </div>
-                </div>
-
-                <div class="d-flex flex-row justify-content-between col-md-6 mt-2">
-                    <div class="col-md-6">
-                        <label>Ταυτοποίηση</label>
-                        <p><?php echo $formPreview[7] ?></p>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Αριθμός Ταυτότητας</label>
-                        <p><?php echo $formPreview[8] ?></p>
+                        <div class="d-flex mt-2">
+                            <div class="col-md-5">
+                                <label>Ταυτοποίηση</label>
+                                <p><?php echo $formPreview[7] ?></p>
+                            </div>
+                            <div class="col-md-5">
+                                <label>Αριθμός Ταυτότητας</label>
+                                <p><?php echo $formPreview[8] ?></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -307,7 +316,7 @@ if($formPreview[23] == 'rejected'){
             </div>
 
             <?php if(isAdmin()){ 
-                if($formPreview[23] != 'checked' and $formPreview[23] != 'rejected'){?>
+                if($formPreview[23] != 'checked' and $formPreview[23] != 'rejected' and $formPreview[23] != 'standBy'){?>
                 <div class="d-flex justify-content-center mt-5">
                     <div class="reject-section d-flex flex-column pe-5 border-end">
                         <div class="col-md-12 mt-2 mb-3">
@@ -344,7 +353,7 @@ if($formPreview[23] == 'rejected'){
                         </div>
 
                         <div class="col-md-12 mt-2 mb-3">
-                            <label for="university">Ισότιμο Τμήμα</label>
+                            <label for="department">Ισότιμο Τμήμα</label>
                             <select name="department" id="department" class="form-select">
                                 <option value="ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ">ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ</option>
                                 <option value="ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
@@ -366,6 +375,19 @@ if($formPreview[23] == 'rejected'){
 
                     <div class="reject-section d-flex flex-column ps-5 border-start">
                         <div class="col-md-12 mt-2 mb-3">
+                            <label for="rec-department">Τμήμα</label>
+                            <select name="rec-department" id="rec-department" class="form-select mb-3">
+                                <option value="ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ">ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ</option>
+                                <option value="ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ">ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ">ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΦΥΣΙΚΗΣ">ΤΜΗΜΑ ΦΥΣΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ">ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ</option>
+                                <option value="ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ">ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ</option>
+                            </select>
                             <label for="classes">Προτεινόμενα Μαθήματα</label>
                             <select name="classes" id="classes" class="form-select" multiple>
                                 <option value="Λειτουργικά Συστήματα">Λειτουργικά Συστήματα</option>
@@ -397,6 +419,21 @@ if($formPreview[23] == 'rejected'){
                     </div>
 
                     <p style="font-size: small; color:brown">*Η αίτηση αυτή δεν είναι πλέον έγκυρη. Υποβάλτε νέα αίτηση αφού έχετε τα σωστά αρχεία</p>
+                </div>
+            <?php } ?>
+
+            <?php if($formPreview[23] == 'standBy'){ ?>
+                <div class="container mt-5" style="width: 70%;">
+                    <h6 class="fw-bolder mb-2">Προτεινόμενα Μαθήματα</h6>
+                    <div class="col-md-5 d-flex flex-column">
+                        <p><?php echo $reasons[1] ?></p>
+                    </div>
+                    <h6 class="fw-bolder mb-2">Τμήμα</h6>
+                    <div class="col-md-5 d-flex flex-column">
+                        <p><?php echo $reasons[2] ?></p>
+                    </div>
+
+                    <p style="font-size: small; color:brown">*Η αίτηση αυτή δεν είναι πλέον έγκυρη. Διαγράψτε πριν την νέα υποβολή με τα επιπρόσθετα προτεινόμενα μαθήματα</p>
                 </div>
             <?php } ?>
 

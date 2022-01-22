@@ -6,6 +6,7 @@ class FormController{
     private static $table = 'forms';
     private static $files_table = 'files';
     private static $reject_forms = 'reject';
+    private static $standBy_forms = 'standby';
     private $db = null;
 
     private $errors = array();
@@ -162,13 +163,42 @@ class FormController{
         if($effected_rows)
             header('location: dashboard.php');
         else{
-            $this->errors['checked'] = 'Form doesnt exist';
+            $this->errors['rejected'] = 'Form doesnt exist';
+            return;
+        }
+    }
+
+    function AdminStandByForm($id, $classes, $department){
+        $effected_rows = $this->db->create(self::$standBy_forms,
+        [
+            'id' =>  $id,
+            'classes' => $classes,
+            'department' => $department
+        ], null);
+        if(!$effected_rows){
+            $this->errors['standBy'] = 'Form doesnt exist';
+            return;
+        }
+        $t=time();
+        $effected_rows = $this->db->update(self::$table, $id, 
+        [
+            'status'=> 'standBy',
+            'created_at' => date("Y-m-d",$t)
+        ]);
+        if($effected_rows)
+            header('location: dashboard.php');
+        else{
+            $this->errors['standBy'] = 'Form doesnt exist';
             return;
         }
     }
 
     function getRejectReassons($id){
         return $this->db->select(self::$reject_forms, [ 'id' =>  $id ])[0];
+    }
+
+    function getStandByReasons($id){
+        return $this->db->select(self::$standBy_forms, [ 'id' =>  $id ])[0];
     }
 
     function getErrors($field){
