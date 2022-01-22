@@ -182,13 +182,14 @@ $controller->create(null);
                     <div class="radio-toolbar mt-3">
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="id">Ταυτότητα</label>
-                            <input type="radio" id="id" name="identification" value="Ταυτότητα" checked>
+                            <input type="radio" id="id" name="identification_type" value="Ταυτότητα">
                         </div>
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="passport">Διαβατήριο</label>
-                            <input type="radio" id="passport" name="identification" value="Διαβατήριο">
+                            <input type="radio" id="passport" name="identification_type" value="Διαβατήριο">
                         </div>
-                        <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
+                        <div id="identification-type-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                        <div class="error"> <?php echo $controller->getErrors('identification_type') ?? '' ?> </div>
                     </div>
 
                     <div class="col-md-6 d-flex flex-column mt-3">
@@ -271,7 +272,7 @@ $controller->create(null);
 
                         <div class="d-flex flex-column justify-content-between col-md-6">
                             <div class="mt-2">
-                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" checked>
+                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" >
                                 <label for="Πτυχίο">Βασικό Πτυχίο</label>
                             </div>
                             
@@ -284,7 +285,7 @@ $controller->create(null);
                                 <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό">
                                 <label for="Διδακτορικό">Διδακτορικό</label>
                             </div>
-                            
+                            <div id="study-cycle-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                             <div class="error"> <?php echo $controller->getErrors('study_cycle') ?? '' ?> </div>
                         </div>
 
@@ -474,6 +475,7 @@ $controller->create(null);
                                 </div>
                             </div>
                         </div>
+                        <div id="payment-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                     </div>
 
 
@@ -499,6 +501,7 @@ $controller->create(null);
                         <div id="address-panel" class="panel mt-2" style="display: none;">
                             <p style="font-size: smaller; color:chocolate;">Το έντυπο θα αποσταλεί στην διευθυνση που δηλώσατε στο πρώτο βήμα</p>
                         </div>
+                        <div id="after-issued-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                     </div>
                 </div>
             </div>

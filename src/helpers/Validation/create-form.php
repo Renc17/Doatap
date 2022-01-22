@@ -100,12 +100,12 @@ class CreateForm {
     }
 
     function validateIdentification(){
-        $field = trim($this->data['identification']);
+        $field = trim($this->data['identification_type']);
         if(empty($field)){
-            $this->addError('identification', 'Το πεδίο είναι υποχρεωτικό');
+            $this->addError('identification_type', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!preg_match('/^[a-zA-Z\p{Greek}\s]+$/u', $field)){
-                $this->addError('identification', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
+                $this->addError('identification_type', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }

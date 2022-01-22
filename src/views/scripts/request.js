@@ -48,6 +48,34 @@ function validateForm() {
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
     checkbox = x[currentTab].getElementsByTagName("input").namedItem("consent");
+
+    if(x[currentTab].querySelector("input[name=identification_type]")){
+        var ischecked = x[currentTab].querySelectorAll( 'input[name=identification_type]:checked'); 
+        if(!ischecked.length){
+            unchecked = document.getElementById("identification-type-error");
+            console.log(unchecked);
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
+
+    if(x[currentTab].querySelector("input[name=study_cycle]")){
+        var ischecked = x[currentTab].querySelectorAll( 'input[name=study_cycle]:checked'); 
+        if(!ischecked.length){
+            unchecked = document.getElementById("study-cycle-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
+
+    if(x[currentTab].querySelector("input[name=payment]")){
+        var ischecked = x[currentTab].querySelectorAll( 'input[name=payment]:checked'); 
+        if(!ischecked.length){
+            unchecked = document.getElementById("payment-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
     
     if(checkbox){
         if(!checkbox.checked){
