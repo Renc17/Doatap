@@ -10,6 +10,11 @@ if(!$formPreview){
     print('This form doesnt exist or has been deleted');
     return;
 }
+
+$reasons = [];
+if($formPreview[23] == 'rejected'){
+    $reasons = $controller->getRejectReassons($_GET['id']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +97,7 @@ if(!$formPreview){
             </div>
         <?php } ?>
 
-        <div class="container">
+        <div class="container-fluid">
             
 
             <h2 class="text-center mt-5"> Αναγνώριση ισοτιμίας</h2>
@@ -297,59 +302,105 @@ if(!$formPreview){
                 <h6 class="fw-bolder mb-2">Σχόλεια Αιτούντα</h6>
                 <hr class="form-bar">
                 <div class="col-md-5 d-flex flex-column">
-                    <p><?php echo $formPreview[20] ?? 'N/A' ?></p>
+                    <p><?php echo $formPreview[20] ?? 'N/A'; ?></p>
                 </div>
-
-
-                <?php if(isAdmin()){ ?>
-                <div class="col-md-6 mt-5">
-                    <label for="university">Ισότιμο Πανεπιστήμιο</label>
-                    <select name="university" id="university" class="form-select">
-                        <option value="Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
-                        <option value="Πανεπιστήμιο Κρήτης">Πανεπιστήμιο Κρήτης</option>
-                        <option value="Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
-                        <option value="Οικονομικό Πανεπιστήμιο Αθηνών">Οικονομικό Πανεπιστήμιο Αθηνών</option>
-                        <option value="Εθνικό Μετσόβιο Πολυτεχνείο">Εθνικό Μετσόβιο Πολυτεχνείο</option>
-                        <option value="Πανεπιστήμιο Ιωαννίνων">Πανεπιστήμιο Ιωαννίνων</option>
-                        <option value="Πανεπιστήμιο Δυτικής Αττικής">Πανεπιστήμιο Δυτικής Αττικής</option>
-                        <option value="Πανεπιστήμιο Πατρών">Πανεπιστήμιο Πατρών</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6 mt-2">
-                    <label for="university">Ισότιμο Τμήμα</label>
-                    <select name="department" id="department" class="form-select">
-                        <option value="ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ">ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ</option>
-                        <option value="ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
-                        <option value="ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
-                        <option value="ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ</option>
-                        <option value="ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ">ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ</option>
-                        <option value="ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ">ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ</option>
-                        <option value="ΤΜΗΜΑ ΦΥΣΙΚΗΣ">ΤΜΗΜΑ ΦΥΣΙΚΗΣ</option>
-                        <option value="ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ">ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ</option>
-                        <option value="ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ">ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ</option>
-                        <option value="ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ</option>
-                    </select>
-                </div>
-                <?php } ?>
             </div>
 
-            <div id="form-id" name="<?php echo $formPreview[0];?>" ></div>
-            
             <?php if(isAdmin()){ 
-                if($formPreview[23] != 'checked'){ ?>
-                <div class="container mt-5" style="width: 70%;">
-                    <div class="d-flex flex-row justify-content-center p-3">
-                        <div class="col-md-3 text-center">
+                if($formPreview[23] != 'checked' and $formPreview[23] != 'rejected'){?>
+                <div class="d-flex justify-content-center mt-5">
+                    <div class="reject-section d-flex flex-column pe-5 border-end">
+                        <div class="col-md-12 mt-2 mb-3">
+                            <h6 class="fw-bolder">Λόγοι απόρριψης της αίτησης</h6>
+                            <input type="checkbox" id="reject-id" name="reject-reason" class="reject-reasons" value="Μη Εγκυρη Ταυτότητα">
+                            <label for="reject-id">Μη Εγκυρη Ταυτότητα</label><br>
+                            <input type="checkbox" id="reject-grades" name="reject-reason" class="reject-reasons" value="Μη Εγκυρη Αναλυτική Βαθμολογία">
+                            <label for="reject-grades"> Μη Εγκυρη Αναλυτική Βαθμολογία</label><br>
+                            <input type="checkbox" id="reject-diploma" name="reject-reason" class="reject-reasons" value="Μη Εγκυρο Πτυχίο">
+                            <label for="reject-diploma"> Μη Εγκυρο Πτυχίο</label><br>
+                        </div>
+                        
+                        <label for="comment">Σχόλεια</label>
+                        <textarea rows="5" type="text" id="comment" name="comment" value="" class="text-input"></textarea>
+                        
+                        <div class="col-md-3 text-center m-auto">
                             <div style="color: black;" ><button class="btn text-end col-12" style="text-decoration:underline" onclick="reject()">Απόρηψη</button></div>
                         </div>
-                        <div class="col-md-3 text-center">
+                    </div>
+
+                    <div class="approve-section d-flex flex-column ps-5 pe-5 border-start border-end">
+                        <div class="col-md-12 mt-5">
+                            <label for="university">Ισότιμο Πανεπιστήμιο</label>
+                            <select name="university" id="university" class="form-select">
+                                <option value="Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                                <option value="Πανεπιστήμιο Κρήτης">Πανεπιστήμιο Κρήτης</option>
+                                <option value="Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                                <option value="Οικονομικό Πανεπιστήμιο Αθηνών">Οικονομικό Πανεπιστήμιο Αθηνών</option>
+                                <option value="Εθνικό Μετσόβιο Πολυτεχνείο">Εθνικό Μετσόβιο Πολυτεχνείο</option>
+                                <option value="Πανεπιστήμιο Ιωαννίνων">Πανεπιστήμιο Ιωαννίνων</option>
+                                <option value="Πανεπιστήμιο Δυτικής Αττικής">Πανεπιστήμιο Δυτικής Αττικής</option>
+                                <option value="Πανεπιστήμιο Πατρών">Πανεπιστήμιο Πατρών</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 mt-2 mb-3">
+                            <label for="university">Ισότιμο Τμήμα</label>
+                            <select name="department" id="department" class="form-select">
+                                <option value="ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ">ΤΜΗΜΑ ΙΑΤΡΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΝΟΣΗΛΕΥΤΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΤΜΗΜΑ ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΒΙΟΛΟΓΙΑΣ</option>
+                                <option value="ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ">ΤΜΗΜΑ ΜΑΘΗΜΑΤΙΚΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ">ΤΜΗΜΑ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΦΥΣΙΚΗΣ">ΤΜΗΜΑ ΦΥΣΙΚΗΣ</option>
+                                <option value="ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ">ΤΜΗΜΑ ΔΙΑΧΕΙΡΙΣΗΣ ΛΙΜΕΝΩΝ ΚΑΙ ΝΑΥΤΙΛΙΑΣ</option>
+                                <option value="ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ">ΤΜΗΜΑ ΟΙΚΟΝΟΜΙΚΩΝ ΕΠΙΣΤΗΜΩΝ</option>
+                                <option value="ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ">ΤΜΗΜΑ ΚΟΙΝΩΝΙΟΛΟΓΙΑΣ</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 text-center m-auto">
                             <div style="background-color: #04AA6D;" ><button class="btn text-center border border-3 col-12" style="color:white" onclick="approve()">Αποδοχή</button></div>
+                        </div>
+                    </div>
+
+                    <div class="reject-section d-flex flex-column ps-5 border-start">
+                        <div class="col-md-12 mt-2 mb-3">
+                            <label for="classes">Προτεινόμενα Μαθήματα</label>
+                            <select name="classes" id="classes" class="form-select" multiple>
+                                <option value="Λειτουργικά Συστήματα">Λειτουργικά Συστήματα</option>
+                                <option value="Παράλληλα Συστήματα">Παράλληλα Συστήματα</option>
+                                <option value="Ανάλυση/Σχεδίαση Συστημάτων Λογισμικού">Ανάλυση/Σχεδίαση Συστημάτων Λογισμικού</option>
+                                <option value="Μεταγλωττιστές">Μεταγλωττιστές</option>
+                                <option value="Τεχνικές Εξόρυξης Δεδομένων">Τεχνικές Εξόρυξης Δεδομένων</option>
+                                <option value="Αλγοριθμική Επιχειρησιακή Έρευνα">Αλγοριθμική Επιχειρησιακή Έρευνα</option>
+                                <option value="Διδακτική της Πληροφορικής">Διδακτική της Πληροφορικής</option>
+                            </select>
+                        </div>
+                        <p style="font-size: small;">*Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+                        <div class="col-md-3 text-center m-auto">
+                            <div style="color: black;" ><button class="btn text-end col-12" style="text-decoration:underline" onclick="standBy()">Εκκρεμής</button></div>
                         </div>
                     </div>
                 </div>
             <?php }} ?>
-           
+
+            <?php if($formPreview[23] == 'rejected'){ ?>
+                <div class="container mt-5" style="width: 70%;">
+                    <h6 class="fw-bolder mb-2">Γιατι δεν εκγυθηκέ η αίτηση μου;</h6>
+                    <div class="col-md-5 d-flex flex-column">
+                        <p><?php echo $reasons[1] ?></p>
+                    </div>
+                    <h6 class="fw-bolder mb-2">Σχόλεια</h6>
+                    <div class="col-md-5 d-flex flex-column">
+                        <p><?php echo $reasons[2] ?></p>
+                    </div>
+
+                    <p style="font-size: small; color:brown">*Η αίτηση αυτή δεν είναι πλέον έγκυρη. Υποβάλτε νέα αίτηση αφού έχετε τα σωστά αρχεία</p>
+                </div>
+            <?php } ?>
+
+            <div id="form-id" name="<?php echo $formPreview[0];?>" ></div>
         </div>
 
         <?php 

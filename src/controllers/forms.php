@@ -5,6 +5,7 @@ require(BASE_URL. 'helpers\validation\create-form.php');
 class FormController{
     private static $table = 'forms';
     private static $files_table = 'files';
+    private static $reject_forms = 'reject';
     private $db = null;
 
     private $errors = array();
@@ -139,6 +140,35 @@ class FormController{
         else
             $this->errors['checked'] = 'Form doesnt exist';
             return;
+    }
+
+    function AdminRejectForm($id, $reasons, $comment){
+        $effected_rows = $this->db->create(self::$reject_forms,
+        [
+            'id' =>  $id,
+            'reasons' => $reasons,
+            'comment' => $comment
+        ], null);
+        if(!$effected_rows){
+            $this->errors['reject'] = 'Form doesnt exist';
+            return;
+        }
+        $t=time();
+        $effected_rows = $this->db->update(self::$table, $id, 
+        [
+            'status'=> 'rejected',
+            'created_at' => date("Y-m-d",$t)
+        ]);
+        if($effected_rows)
+            header('location: dashboard.php');
+        else{
+            $this->errors['checked'] = 'Form doesnt exist';
+            return;
+        }
+    }
+
+    function getRejectReassons($id){
+        return $this->db->select(self::$reject_forms, [ 'id' =>  $id ])[0];
     }
 
     function getErrors($field){
