@@ -501,7 +501,6 @@ $controller->create(null);
                         <div id="address-panel" class="panel mt-2" style="display: none;">
                             <p style="font-size: smaller; color:chocolate;">Το έντυπο θα αποσταλεί στην διευθυνση που δηλώσατε στο πρώτο βήμα</p>
                         </div>
-                        <div id="after-issued-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                     </div>
                 </div>
             </div>

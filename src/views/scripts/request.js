@@ -67,15 +67,6 @@ function validateForm() {
             valid = false;
         }
     }
-
-    if(x[currentTab].querySelector("input[name=payment]")){
-        var ischecked = x[currentTab].querySelectorAll( 'input[name=payment]:checked'); 
-        if(!ischecked.length){
-            unchecked = document.getElementById("payment-error");
-            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
-            valid = false;
-        }
-    }
     
     if(checkbox){
         if(!checkbox.checked){
