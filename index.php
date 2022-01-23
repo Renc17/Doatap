@@ -86,7 +86,7 @@
                 </div>
             </div>
             
-            <div class="mt-auto mb-auto ms-3 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+            <div class="mt-auto mb-auto ms-3 me-5 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
 
             <div class="col-md-3 d-flex flex-column">
                 <div class="p-5 choice m-auto d-flex align-items-center">
@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="mt-auto mb-auto ms-3 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+            <div class="mt-auto mb-auto ms-5 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
 
             <div class="col-md-3 d-flex flex-column">
                 <div class="p-5 choice m-auto d-flex align-items-center">
