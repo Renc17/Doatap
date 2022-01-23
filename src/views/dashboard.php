@@ -26,7 +26,7 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
         <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -268,8 +268,8 @@
                                         <th scope="row"><?php echo $form[0] ?></th>
                                         <td><?php echo $form[15] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
-                                        <td><?php echo $form[22] ?></td>
-                                        <td style="background-color:crimson; font-weight:bolder; color:white"><?php echo $form[23] ?></td>
+                                        <td ><?php echo $form[22] ?></td>
+                                        <td style="font-weight:bolder; color:crimson"><?php echo $form[23] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
                                     </tr>
                                     <?php } ?>
