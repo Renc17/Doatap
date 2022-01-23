@@ -64,13 +64,13 @@ if(!$formPreview){
                 <h2 class="text-center text-uppercase">Προεδρου διοικητικου συμβουλιου</h2> 
                 <div class="mt-5 col-md-12">
                 Σύμφωνα με την οριζόμενα στις διατάξεις από το Ν. 3328/2005 και λαμβάνοντας υπόψη την αίτηση με αρ. πρωτοκόλλου 16767 της <?php echo $formPreview[22] ?>(ΔΑΤΕ) ,
-         τα διαπιστωτικά έγγραφα και στοιχεία που υποβλήθηκαν, καθώς και τις κρίσεις των αρμόδιων οργάνων του Τμήματος Πανεπιστημιακής Εκπαίδευσης του
-         Δ.Ο.Α.Τ.Α.Π.
+                τα διαπιστωτικά έγγραφα και στοιχεία που υποβλήθηκαν, καθώς και τις κρίσεις των αρμόδιων οργάνων του Τμήματος Πανεπιστημιακής Εκπαίδευσης του
+                Δ.Ο.Α.Τ.Α.Π.
                 </div>
 
                 <h3 class="text-center text-uppercase mt-5 mb-4">Αναγνωριζεται</h3>
                 <h6 class="text-center mt-3 mb-4">το <?php echo $formPreview[15] ?> Δίπλωμα</h6>
-                <h3 class="text-center text-uppercase mt-3mb-4">Πτυχειο <?php echo $formPreview[18] ?></h3>
+                <h3 class="text-center text-uppercase mt-3mb-4">Πτυχίο <?php echo $formPreview[18] ?></h3>
                 <h6 class="text-center mt-3 mb-4">που απονεμήθηκε από το</h6>
                 <h3 class="text-center text-uppercase mt-3 mb-4"><?php echo $formPreview[17] ?></h3>
                 <h3 class="text-center text-uppercase  mt-3 mb-4"><?php echo $formPreview[16] ?></h3>

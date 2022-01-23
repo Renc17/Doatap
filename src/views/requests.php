@@ -106,7 +106,7 @@
                         <button class="nav-link" id="Submitted-tab" data-bs-toggle="tab" data-bs-target="#Submitted" type="button" role="tab" aria-controls="Submitted" aria-selected="false">Υποβλήθηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Αναγνωρίστηκε</button>
+                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Εγκρίθηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="standBy-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
