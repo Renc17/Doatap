@@ -92,6 +92,7 @@ $controller->login();
                             </div>
                         </div>
 
+                        <div class="error"> <?php echo $controller->getErrors('auth') ?? '' ?> </div>
                         <br />
 
                         <div class="d-flex mt-4 justify-content-between">

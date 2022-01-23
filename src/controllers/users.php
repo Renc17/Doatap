@@ -125,11 +125,13 @@ class UserController{
             if(count($this->errors)){
                 $this->setEmail($_POST['email']);
             }else{
-                $user = $this->db->select(self::$table, ['email' => $_POST['email']])[0];
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
                 if(empty($user)){
-                    print('User doesnt exit');
-                    exit();
+                    $this->errors['auth'] = "Δεν έχετε λογαριασμό";
+                    return;
                 }
+
+                $user = $user[0];
 
                 if(password_verify($_POST['password'], $user[4])){
                     session_start();
