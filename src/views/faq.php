@@ -66,6 +66,7 @@
         <div class="header text-center">
             <h2 class="fw-bold">Πως μπορούμε να βοηθήσουμε;</h2>
             <input type="text" style="width:55%" id="keywords" onkeyup="searchFAQ()" placeholder="Λέξεις κλειδί...">
+            <label for="keywords"><i class="bi bi-search"></i>.</label>
         </div>
         
         <div class="container mt-5">
@@ -88,7 +89,7 @@
                                 <div class="panel">
                                     <div class="mt-4">
                                         <h6 class="fw-bold "><a href="/Doatap/src/views/register.php">Κάνε εγγραφή</a></h6>
-                                        <div class="mb-5">Αφού έχετε κάνει εγγραφή μπορείτε να συμπληρώσετε την φόρμα με τα στοιχεία σας, να ανεβάσετε τα δικαιολογητικά, να κάνετε την πληρωμή και μετά την υποβολή να δείτε την πορεία της.</div>
+                                        <div class="mb-5">Αφού έχετε κάνει εγγραφή μπορείτε να συμπληρώσετε την φόρμα με τα στοιχεία σας, να ανεβάσετε τα δικαιολογητικά, να κάνετε την πληρωμή. Σε περίοδο 30 ημερών θα σας έχει αποσταλεί η πράξη αναγνώρισης.</div>
                                     </div>
                                 </div>
                                 
@@ -104,7 +105,6 @@
                                             <li>Αντιγραφο Ταυτότητας ή Διαβατηρίου</li>
                                             <li>Πτυχείο</li>
                                             <li>Αναλυτική Βαθμολογία</li>
-                                            <li>Εντυπο Συγκαταθεσης</li>
                                             <p class="text-black-50" style="font-size: smaller;">Βρισκεται στην φόρμα που θα συμπληρώσετε</p>
                                         </ul>
                                     </div>
@@ -154,11 +154,11 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Ποια είναι η διαδικασία μετά; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn dropdown col-md-12">Τι γίνεται μετά την υποβολή; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">
                                         <h6 class="fw-bold ">Προέλεγχος</h6>
-                                        <div>Eξετάζεται η πληρότητα των δικαιολογητικών του φακέλου. Θα ενημωθήτε μέσω του λογαριασμού σας ενάν ...</div>
+                                        <div>Eξετάζεται η πληρότητα των δικαιολογητικών του φακέλου. Θα ενημωθήτε μέσω του λογαριασμού σας για την έκβαση της αίτησης σας.</div>
                                     </div>
 
                                     <div class="mt-4 mb-5">
@@ -174,16 +174,6 @@
                             <th scope="row" style="display: none;">.</th>
                             <td>
                                 <h4 class="mt-5">Αλλες Ερωτήσεις</h4>
-                                <button class="btn dropdown col-md-12 mt-4">Το μεταπτυχιακό μου είχε διάρκεια 1,5 έτος. Τι δηλώνω στη διάρκεια σπουδών, 1 ή 2 έτη; <i class="bi bi-chevron-down"></i></button>
-                                <div class="panel">
-                                    <div class="mt-4 mb-5">Δεν έχει σημασία. Μπορείτε να βάλετε είτε 1 είτε 2</div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row" style="display: none;">.</th>
-                            <td>
                                 <button class="btn dropdown col-md-12">Εχω αλλαξει το όνομα μου. Θα πρεπει να στείλω αποδεικτικό έγγραφο; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4 mb-5">Εάν το επώνυμό σας έχει αλλάξει μέσω γάμου, δεν είναι απαραίτητο να ανεβάσετε το πιστοποιητικό γάμου σας. Εάν το όνομά σας έχει αλλάξει για οποιονδήποτε άλλο λόγο εκτός του γάμου, θα πρέπει να ανεβάσετε την απόδειξη της αλλαγής του ονόματός σας, για παράδειγμα, ένα πιστοποιητικό δημοσκόπησης πράξης.</div>
