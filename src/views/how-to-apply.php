@@ -173,12 +173,12 @@
             </a>
 
             <a class="choice col-md-2 d-flex flex-column" href="/Doatap/src/views/faq.php">
-                <div class="me-auto ms-auto mt-3 mb-3"><i class="bi bi-file-pdf"></i></div>
+                <div class="me-auto ms-auto mt-3"><i class="bi bi-file-pdf"></i></div>
                 <div class="col-md-12 pe-3 ps-3 pb-5 mt-4 d-flex flex-column">
                     <div class="text-center fw-bolder">Παραλαβεται την Πραξη</div>
                     <p class="text-center mt-2 mb-1" style="font-weight: lighter;">Στο προφιλ σας βρισκεται το ψηφιακό έγγραφο</p>
 
-                    <div style="text-align:center;margin-top:59px;">
+                    <div style="text-align:center;margin-top:75px;">
                         <span class="guide-step"></span>
                         <span class="guide-step"></span>
                         <span class="guide-step"></span>
