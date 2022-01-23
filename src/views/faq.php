@@ -27,14 +27,14 @@
             background-color: #0071bc;
             
         }
-        .dropdown{
+        .faq-dropdown{
             text-align: start;
             border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             margin: 5px;
         }
 
-        .dropdown i{
+        .faq-dropdown i{
             padding-left: 20px;
             float: right;
         }
@@ -85,7 +85,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Πώς κάνω αίτηση; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Πώς κάνω αίτηση; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">
                                         <h6 class="fw-bold "><a href="/Doatap/src/views/register.php">Κάνε εγγραφή</a></h6>
@@ -98,7 +98,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Δικαιολογητικά <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Δικαιολογητικά <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">
                                         <ul>
@@ -123,7 +123,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Πόσο κοστίζει; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Πόσο κοστίζει; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">
                                         <h6 class="fw-bold ">Παράβολο</h6>
@@ -154,7 +154,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Τι γίνεται μετά την υποβολή; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Τι γίνεται μετά την υποβολή; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">
                                         <h6 class="fw-bold ">Προέλεγχος</h6>
@@ -174,7 +174,7 @@
                             <th scope="row" style="display: none;">.</th>
                             <td>
                                 <h4 class="mt-5">Άλλες Ερωτήσεις</h4>
-                                <button class="btn dropdown col-md-12">Έχω αλλάξει το όνομα μου. Θα πρέπει να στείλω αποδεικτικό έγγραφο; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Έχω αλλάξει το όνομα μου. Θα πρέπει να στείλω αποδεικτικό έγγραφο; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4 mb-5">Εάν το επώνυμό σας έχει αλλάξει μέσω γάμου, δεν είναι απαραίτητο να ανεβάσετε το πιστοποιητικό γάμου σας. Εάν το όνομά σας έχει αλλάξει για οποιονδήποτε άλλο λόγο εκτός του γάμου, θα πρέπει να ανεβάσετε την απόδειξη της αλλαγής του ονόματός σας, για παράδειγμα, ένα πιστοποιητικό δημοσκόπησης πράξης.</div>
                                 </div>
@@ -184,7 +184,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Πώς μπορώ να επικοινωνήσω μαζί σας; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Πώς μπορώ να επικοινωνήσω μαζί σας; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4 mb-5">Στην ενότητα <a href="/Doatap/src/views/contact.php">Επικοινωνία</a> μπορείτε να συμπληρώσετε την φόρμα και εμείς θα απαντήσουμε σύντομα</div>
                                 </div>
@@ -194,7 +194,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Πώς μπορώ να ενημερωθώ για την πορεία της αιτήσεις; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Πώς μπορώ να ενημερωθώ για την πορεία της αιτήσεις; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4 mb-5">Όλες οι ενημερώσεις αποστέλλονται στον λογαριασμό σας</div>
                                 </div>
@@ -204,7 +204,7 @@
                         <tr>
                             <th scope="row" style="display: none;">.</th>
                             <td>
-                                <button class="btn dropdown col-md-12">Τι είναι το e-statemant; <i class="bi bi-chevron-down"></i></button>
+                                <button class="btn faq-dropdown col-md-12">Τι είναι το e-statemant; <i class="bi bi-chevron-down"></i></button>
                                 <div class="panel">
                                     <div class="mt-4">Είναι ένα ψηφιακά επαληθεύσιμο έγγραφο, το οποίο μπορείτε να κατεβάσετε για έως και 3 μήνες από την έκδοση, όσες φορές χρειάζεστε. Οι ημερομηνίες εγκυρότητας εμφανίζονται στην λίστα με τις αιτήσεις στο λογαριασμό σας. </div>
                                     <div class="mt-3">Εάν πρέπει να πραγματοποιήσετε λήψη ενός αντιγράφου μετά τη λήξη του ψηφιακού αντιγράφου, μπορείτε απλώς να παραγγείλετε μια αντικατάσταση μέσω του λογαριασμού σας. Η χρέωση θα χρεωθεί ξανά με το τρέχον κόστος.</div>

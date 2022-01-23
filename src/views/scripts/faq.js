@@ -1,4 +1,4 @@
-var acc = document.getElementsByClassName("dropdown");
+var acc = document.getElementsByClassName("faq-dropdown");
 var i;
 
 for (i = 0; i < acc.length; i++) {

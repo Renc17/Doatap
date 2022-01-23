@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Doatap/src/views/how-to-apply.php">Αίτηση Αναγνώρισης</a>
+                    <a class="nav-link ms-2 me-2" href="/Doatap/src/views/how-to-apply.php">Αίτηση Αναγνώρισης</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Doatap/src/views/faq.php">Οδηγός</a>
+                    <a class="nav-link ms-2 me-2" href="/Doatap/src/views/faq.php">Οδηγός</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Doatap/src/views/contact.php">Επικοινωνία</a>
+                    <a class="nav-link ms-2 me-2" href="/Doatap/src/views/contact.php">Επικοινωνία</a>
                 </li>
             </ul>
         </div>

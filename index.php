@@ -48,7 +48,7 @@
             color: white;
         }
         .documentDescription{
-            font-size: 19px;
+            font-size: 17px;
             font-weight: lighter;
             line-height: 32px;
             text-align: center;
@@ -67,7 +67,7 @@
         
         <div class="d-flex flex-column justify-content-center mt-4 mb-5">
             <h1 style="font-weight: bold; color:#0071bc">Αναγνώριση Τίτλων Σπουδών</h1> 
-            <div class="mb-4 mt-2 col-md-7 m-auto documentDescription ">
+            <div class="mb-2 mt-2 col-md-9 m-auto documentDescription ">
             Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης (Δ.Ο.Α.Τ.Α.Π.) είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που απονέμονται από εκπαιδευτικά ιδρύματα ανώτατης εκπαίδευσης της αλλοδαπής. Σε αυτήν την πλατφόρμα μπορείτε να πραγματοποιήσετε αίτηση για αναγνώριση τον Ακαδημαϊκών σας τίτλων.</div>
         </div>
 
