@@ -13,9 +13,6 @@
                     <a class="nav-link" href="/Doatap/src/views/faq.php">Οδηγός</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ανακοινώσεις</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/Doatap/src/views/contact.php">Επικοινωνία</a>
                 </li>
             </ul>

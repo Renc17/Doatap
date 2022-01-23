@@ -99,16 +99,13 @@
         <hr class="col-4">
         <div class="row col-md-8">
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Αρχική</a>
+                <a href="/Doatap/index.php" style="font-weight: bold; text-decoration: none">Αρχική</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Οδηγός</a>
-            </div>
-            <div class="col-md-3 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Ανακοινώσεις</a>
+                <a href="/Doatap/src/views/faq.php" style="font-weight: bold; text-decoration: none">Οδηγός</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
-                <a href="#" style="font-weight: bold; text-decoration: none">Επικοινωνία</a>
+                <a href="/Doatap/src/views/contact.php" style="font-weight: bold; text-decoration: none">Επικοινωνία</a>
             </div>
         </div>
     </div>
