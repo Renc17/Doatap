@@ -150,6 +150,7 @@
                 <div class="tab-pane fade show active" id="Submitted" role="tabpanel" aria-labelledby="Submitted-tab">
                 
                     <div class="row justify-content-start mt-5">
+                        <label for="search" style="display: none;">.</label>
                         <input type="text" id="search" onkeyup="search()" placeholder="Αναζήτησε Αρ. Ταυτότητας/Διαβατηρίου...">
                         <?php 
                         if(empty($submitted)) {
@@ -185,6 +186,7 @@
 
                 <div class="tab-pane fade" id="checked" role="tabpanel" aria-labelledby="checked-tab">
                     <div class="row justify-content-start mt-5">
+                    <label for="search-checked" style="display: none;">.</label>
                     <input type="text" id="search-checked" onkeyup="searchChecked()" placeholder="Αναζήτησε Αρ. Ταυτότητας/Διαβατηρίου...">
                     <?php 
                         if(empty($forms)) {

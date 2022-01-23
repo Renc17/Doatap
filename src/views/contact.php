@@ -1,6 +1,8 @@
 <?php
     require('../../config.php');
     require(BASE_URL. 'helpers\middlewares\guard.php');
+
+    print_r(($_POST));
 ?>
 
 
@@ -39,7 +41,7 @@
 
     <div class="container">
         <div class="auth-content d-flex justify-content-center align-items-center mt-5">
-            <form class="col-12 d-flex justify-content-center" action="contact.php" method="post">
+            <div class="col-12 d-flex justify-content-center" action="contact.php" method="post">
                 <div class="col-md-4 p-2">
                     <h2 class="form-title fw-bold text-center mt-5">Φόρμα Επικοινωνίας</h2>
                     
@@ -78,20 +80,20 @@
                     </div>
 
                     <div class="d-flex justify-content-center pt-4">
-                        <button type="submit" name="register" value="user" class="btn" style="color:white; background-color:#3366cc; width: 150px;">Αποστολή</button>
+                        <button class="btn mb-3" style="color:white; background-color:#3366cc; width: 150px;" onclick="contact_success()">Αποστολή</button>
                     </div>
                     <div class="text-center">
                         <a style="text-decoration: none; color:black" href="/Doatap/index.php">Αρχική <i class="bi bi-house-door"></i></a>
                     </div>
-                    
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
     <?php 
         include(BASE_URL. 'includes\footer.php'); 
     ?>
+    <script type="text/javascript" src="scripts/contact.js"></script>
 </body>
 
 </html>
