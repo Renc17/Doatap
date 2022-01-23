@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Αίτηση Αναγνώρισης</a>
+                    <a class="nav-link" href="/Doatap/src/views/how-to-apply.php">Αίτηση Αναγνώρισης</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Doatap/src/views/faq.php">Οδηγός</a>
@@ -55,5 +55,5 @@
             ?>
         </div>
     </div>
-    <script type="text/javascript" src="../views/scripts/alerts.js"></script>
+    <script type="text/javascript" src="/Doatap/src/views/scripts/alerts.js"></script>
 </nav>
