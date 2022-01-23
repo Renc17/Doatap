@@ -82,7 +82,8 @@ $controller->create($_GET['id']);
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/index.php">Αρχική</a></li>
                 <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/src/views/profile.php">Προφίλ</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Νέα Αιτήση</li>
+                <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/src/views/requests.php">Οι Αιτήσεις μου</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Επεξεργασία Αιτήσης</li>
             </ol>
         </nav>
     </div>
