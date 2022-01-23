@@ -152,7 +152,7 @@ if($formPreview[23] == 'standBy'){
                                 <label>Ταυτοποίηση</label>
                                 <p><?php echo $formPreview[7] ?></p>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <label>Αριθμός Ταυτότητας</label>
                                 <p><?php echo $formPreview[8] ?></p>
                             </div>

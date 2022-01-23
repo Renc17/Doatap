@@ -219,8 +219,8 @@
                                         <div class="modal fade" id="id" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <div class="d-flex align-items-center">
-                                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <button type="button" class="btn-close border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
                                                         <button type="button" class="btn float-end" style="background-color: white"><i class="bi bi-download"></i></button>
                                                     </div>
                                                     <div class="modal-body d-flex justify-content-center">
