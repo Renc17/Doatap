@@ -31,11 +31,11 @@
             border: 1px solid #0071bc;
             background-color: #04AA6D;
         }
-        .btn-apply a{
+        .btn-apply button{
             color: white;
             font-weight: bold;
         }
-        .btn-apply a:hover{
+        .btn-apply button:hover{
             color: white;
             background-color: #04AA6D;
         }
@@ -190,7 +190,7 @@
                 </div>
             </a>
         </div>
-        <div class="d-flex justify-content-center"><button class="btn btn-apply mt-5 col-md-5"><a href="/Doatap/src/views/new-request.php">Κάνε Αίτηση</a></button></div>
+        <div class="d-flex justify-content-center"><a class="btn-apply mt-5 col-md-5 text-center" href="/Doatap/src/views/new-request.php"><button class="btn">Κάνε Αίτηση</button></a></div>
     </div>
 
     <?php include(BASE_URL. 'includes\footer.php'); ?>
