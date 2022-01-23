@@ -53,6 +53,9 @@
             line-height: 32px;
             text-align: center;
         }
+        .description{
+            font-size: 14.5px;
+        }
     </style>
 </head>
 
@@ -82,7 +85,7 @@
                 </div>
                 <div class="text mt-4">
                     <div class="text-center fw-bold">Κάνε Εγγραφή</div>
-                    <p class="text-black-50 mt-2 text-center">Βρες την φόρμα <br> αίτησης</p>
+                    <p class="description text-black-50 mt-2 text-center">Βρες την φόρμα <br> αίτησης</p>
                 </div>
             </div>
             
@@ -94,19 +97,19 @@
                 </div>
                 <div class="text mt-4">
                     <div class="text-center fw-bold">Συμπλήρωσε την αίτηση</div>
-                    <p class="text-black-50 mt-2 text-center">Συμπλήρωσε τα στοιχεία σου και τα δικαιολογητικά</p>
+                    <div class="description text-black-50 mt-2 text-center">Συμπλήρωσε τα στοιχεία σου και τα δικαιολογητικά</div>
                 </div>
             </div>
 
             <div class="mt-auto mb-auto ms-5 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
 
             <div class="col-md-3 d-flex flex-column">
-                <div class="p-5 choice m-auto d-flex align-items-center">
+                <div class="p-5 choice ms-auto me-auto d-flex align-items-center">
                     <i class="bi bi-file-pdf"></i>
                 </div>
                 <div class="text mt-4">
                     <div class="text-center fw-bold">Πάρε την πράξη</div>
-                    <p class="text-black-50 mt-2 text-center">Έκδοση e-statement ή/και αποστολή έντυπου</p>
+                    <div class="description text-black-50 mt-2 text-center">Έκδοση e-statement ή/και αποστολή έντυπου</div>
                 </div>
             </div>
         </div>
