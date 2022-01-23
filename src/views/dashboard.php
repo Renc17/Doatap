@@ -135,7 +135,7 @@
                         <button class="nav-link active" id="Submitted-tab" data-bs-toggle="tab" data-bs-target="#Submitted" type="button" role="tab" aria-controls="Submitted" aria-selected="true">Υποβλήθηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Εγκριθηκέ</button>
+                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Εγκρίθηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="standBy-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
@@ -159,9 +159,9 @@
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Κύκλος Σπουδών</th>
                                     <th scope="col">Αρ.Ταυτότητας/Διαβατηρίου</th>
-                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Όν/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
                                     <th scope="col">Επισκόπηση</th>
                                     </tr>
@@ -194,9 +194,9 @@
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Κυκλος Σπουδων</th>
+                                    <th scope="col">Κύκλος Σπουδών</th>
                                     <th scope="col">Αρ.Ταυτότητας/Διαβατηρίου</th>
-                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Όν/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
                                     <th scope="col">Επισκόπηση</th>
                                     <th scope="col">e-statement</th>
@@ -255,10 +255,10 @@
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Κυκλος Σπουδων</th>
-                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Κύκλος Σπουδών</th>
+                                    <th scope="col">Όν/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Κατάσταση</th>
                                     <th scope="col">Επισκόπηση</th>
                                     </tr>
                                 </thead>
@@ -289,10 +289,10 @@
                                 <thead>
                                     <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Κυκλος Σπουδων</th>
-                                    <th scope="col">Ον/μο</th>
+                                    <th scope="col">Κύκλος Σπουδών</th>
+                                    <th scope="col">Όν/μο</th>
                                     <th scope="col">Δημιουργήθηκε</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Κατάσταση</th>
                                     <th scope="col">Επισκόπηση</th>
                                     </tr>
                                 </thead>

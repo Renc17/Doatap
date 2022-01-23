@@ -129,7 +129,7 @@
                     </h6>
                 </div>
                 <button class = 'btn border border-3 rounded-pill float-end' type="submit" name="edit" value='update' class="submit">Ανανέωση</button>
-                <button onclick="toggleEdit()" class='btn float-end text-black-50' type="text" value="cancel" name="cancel">Ακυρο</button>
+                <button onclick="toggleEdit()" class='btn float-end text-black-50' type="text" value="cancel" name="cancel">Άκυρο</button>
             </form>
             <hr class="mt-5" style="border: 3px solid black;">
 

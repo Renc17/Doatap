@@ -68,7 +68,7 @@
         <div class="d-flex flex-column justify-content-center mt-4 mb-5">
             <h1 style="font-weight: bold; color:#0071bc">Αναγνώριση Τίτλων Σπουδών</h1> 
             <div class="mb-4 col-md-7 m-auto documentDescription ">
-            Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης (Δ.Ο.Α.Τ.Α.Π.) είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που απονέμονται από εκπαιδευτικά ιδρύματα ανώτατης εκπαίδευσης της αλλοδαπής            </div>
+            Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης (Δ.Ο.Α.Τ.Α.Π.) είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που απονέμονται από εκπαιδευτικά ιδρύματα ανώτατης εκπαίδευσης της αλλοδαπής. Σε αυτήν την πλατφόρμα μπορείτε να πραγματοποιήσετε αίτηση για αναγνώριση τον Ακαδημαϊκών σας τίτλων.</div>
         </div>
 
 
@@ -82,7 +82,7 @@
                 </div>
                 <div class="text mt-4">
                     <div class="text-center fw-bold">Κάνε Εγγραφή</div>
-                    <p class="text-black-50 mt-2 text-center">Βρες την φόρμα <br> αίτησεις</p>
+                    <p class="text-black-50 mt-2 text-center">Βρες την φόρμα <br> αίτησης</p>
                 </div>
             </div>
             
@@ -93,8 +93,8 @@
                     <i class="bi bi-ui-checks"></i>
                 </div>
                 <div class="text mt-4">
-                    <div class="text-center fw-bold">Συμλήρωσε την αίτηση</div>
-                    <p class="text-black-50 mt-2 text-center">Συμλήρωσε τα στοιχεία σου και τα δικαιολογιτηκά</p>
+                    <div class="text-center fw-bold">Συμπλήρωσε την αίτηση</div>
+                    <p class="text-black-50 mt-2 text-center">Συμπλήρωσε τα στοιχεία σου και τα δικαιολογητικά</p>
                 </div>
             </div>
 
@@ -106,11 +106,11 @@
                 </div>
                 <div class="text mt-4">
                     <div class="text-center fw-bold">Πάρε την πράξη</div>
-                    <p class="text-black-50 mt-2 text-center">Εκδωση e-statement ή/και αποστολή έντυπου</p>
+                    <p class="text-black-50 mt-2 text-center">Έκδοση e-statement ή/και αποστολή έντυπου</p>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-center mt-4"><button class="btn btn-more mt-3"><a href="/Doatap/src/views/faq.php">Μαθε Περισσότερα</a></button></div>
+        <div class="d-flex justify-content-center mt-4"><button class="btn btn-more mt-3"><a href="/Doatap/src/views/faq.php">Μάθε Περισσότερα</a></button></div>
     </div>
 
     <?php include(BASE_URL. 'includes\footer.php'); ?>

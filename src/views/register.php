@@ -61,7 +61,7 @@ $controller->register();
                             <div class="mt-1">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <input type="text" id="name" placeholder="Όνομα" name="name" value="<?php echo $controller->getName(); ?>"  style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                         <i class="bi bi-info-circle"></i>
                                     </button>
                                 </div>
@@ -78,7 +78,7 @@ $controller->register();
                             <div class="mt-1">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <input type="text" id="surname" placeholder="Επώνυμο" name="surname" value="<?php echo $controller->getSurname(); ?>"style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                         <i class="bi bi-info-circle"></i>
                                     </button>
                                 </div>
@@ -111,7 +111,7 @@ $controller->register();
                             <div class="mt-1">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <input type="email" id="confirm email" placeholder="example@gmail.com" name="confirm_email" value="<?php echo $controller->getEmail(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανα το email">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανά το emailσ">
                                         <i class="bi bi-info-circle"></i>
                                     </button>
                                 </div>
@@ -128,7 +128,7 @@ $controller->register();
                             <div class="mt-1">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <input type="password" id="password" placeholder="Κωδικός" name="password" value="<?php echo $controller->getPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο κωδικός πρέπει να είναι περιέχει 6-12 ψηφία">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο κωδικός πρέπει να περιέχει 6-12 ψηφία">
                                         <i class="bi bi-info-circle"></i>
                                     </button>
                                 </div>
@@ -144,7 +144,7 @@ $controller->register();
                             <div class="mt-1">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <input type="password" id="confirm password" placeholder="Κωδικός" name="confirm_password" value="<?php echo $controller->getConfirmPassword(); ?>" style="border:1px solid #d9dadc" class="text-input w-100 pt-1">
-                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανα τον κωδικό">
+                                    <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Εισάγετε ξανά τον κωδικό">
                                         <i class="bi bi-info-circle"></i>
                                     </button>
                                 </div>

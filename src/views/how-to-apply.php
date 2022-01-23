@@ -100,14 +100,14 @@
     </div>
 
     <div class="container">
-        <h1 class="fw-bolder">Ποιά είναι η διαδικασία Αναγνώρισης Πτυχίου;</h1>
+        <h1 class="fw-bolder">Ποια είναι η διαδικασία Αναγνώρισης Πτυχίου;</h1>
         <div class="d-flex justify-content-center mt-4 align-items center">
 
             <a class="choice col-md-2 d-flex flex-column" href="/Doatap/src/views/faq.php">
                 <div class="m-auto"><i class="bi bi-box-arrow-in-right"></i></div>
                 <div class="col-md-12 pe-3 ps-3 pb-5 d-flex flex-column">
                     <div class="text-center fw-bolder">Κάνε Εγγραφή</div>
-                    <p class="text-center mt-2" style="font-weight: lighter;">Μετά την εγγραφή θα βρείτε στο προφιλ σας την φόρμα αίτησεις</p>
+                    <p class="text-center mt-2" style="font-weight: lighter;">Μετά την εγγραφή θα βρείτε στο προφίλ σας την φόρμα αιτήσεις</p>
 
                     <div style="text-align:center;margin-top:40px;">
                         <span class="guide-step active"></span>
@@ -142,7 +142,7 @@
                 <div class="m-auto"><i class="bi bi-credit-card-2-back"></i></div>
                 <div class="col-md-12 pe-3 ps-3 pb-5 d-flex flex-column">
                     <div class="text-center fw-bolder">Κάνε Πληρωμή</div>
-                    <p class="text-center mt-2" style="font-weight: lighter;">Η πληρωμή γίνεται με ασφάλεια μέσω της πλατφορμας του ΔΟΑΤΑΠ</p>
+                    <p class="text-center mt-2" style="font-weight: lighter;">Η πληρωμή γίνεται με ασφάλεια μέσω της πλατφόρμας του ΔΟΑΤΑΠ</p>
 
                     <div style="text-align:center;margin-top:40px;">
                         <span class="guide-step"></span>
@@ -175,8 +175,8 @@
             <a class="choice col-md-2 d-flex flex-column" href="/Doatap/src/views/faq.php">
                 <div class="me-auto ms-auto mt-3"><i class="bi bi-file-pdf"></i></div>
                 <div class="col-md-12 pe-3 ps-3 pb-5 mt-4 d-flex flex-column">
-                    <div class="text-center fw-bolder">Παραλαβεται την Πραξη</div>
-                    <p class="text-center mt-2 mb-1" style="font-weight: lighter;">Στο προφιλ σας βρισκεται το ψηφιακό έγγραφο</p>
+                    <div class="text-center fw-bolder">Παραλάβετε την Πράξη</div>
+                    <p class="text-center mt-2 mb-1" style="font-weight: lighter;">Στο προφίλ σας βρίσκεται το ψηφιακό έγγραφο</p>
 
                     <div style="text-align:center;margin-top:75px;">
                         <span class="guide-step"></span>

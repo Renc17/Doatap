@@ -184,11 +184,11 @@ if($formPreview[23] == 'standBy'){
                     </div>
                     <div class="d-flex flex-column">
                         <div class="">
-                            <label>Τροπος Πληρωμής</label>
+                            <label>Τρόπος Πληρωμής</label>
                             <div><?php echo $formPreview[24] ?></div>
                         </div>
                         <div class="mt-3">
-                            <label>Τροπος Αποστολής</label>
+                            <label>Τρόπος Αποστολής</label>
                             <div><?php echo $formPreview[25] ?></div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@ if($formPreview[23] == 'standBy'){
 
                 <div class="d-flex flex-row justify-content-between mt-2">
                     <div class="col-md-3">
-                        <label>Χώρα Εκδοσης Πτυχίου</label>
+                        <label>Χώρα Έκδοσης Πτυχίου</label>
                         <p><?php echo $formPreview[16] ?></p>
                     </div>
                     <div class="col-md-3">
@@ -308,7 +308,7 @@ if($formPreview[23] == 'standBy'){
             </div>
             
             <div class="container mt-5" style="width: 70%;">
-                <h6 class="fw-bolder mb-2">Σχόλεια Αιτούντα</h6>
+                <h6 class="fw-bolder mb-2">Σχόλια Αιτούντα</h6>
                 <hr class="form-bar">
                 <div class="col-md-5 d-flex flex-column">
                     <p><?php echo $formPreview[20] ?? 'N/A'; ?></p>
@@ -321,19 +321,19 @@ if($formPreview[23] == 'standBy'){
                     <div class="reject-section d-flex flex-column pe-5 border-end">
                         <div class="col-md-12 mt-2 mb-3">
                             <h6 class="fw-bolder">Λόγοι απόρριψης της αίτησης</h6>
-                            <input type="checkbox" id="reject-id" name="reject-reason" class="reject-reasons" value="Μη Εγκυρη Ταυτότητα">
-                            <label for="reject-id">Μη Εγκυρη Ταυτότητα</label><br>
-                            <input type="checkbox" id="reject-grades" name="reject-reason" class="reject-reasons" value="Μη Εγκυρη Αναλυτική Βαθμολογία">
-                            <label for="reject-grades"> Μη Εγκυρη Αναλυτική Βαθμολογία</label><br>
-                            <input type="checkbox" id="reject-diploma" name="reject-reason" class="reject-reasons" value="Μη Εγκυρο Πτυχίο">
-                            <label for="reject-diploma"> Μη Εγκυρο Πτυχίο</label><br>
+                            <input type="checkbox" id="reject-id" name="reject-reason" class="reject-reasons" value="Μη Έγκυρη Ταυτότητα">
+                            <label for="reject-id">Μη Έγκυρη Ταυτότητα</label><br>
+                            <input type="checkbox" id="reject-grades" name="reject-reason" class="reject-reasons" value="Μη Έγκυρη Αναλυτική Βαθμολογία">
+                            <label for="reject-grades"> Μη Έγκυρη Αναλυτική Βαθμολογία</label><br>
+                            <input type="checkbox" id="reject-diploma" name="reject-reason" class="reject-reasons" value="Μη Έγκυρη Πτυχίο">
+                            <label for="reject-diploma"> Μη Έγκυρη Πτυχίο</label><br>
                         </div>
                         
-                        <label for="comment">Σχόλεια</label>
+                        <label for="comment">Σχόλια</label>
                         <textarea rows="5" type="text" id="comment" name="comment" value="" class="text-input"></textarea>
                         
                         <div class="col-md-3 text-center m-auto">
-                            <div style="color: black;" ><button class="btn text-end col-12" style="text-decoration:underline" onclick="reject()">Απόρηψη</button></div>
+                            <div style="color: black;" ><button class="btn text-end col-12" style="text-decoration:underline" onclick="reject()">Απόρριψη</button></div>
                         </div>
                     </div>
 
@@ -409,11 +409,11 @@ if($formPreview[23] == 'standBy'){
 
             <?php if($formPreview[23] == 'rejected'){ ?>
                 <div class="container mt-5" style="width: 70%;">
-                    <h6 class="fw-bolder mb-2">Γιατι δεν εκγυθηκέ η αίτηση μου;</h6>
+                    <h6 class="fw-bolder mb-2">Γιατί δεν εγκρίθηκε η αίτηση μου;</h6>
                     <div class="col-md-5 d-flex flex-column">
                         <p><?php echo $reasons[1] ?></p>
                     </div>
-                    <h6 class="fw-bolder mb-2">Σχόλεια</h6>
+                    <h6 class="fw-bolder mb-2">Σχόλια</h6>
                     <div class="col-md-5 d-flex flex-column">
                         <p><?php echo $reasons[2] ?></p>
                     </div>

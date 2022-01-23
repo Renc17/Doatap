@@ -98,7 +98,7 @@ $controller->login();
                             <div class="d-flex align-items-center">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label p-1" for="flexCheckDefault">
-                                    Θυμίσου με
+                                    Θυμήσου με
                                 </label>
                             </div>
                             <div>

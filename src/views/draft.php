@@ -124,7 +124,7 @@ $controller->create($_GET['id']);
                     </div>
 
                     <div class=" d-flex align-items-center justify-content-around step col-md-2">
-                        <span >Σχόλεια <br>& Οροι</span>
+                        <span >Σχόλια <br>& Όροι</span>
                         <div class="d-flex align-items-center next-step-arrow">
                             <i class="bi bi-chevron-compact-right" style="font-size:xx-large;"></i>
                         </div>
@@ -156,7 +156,7 @@ $controller->create($_GET['id']);
                         <label for="father">Πατρώνυμο</label>
                         <div class="d-flex align-items-center justify-content-between">
                             <input type="text" id="father" name="father_name" value="<?php echo $formPreview[3] ?>" placeholder="<?php echo $formPreview[3] ?>" class="text-input col-10">
-                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                 <i class="bi bi-info-circle"></i>
                             </button>
                         </div>
@@ -166,7 +166,7 @@ $controller->create($_GET['id']);
                         <label for="mother">Μητρώνυμο</label>
                         <div class="d-flex align-items-center justify-content-between">
                             <input type="text" id="mother" name="mother_name" value="<?php echo $formPreview[4] ?>" placeholder="<?php echo $formPreview[4] ?>" class="text-input col-10">
-                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                            <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                 <i class="bi bi-info-circle"></i>
                             </button>
                         </div>
@@ -193,7 +193,7 @@ $controller->create($_GET['id']);
                             <label for="passport">Διαβατήριο</label>
                             <input type="radio" id="passport" name="identification_type" value="Διαβατήριο" <?php if (isset($formPreview[7]) && $formPreview[7]=="Διαβατήριο") echo "checked";?>>
                         </div>
-                        <div id="identification-type-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                        <div id="identification-type-error" class="error unchecked">Το πεδίο είναι υποχρεωτικό</div>
                         <div class="error"> <?php echo $controller->getErrors('identification_type') ?? '' ?> </div>
                     </div>
 
@@ -213,10 +213,10 @@ $controller->create($_GET['id']);
 
                     <div class="d-flex flex-column justify-content-between">
                         <div class="col-md-6 d-flex flex-column">
-                            <label for="road">Οδος</label>
+                            <label for="road">Οδός</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input type="text" id="road" name="road" value="<?php echo $formPreview[9] ?>" placeholder="<?php echo $formPreview[9] ?>" class="text-input col-10">
-                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
                             </div>
@@ -224,7 +224,7 @@ $controller->create($_GET['id']);
                         </div>
 
                         <div class="d-flex flex-column col-md-6 mt-3">
-                            <label for="number">Αριθμος</label>
+                            <label for="number">Αριθμός</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input type="text" id="number" name="number" value="<?php echo $formPreview[11] ?>" placeholder="<?php echo $formPreview[11] ?>" class="text-input col-10">
                                 <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Μόνο ένα ψηφίο">
@@ -238,7 +238,7 @@ $controller->create($_GET['id']);
                             <label for="city">Πόλη</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input type="text" id="city" name="city" value="<?php echo $formPreview[10] ?>" placeholder="<?php echo $formPreview[10] ?>" class="text-input col-10">
-                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρεπονται ψηφία">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Δεν επιτρέπονται ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
                             </div>
@@ -246,10 +246,10 @@ $controller->create($_GET['id']);
                         </div>
 
                         <div class="col-md-6 d-flex flex-column mt-3">
-                            <label for="pobox">Τ.Κ</label>
+                            <label for="pobox">Τ.Κ.</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input type="text" id="pobox" name="pobox" value="<?php echo $formPreview[12] ?>" placeholder="<?php echo $formPreview[12] ?>" class="text-input col-10">
-                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Το Τ.Κ αποτελείται απο 5 ψηφία">
+                                <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Ο Τ.Κ. αποτελείται απο 5 ψηφία">
                                     <i class="bi bi-info-circle"></i>
                                 </button>
                             </div>
@@ -290,7 +290,7 @@ $controller->create($_GET['id']);
                                 <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό" <?php if (isset($formPreview[15]) && $formPreview[15]=="Διδακτορικό") echo "checked";?>>
                                 <label for="Διδακτορικό">Διδακτορικό</label>
                             </div>
-                            <div id="study-cycle-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                            <div id="study-cycle-error" class="error unchecked">Το πεδίο είναι υποχρεωτικό</div>
                             <div class="error"> <?php echo $controller->getErrors('study_cycle') ?? '' ?> </div>
                         </div>
 
@@ -303,7 +303,7 @@ $controller->create($_GET['id']);
                                     <option value="Γερμανία">Γερμανία</option>
                                     <option value="Γαλλία">Γαλλία</option>
                                 </select>
-                                <div id="diploma-country-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                                <div id="diploma-country-error" class="error unchecked">Το πεδίο είναι υποχρεωτικό</div>
                                 <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
@@ -331,7 +331,7 @@ $controller->create($_GET['id']);
                                     <option value="PSL Research University">PSL Research University</option>
                                     <option value="University of Montpellier">University of Montpellier</option>
                                 </select>
-                                <div id="university-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                                <div id="university-error" class="error unchecked">Το πεδίο είναι υποχρεωτικό</div>
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
@@ -345,7 +345,7 @@ $controller->create($_GET['id']);
                                     <option value="ΦΥΣΙΚΗΣ">ΦΥΣΙΚΗΣ</option>
                                     <option value="ΜΑΘΗΜΑΤΙΚΩΝ">ΜΑΘΗΜΑΤΙΚΩΝ</option>
                                 </select>
-                                <div id="department-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
+                                <div id="department-error" class="error unchecked">Το πεδίο είναι υποχρεωτικό</div>
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
@@ -407,7 +407,7 @@ $controller->create($_GET['id']);
 
                     <div class="d-flex flex-column mt-4">
                         <div class="d-flex flex-column col-8 ">
-                            <label for="comment">Σχόλεια Αιτούντα</label>
+                            <label for="comment">Σχόλια Αιτούντα</label>
                             <textarea rows="5" type="text" id="comment" name="comment" value="<?php echo $formPreview[20] ?>" placeholder="<?php echo $formPreview[20] ?>" class="text-input"></textarea>
                             <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
                         </div>
@@ -415,7 +415,7 @@ $controller->create($_GET['id']);
                             <input type="checkbox" id="consent" name="consent" value="yes" <?php if (isset($formPreview[21]) && $formPreview[21]=="yes") echo "checked";?>>
                             <div class="d-flex flex-column">
                                 <label for="consent" class="p-3">Εξουσιοδοτώ τον ΔΟΑΤΑΠ να ζητήσει οποιοδήποτε απαραίτητο έγγραφο και οποιαδήποτε πληροφορία σχετικά με το ακαδημαϊκό μου πτυχίο προκειμένου να διεκπεραιώσει την αναγνώριση του ανωτέρου πτυχίου.</label><br>
-                                <div id="checkbox-error" class="error unchecked">Πρέπει να συμφωνείσεται με τους όρους</div>
+                                <div id="checkbox-error" class="error unchecked">Πρέπει να συμφωνήσετε με τους όρους</div>
                                 <div class="error"> <?php echo $controller->getErrors('consent') ?? '' ?> </div>
                             </div>
                         </div>
@@ -425,7 +425,7 @@ $controller->create($_GET['id']);
 
             <div class="tab">
                 <div class="container mt-5" style="width: 70%;">
-                    <h6 class="fw-bolder mb-2">Τροπος Πληρωμής</h6>
+                    <h6 class="fw-bolder mb-2">Τρόπος Πληρωμής</h6>
                     <hr class="form-bar">
 
                     <div class="d-flex flex-column">
@@ -489,7 +489,7 @@ $controller->create($_GET['id']);
                     </div>
 
 
-                    <h6 class="fw-bolder mb-2 mt-5">Τροπος Αποστολής</h6>
+                    <h6 class="fw-bolder mb-2 mt-5">Τρόπος Αποστολής</h6>
                     <hr class="form-bar">
 
                     <div class="d-flex flex-column">
@@ -498,18 +498,18 @@ $controller->create($_GET['id']);
                             <label for="e-statement">e-statement</label>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="delivery" name="after_issued" value="Αποστολή Εντυπου" onclick="showAddress()">
+                            <input type="radio" id="delivery" name="after_issued" value="Αποστολή Έντυπου" onclick="showAddress()">
                             <div class="d-flex flex-column align-items-center justify-content-end">
-                                <label for="delivery">Αποστολή Εντυπου</label>
+                                <label for="delivery">Αποστολή Έντυπου</label>
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3" onclick="showAddress()">
-                            <input type="radio" id="both" name="after_issued" value="Αποστολή Εντυπου και e-statement">
+                            <input type="radio" id="both" name="after_issued" value="Αποστολή Έντυπου και e-statement">
                             <label for="both">Και τα δύο παραπανώ</label>
                         </div>
 
                         <div id="address-panel" class="panel mt-2" style="display: none;">
-                            <p style="font-size: smaller; color:chocolate;">Το έντυπο θα αποσταλεί στην διευθυνση που δηλώσατε στο πρώτο βήμα</p>
+                            <p style="font-size: smaller; color:chocolate;">Το έντυπο θα αποσταλεί στην διεύθυνση που δηλώσατε στο πρώτο βήμα</p>
                         </div>
                     </div>
                 </div>

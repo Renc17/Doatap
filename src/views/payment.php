@@ -83,14 +83,14 @@ $controller->create();
                         </div>
                         <div class="d-flex flex-column col-6">
                             <label for="cvv">CVC/CVV</label>
-                            <input type="text" id="cvv" name="cvv" value="" placeholder="3ψηφιός" required>
+                            <input type="text" id="cvv" name="cvv" value="" placeholder="3ψήφιος" required>
                             <div class="error"> <?php echo $controller->getErrors('cvv') ?? '' ?> </div>
                         </div>
                     </div>
 
                     <div class="col-12 d-flex flex-column mt-3 mb-2">
-                        <label for="owner">Ον/μο στην κάρτα</label>
-                        <input type="text" id="owner" name="owner" value="" placeholder="Ον/μο" required>
+                        <label for="owner">Όν/μο στην κάρτα</label>
+                        <input type="text" id="owner" name="owner" value="" placeholder="Όν/μο" required>
                         <div class="error"> <?php echo $controller->getErrors('owner') ?? '' ?> </div>
                     </div>
                     <button type="submit" name="payment" value="pay" class="btn btn-warning mt-5 col-12" >Πληρωμή</button>
