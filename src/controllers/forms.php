@@ -92,7 +92,6 @@ class FormController{
                 }else{
                     $effected_rows = $this->db->update(self::$table, $id, $this->data);
                     if($effected_rows){
-                        // $this->files['id'] = $id;
                         $this->db->update(self::$files_table, $id, $this->files);
                     }
                     else
