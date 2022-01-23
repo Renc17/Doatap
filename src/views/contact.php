@@ -75,7 +75,7 @@
                             <label class="fw-bold" for="ask">Ρωτήστε μας</label>
                         </div>
                         <div class="mt-1">
-                            <textarea placeholder="Θέλω να ρωτήσω..." id="ask" name="comment" rows="5" cols="50" class="text-input pt-1"></textarea>
+                            <textarea placeholder="Θέλω να ρωτήσω..." id="ask" name="comment" rows="5" cols="25" class="text-input pt-1"></textarea>
                         </div>
                     </div>
 

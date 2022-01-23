@@ -373,7 +373,7 @@ $controller->create($_GET['id']);
                             <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                         </div>
 
-                        <div class="col-md-5 mt-2">
+                        <div class="col-md-5 mt-4">
                             <label for="diploma">Πτυχίο</label>
                             <div class="value"> <?php echo $controller->getFiles('diploma') ?? '' ?> </div>
                             <div class="d-flex align-items-center col-12">
@@ -385,7 +385,7 @@ $controller->create($_GET['id']);
                             <div class="error"> <?php echo $controller->getErrors('diploma') ?? '' ?> </div>
                         </div>
                        
-                        <div class="col-md-5 mt-2">
+                        <div class="col-md-5 mt-4">
                             <label for="grades">Αναλυτική Βαθμολογία</label>
                             <div class="value"> <?php echo $controller->getFiles('grades') ?? '' ?> </div>
                             <div class="d-flex align-items-center col-12">
