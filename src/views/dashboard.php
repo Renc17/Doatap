@@ -26,7 +26,7 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
         <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -219,8 +219,8 @@
                                         <div class="modal fade" id="id" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <div class="d-flex align-items-center">
-                                                        <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
+                                                    <div class="d-flex align-items-center justify-content-center">
+                                                        <button type="button" class="btn-close border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
                                                         <button type="button" class="btn float-end" style="background-color: white"><i class="bi bi-download"></i></button>
                                                     </div>
                                                     <div class="modal-body d-flex justify-content-center">
@@ -268,8 +268,8 @@
                                         <th scope="row"><?php echo $form[0] ?></th>
                                         <td><?php echo $form[15] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
-                                        <td><?php echo $form[22] ?></td>
-                                        <td style="background-color:crimson; font-weight:bolder; color:white"><?php echo $form[23] ?></td>
+                                        <td ><?php echo $form[22] ?></td>
+                                        <td style="font-weight:bolder; color:crimson"><?php echo $form[23] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
                                     </tr>
                                     <?php } ?>

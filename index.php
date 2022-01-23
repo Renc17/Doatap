@@ -67,7 +67,7 @@
         
         <div class="d-flex flex-column justify-content-center mt-4 mb-5">
             <h1 style="font-weight: bold; color:#0071bc">Αναγνώριση Τίτλων Σπουδών</h1> 
-            <div class="mb-4 col-md-7 m-auto documentDescription ">
+            <div class="mb-4 mt-2 col-md-7 m-auto documentDescription ">
             Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης (Δ.Ο.Α.Τ.Α.Π.) είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που απονέμονται από εκπαιδευτικά ιδρύματα ανώτατης εκπαίδευσης της αλλοδαπής. Σε αυτήν την πλατφόρμα μπορείτε να πραγματοποιήσετε αίτηση για αναγνώριση τον Ακαδημαϊκών σας τίτλων.</div>
         </div>
 
@@ -86,7 +86,7 @@
                 </div>
             </div>
             
-            <div class="mt-auto mb-auto ms-3 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+            <div class="mt-auto mb-auto ms-3 me-5 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
 
             <div class="col-md-3 d-flex flex-column">
                 <div class="p-5 choice m-auto d-flex align-items-center">
@@ -98,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="mt-auto mb-auto ms-3 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+            <div class="mt-auto mb-auto ms-5 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
 
             <div class="col-md-3 d-flex flex-column">
                 <div class="p-5 choice m-auto d-flex align-items-center">

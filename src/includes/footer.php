@@ -1,4 +1,4 @@
-<footer class="site-footer" style="margin-top: 150px;">
+<footer class="site-footer" style="margin-top: 150px; color: white">
     <div class="container mt-5">
         <h6>Επικοινωνια & Διευθυνσεις</h6>
         <div class="row mt-5">
@@ -100,6 +100,9 @@
         <div class="row col-md-8">
             <div class="col-md-2 col-sm-12 col-xs-12">
                 <a href="/Doatap/index.php" style="font-weight: bold; text-decoration: none">Αρχική</a>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <a href="/Doatap/src/views/how-to-apply.php" style="font-weight: bold; text-decoration: none">Αίτηση Αναγνώρισης</a>
             </div>
             <div class="col-md-2 col-sm-12 col-xs-12">
                 <a href="/Doatap/src/views/faq.php" style="font-weight: bold; text-decoration: none">Οδηγός</a>

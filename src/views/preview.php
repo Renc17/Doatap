@@ -35,7 +35,7 @@ if($formPreview[23] == 'standBy'){
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../scripts.js"></script>
@@ -152,7 +152,7 @@ if($formPreview[23] == 'standBy'){
                                 <label>Ταυτοποίηση</label>
                                 <p><?php echo $formPreview[7] ?></p>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <label>Αριθμός Ταυτότητας</label>
                                 <p><?php echo $formPreview[8] ?></p>
                             </div>

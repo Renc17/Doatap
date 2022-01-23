@@ -27,7 +27,7 @@ $controller->create($_GET['id']);
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
     <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -82,7 +82,8 @@ $controller->create($_GET['id']);
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/index.php">Αρχική</a></li>
                 <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/src/views/profile.php">Προφίλ</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Νέα Αιτήση</li>
+                <li class="breadcrumb-item"><a class="text-black-50" href="/Doatap/src/views/requests.php">Οι Αιτήσεις μου</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Επεξεργασία Αιτήσης</li>
             </ol>
         </nav>
     </div>

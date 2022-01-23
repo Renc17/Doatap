@@ -41,9 +41,9 @@
         }
         a { 
             text-decoration: none;
-            transition: all .2s ease-in-out; 
         }
-        a:hover { 
+        
+        .choice:hover { 
             transform: scale(1.1); 
         }
         .choice{
@@ -52,6 +52,7 @@
             margin: 0 10px 0;
             padding-right: 5px;
             border-radius: 10px;
+            transition: all .2s ease-in-out; 
         }
         .choice i{
             color: #0071bc;
