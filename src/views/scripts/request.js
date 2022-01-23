@@ -67,6 +67,34 @@ function validateForm() {
             valid = false;
         }
     }
+
+    diploma_country = x[currentTab].querySelector('#diploma_country')
+    if(diploma_country){
+        if(!diploma_country.value){
+            unchecked = document.getElementById("diploma-country-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
+    
+    university = x[currentTab].querySelector('#university')
+    if(university){
+        if(!university.value){
+            unchecked = document.getElementById("university-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
+
+
+    department = x[currentTab].querySelector('#department')
+    if(department){
+        if(!department.value){
+            unchecked = document.getElementById("department-error");
+            unchecked.className = unchecked.className.replace(" unchecked", " invalid");
+            valid = false;
+        }
+    }
     
     if(checkbox){
         if(!checkbox.checked){

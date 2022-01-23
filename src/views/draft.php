@@ -187,11 +187,11 @@ $controller->create($_GET['id']);
                     <div class="radio-toolbar mt-3">
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="id">Ταυτότητα</label>
-                            <input type="radio" id="id" name="identification_type" value="Ταυτότητα" checked>
+                            <input type="radio" id="id" name="identification_type" value="Ταυτότητα" <?php if (isset($formPreview[7]) && $formPreview[7]=="Ταυτότητα") echo "checked";?>>
                         </div>
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="passport">Διαβατήριο</label>
-                            <input type="radio" id="passport" name="identification_type" value="Διαβατήριο">
+                            <input type="radio" id="passport" name="identification_type" value="Διαβατήριο" <?php if (isset($formPreview[7]) && $formPreview[7]=="Διαβατήριο") echo "checked";?>>
                         </div>
                         <div id="identification-type-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                         <div class="error"> <?php echo $controller->getErrors('identification_type') ?? '' ?> </div>
@@ -277,17 +277,17 @@ $controller->create($_GET['id']);
 
                         <div class="d-flex flex-column justify-content-between col-md-6">
                             <div class="mt-2">
-                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο">
+                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" <?php if (isset($formPreview[15]) && $formPreview[15]=="Βασικό Πτυχίο") echo "checked";?>>
                                 <label for="Πτυχίο">Βασικό Πτυχίο</label>
                             </div>
                             
                             <div class="mt-2">
-                                <input type="radio" id="Μεταπτυχιακό" name="study_cycle" value="Μεταπτυχιακό">
+                                <input type="radio" id="Μεταπτυχιακό" name="study_cycle" value="Μεταπτυχιακό" <?php if (isset($formPreview[15]) && $formPreview[15]=="Μεταπτυχιακό") echo "checked";?>>
                                 <label for="Μεταπτυχιακό">Μεταπτυχιακό</label>
                             </div>
                             
                             <div class="mt-2">
-                                <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό">
+                                <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό" <?php if (isset($formPreview[15]) && $formPreview[15]=="Διδακτορικό") echo "checked";?>>
                                 <label for="Διδακτορικό">Διδακτορικό</label>
                             </div>
                             <div id="study-cycle-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
@@ -298,15 +298,18 @@ $controller->create($_GET['id']);
                             <div class="col-md-3">
                                 <label for="diploma_country">Χώρα Εκδοσης Πτυχίου</label>
                                 <select name="diploma_country" id="diploma_country" class="form-select">
+                                    <option value=<?php if (isset($formPreview[16])) echo $formPreview[16]; ?>><?php if (isset($formPreview[16])) echo $formPreview[16]; ?></option>
                                     <option value="Αγγλία">Αγγλία</option>
                                     <option value="Γερμανία">Γερμανία</option>
                                     <option value="Γαλλία">Γαλλία</option>
                                 </select>
+                                <div id="diploma-country-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="university">Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
+                                    <option value=<?php echo $formPreview[17]; ?>><?php echo $formPreview[17]; ?></option>
                                     <option value="University of Oxford">University of Oxford</option>
                                     <option value="University of Cambridge">University of Cambridge</option>
                                     <option value="Imperial College London">Imperial College London</option>
@@ -328,11 +331,13 @@ $controller->create($_GET['id']);
                                     <option value="PSL Research University">PSL Research University</option>
                                     <option value="University of Montpellier">University of Montpellier</option>
                                 </select>
+                                <div id="university-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="department">Τμήμα</label>
                                 <select name="department" id="department" class="form-select">
+                                    <option value=<?php echo $formPreview[18]; ?>><?php echo $formPreview[18]; ?></option>
                                     <option value="ΠΛΗΡΟΦΟΡΙΚΗΣ">ΠΛΗΡΟΦΟΡΙΚΗΣ</option>
                                     <option value="ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
                                     <option value="ΝΑΥΤΙΛΙΑΣ">ΝΑΥΤΙΛΙΑΣ</option>
@@ -340,6 +345,7 @@ $controller->create($_GET['id']);
                                     <option value="ΦΥΣΙΚΗΣ">ΦΥΣΙΚΗΣ</option>
                                     <option value="ΜΑΘΗΜΑΤΙΚΩΝ">ΜΑΘΗΜΑΤΙΚΩΝ</option>
                                 </select>
+                                <div id="department-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
@@ -406,7 +412,7 @@ $controller->create($_GET['id']);
                             <div class="error"> <?php echo $controller->getErrors('comment') ?? '' ?> </div>
                         </div>
                         <div class="mt-5 d-flex flex-row align-items-center col-12">
-                            <input type="checkbox" id="consent" name="consent" value="yes">
+                            <input type="checkbox" id="consent" name="consent" value="yes" <?php if (isset($formPreview[21]) && $formPreview[21]=="yes") echo "checked";?>>
                             <div class="d-flex flex-column">
                                 <label for="consent" class="p-3">Εξουσιοδοτώ τον ΔΟΑΤΑΠ να ζητήσει οποιοδήποτε απαραίτητο έγγραφο και οποιαδήποτε πληροφορία σχετικά με το ακαδημαϊκό μου πτυχίο προκειμένου να διεκπεραιώσει την αναγνώριση του ανωτέρου πτυχίου.</label><br>
                                 <div id="checkbox-error" class="error unchecked">Πρέπει να συμφωνείσεται με τους όρους</div>
@@ -424,7 +430,7 @@ $controller->create($_GET['id']);
 
                     <div class="d-flex flex-column">
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
-                            <input type="radio" id="deposit" name="payment" value="deposit" checked>
+                            <input type="radio" id="deposit" name="payment" value="deposit" <?php if (isset($formPreview[24]) && $formPreview[24]=="deposit") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="deposit">Κατάθεση στην Τράπεζα της Ελλάδος</label>
                                 <p class="text-black-50" style="font-size: smaller;">IBAN: GR05 0100 0240 0000 0002 6072 595</p>
@@ -432,7 +438,7 @@ $controller->create($_GET['id']);
                         </div>
                         
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
-                            <input type="radio" id="credit" name="payment" value="credit" data-bs-toggle="modal" data-bs-target="#creditModal">
+                            <input type="radio" id="credit" name="payment" value="credit" data-bs-toggle="modal" data-bs-target="#creditModal" <?php if (isset($formPreview[24]) && $formPreview[24]=="credit") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="credit">Χρεωστική/Πιστωτική</label>
                                 <p id="credit-payment" style="font-size: smaller; color:chocolate; display:none">Η Πληρωμή Ολοκληρώθηκε</p>
@@ -461,7 +467,7 @@ $controller->create($_GET['id']);
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="paypal" name="payment" value="paypal" data-bs-toggle="modal" data-bs-target="#paypalModal">
+                            <input type="radio" id="paypal" name="payment" value="paypal" data-bs-toggle="modal" data-bs-target="#paypalModal" <?php if (isset($formPreview[24]) && $formPreview[24]=="paypal") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="paypal">PayPal</label>
                             </div>
@@ -524,7 +530,6 @@ $controller->create($_GET['id']);
         include(BASE_URL. 'includes\footer.php'); 
     ?>
     <script type="text/javascript" src="scripts/request.js"></script>
-    <script type="text/javascript" src="scripts/draft.js"></script>
 </body>
 
 </html>

@@ -182,11 +182,11 @@ $controller->create(null);
                     <div class="radio-toolbar mt-3">
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="id">Ταυτότητα</label>
-                            <input type="radio" id="id" name="identification_type" value="Ταυτότητα">
+                            <input type="radio" id="id" name="identification_type" value="Ταυτότητα" <?php if ($controller->getData('identification_type')!=null && $controller->getData('identification_type')=="Ταυτότητα") echo "checked";?>>
                         </div>
                         <div class="col-md-3 d-flex align-items-center justify-content-between">
                             <label for="passport">Διαβατήριο</label>
-                            <input type="radio" id="passport" name="identification_type" value="Διαβατήριο">
+                            <input type="radio" id="passport" name="identification_type" value="Διαβατήριο" <?php if ($controller->getData('identification_type')!=null && $controller->getData('identification_type')=="Διαβατήριο") echo "checked";?>>
                         </div>
                         <div id="identification-type-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                         <div class="error"> <?php echo $controller->getErrors('identification_type') ?? '' ?> </div>
@@ -272,17 +272,17 @@ $controller->create(null);
 
                         <div class="d-flex flex-column justify-content-between col-md-6">
                             <div class="mt-2">
-                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" >
+                                <input type="radio" id="Πτυχίο" name="study_cycle" value="Βασικό Πτυχίο" <?php if ($controller->getData('study_cycle')!=null && $controller->getData('study_cycle')=="Ταυτότητα") echo "checked";?>>
                                 <label for="Πτυχίο">Βασικό Πτυχίο</label>
                             </div>
                             
                             <div class="mt-2">
-                                <input type="radio" id="Μεταπτυχιακό" name="study_cycle" value="Μεταπτυχιακό">
+                                <input type="radio" id="Μεταπτυχιακό" name="study_cycle" value="Μεταπτυχιακό" <?php if ($controller->getData('study_cycle')!=null && $controller->getData('study_cycle')=="Μεταπτυχιακό") echo "checked";?>>
                                 <label for="Μεταπτυχιακό">Μεταπτυχιακό</label>
                             </div>
                             
                             <div class="mt-2">
-                                <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό">
+                                <input type="radio" id="Διδακτορικό" name="study_cycle" value="Διδακτορικό" <?php if ($controller->getData('study_cycle')!=null && $controller->getData('study_cycle')=="Διδακτορικό") echo "checked";?>>
                                 <label for="Διδακτορικό">Διδακτορικό</label>
                             </div>
                             <div id="study-cycle-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
@@ -293,15 +293,18 @@ $controller->create(null);
                             <div class="col-md-3">
                                 <label for="diploma_country">Χώρα Εκδοσης Πτυχίου</label>
                                 <select name="diploma_country" id="diploma_country" class="form-select">
+                                    <option value="<?php echo $controller->getData('diploma_country') ?>"><?php echo $controller->getData('diploma_country') ?></option>
                                     <option value="Αγγλία">Αγγλία</option>
                                     <option value="Γερμανία">Γερμανία</option>
                                     <option value="Γαλλία">Γαλλία</option>
                                 </select>
+                                <div id="diploma-country-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('diploma_country') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="university">Πανεπιστήμιο</label>
                                 <select name="university" id="university" class="form-select">
+                                    <option value="<?php echo $controller->getData('university') ?>"><?php echo $controller->getData('university') ?></option>
                                     <option value="University of Oxford">University of Oxford</option>
                                     <option value="University of Cambridge">University of Cambridge</option>
                                     <option value="Imperial College London">Imperial College London</option>
@@ -323,11 +326,13 @@ $controller->create(null);
                                     <option value="PSL Research University">PSL Research University</option>
                                     <option value="University of Montpellier">University of Montpellier</option>
                                 </select>
+                                <div id="university-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('university') ?? '' ?> </div>
                             </div>
                             <div class="col-md-3 mt-2">
                                 <label for="department">Τμήμα</label>
                                 <select name="department" id="department" class="form-select">
+                                    <option value="<?php echo $controller->getData('department') ?>"><?php echo $controller->getData('department') ?></option>
                                     <option value="ΠΛΗΡΟΦΟΡΙΚΗΣ">ΠΛΗΡΟΦΟΡΙΚΗΣ</option>
                                     <option value="ΦΑΡΜΑΚΕΥΤΙΚΗΣ">ΦΑΡΜΑΚΕΥΤΙΚΗΣ</option>
                                     <option value="ΝΑΥΤΙΛΙΑΣ">ΝΑΥΤΙΛΙΑΣ</option>
@@ -335,6 +340,7 @@ $controller->create(null);
                                     <option value="ΦΥΣΙΚΗΣ">ΦΥΣΙΚΗΣ</option>
                                     <option value="ΜΑΘΗΜΑΤΙΚΩΝ">ΜΑΘΗΜΑΤΙΚΩΝ</option>
                                 </select>
+                                <div id="department-error" class="error unchecked">Το πεδίο είναι υποχρωτηκό</div>
                                 <div class="error"> <?php echo $controller->getErrors('department') ?? '' ?> </div>
                             </div>
                         </div>
@@ -350,7 +356,7 @@ $controller->create(null);
 
                     <div class="d-flex flex-column justify-content-between">
                        
-                        <div class="col-md-5 mt-2">
+                        <div class="col-md-5 mt-4">
                             <label for="id_copy">Αντίγραφο Ταυτότητας</label>
                             <div class="value"> <?php echo $controller->getFiles('identification') ?? '' ?> </div>
                             <div class="d-flex align-items-center col-12">
@@ -362,7 +368,7 @@ $controller->create(null);
                             <div class="error"> <?php echo $controller->getErrors('identification') ?? '' ?> </div>
                         </div>
 
-                        <div class="col-md-5 mt-2">
+                        <div class="col-md-5 mt-4">
                             <label for="diploma">Πτυχίο</label>
                             <div class="value"> <?php echo $controller->getFiles('diploma') ?? '' ?> </div>
                             <div class="d-flex align-items-center col-12">
@@ -374,7 +380,7 @@ $controller->create(null);
                             <div class="error"> <?php echo $controller->getErrors('diploma') ?? '' ?> </div>
                         </div>
                        
-                        <div class="col-md-5 mt-2">
+                        <div class="col-md-5 mt-4">
                             <label for="grades">Αναλυτική Βαθμολογία</label>
                             <div class="value"> <?php echo $controller->getFiles('grades') ?? '' ?> </div>
                             <div class="d-flex align-items-center col-12">
@@ -419,7 +425,7 @@ $controller->create(null);
 
                     <div class="d-flex flex-column">
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
-                            <input type="radio" id="deposit" name="payment" value="deposit" checked>
+                            <input type="radio" id="deposit" name="payment" value="deposit" checked <?php if ($controller->getData('payment')!=null && $controller->getData('payment')=="deposit") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="deposit">Κατάθεση στην Τράπεζα της Ελλάδος</label>
                                 <p class="text-black-50" style="font-size: smaller;">IBAN: GR05 0100 0240 0000 0002 6072 595</p>
@@ -427,7 +433,7 @@ $controller->create(null);
                         </div>
                         
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-2">
-                            <input type="radio" id="credit" name="payment" value="credit" data-bs-toggle="modal" data-bs-target="#creditModal">
+                            <input type="radio" id="credit" name="payment" value="credit" data-bs-toggle="modal" data-bs-target="#creditModal" <?php if ($controller->getData('payment')!=null && $controller->getData('payment')=="credit") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="credit">Χρεωστική/Πιστωτική</label>
                                 <p id="credit-payment" style="font-size: smaller; color:chocolate; display:none">Η Πληρωμή Ολοκληρώθηκε</p>
@@ -456,7 +462,7 @@ $controller->create(null);
                             </div>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="paypal" name="payment" value="paypal" data-bs-toggle="modal" data-bs-target="#paypalModal">
+                            <input type="radio" id="paypal" name="payment" value="paypal" data-bs-toggle="modal" data-bs-target="#paypalModal" <?php if ($controller->getData('payment')!=null && $controller->getData('payment')=="paypal") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="paypal">PayPal</label>
                             </div>
@@ -484,16 +490,16 @@ $controller->create(null);
 
                     <div class="d-flex flex-column">
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="e-statement" name="after_issued" value="e-statement" onclick="digitalOnly()" checked>
+                            <input type="radio" id="e-statement" name="after_issued" value="e-statement" onclick="digitalOnly()" checked <?php if ($controller->getData('after_issued')!=null && $controller->getData('after_issued')=="e-statement") echo "checked";?>>
                             <label for="e-statement">e-statement</label>
                         </div>
                         <div class="col-md-5 d-flex align-items-center justify-content-between mt-3">
-                            <input type="radio" id="delivery" name="after_issued" value="Αποστολή Εντυπου" onclick="showAddress()">
+                            <input type="radio" id="delivery" name="after_issued" value="Αποστολή Εντυπου" onclick="showAddress()" <?php if ($controller->getData('after_issued')!=null && $controller->getData('after_issued')=="Αποστολή Εντυπου") echo "checked";?>>
                             <div class="d-flex flex-column align-items-center justify-content-end">
                                 <label for="delivery">Αποστολή Εντυπου</label>
                             </div>
                         </div>
-                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3" onclick="showAddress()">
+                        <div class="col-md-5 d-flex align-items-center justify-content-between mt-3" onclick="showAddress()" <?php if ($controller->getData('after_issued')!=null && $controller->getData('after_issued')=="Αποστολή Εντυπου και e-statement") echo "checked";?>>
                             <input type="radio" id="both" name="after_issued" value="Αποστολή Εντυπου και e-statement">
                             <label for="both">Και τα δύο παραπανώ</label>
                         </div>
