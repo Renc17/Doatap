@@ -60,6 +60,16 @@
                 max-height: 100%;
             }
 
+            .nav-link{
+                color: rgba(0, 0, 0, 0.3) !important;
+            }
+            .nav-link:hover{
+                color: rgba(0, 0, 0, 0.7);
+            }
+            .nav-link.active{
+                color: #0d6efd !important;
+            }
+
         </style>
     </head>
 
@@ -99,10 +109,10 @@
                         <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Αναγνωρίστηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
+                        <button class="nav-link" id="standBy-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" style="color: red;" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
+                        <button class="nav-link" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Απορρίφθηκε</button>
                     </li>
                 </ul>
             </div>
@@ -183,9 +193,9 @@
                                             <div class="modal fade" id="id" tabindex="-1" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
-                                                        <div class="d-flex align-items-center">
-                                                            <button type="button" class="btn-close m-auto border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
-                                                            <button type="button" class="btn float-end" style="background-color: white"><i class="bi bi-download"></i></button>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <button type="button" class="btn-close border border-4" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></i></button>
+                                                            <button type="button" class="btn" style="background-color: white"><i class="bi bi-download"></i></button>
                                                         </div>
                                                         <div class="modal-body d-flex justify-content-center">
                                                             <div class="embed-responsive embed-responsive-21by9 col-12">

@@ -83,6 +83,15 @@
                 max-height: 100%;
             }
 
+            .nav-link{
+                color: rgba(0, 0, 0, 0.3) !important;
+            }
+            .nav-link:hover{
+                color: rgba(0, 0, 0, 0.7);
+            }
+            .nav-link.active{
+                color: #0d6efd !important;
+            }
         </style>
     </head>
 
@@ -126,7 +135,7 @@
                         <button class="nav-link active" id="Submitted-tab" data-bs-toggle="tab" data-bs-target="#Submitted" type="button" role="tab" aria-controls="Submitted" aria-selected="true">Υποβλήθηκε</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Ελεγμένα</button>
+                        <button class="nav-link" id="checked-tab" data-bs-toggle="tab" data-bs-target="#checked" type="button" role="tab" aria-controls="checked" aria-selected="false">Εγκριθηκέ</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="standBy-tab" data-bs-toggle="tab" data-bs-target="#standBy" type="button" role="tab" aria-controls="standBy" aria-selected="false">Εκκρεμής</button>
@@ -260,7 +269,7 @@
                                         <td><?php echo $form[15] ?></td>
                                         <td><?php echo $form[1] .' ' .$form[2]  ?></td>
                                         <td><?php echo $form[22] ?></td>
-                                        <td><?php echo $form[23] ?></td>
+                                        <td style="background-color:crimson; font-weight:bolder; color:white"><?php echo $form[23] ?></td>
                                         <td><a href="/Doatap/src/views/preview.php?id=<?php echo $form[0] ?>" class="btn">Ανάγνωση</a></td>
                                     </tr>
                                     <?php } ?>
