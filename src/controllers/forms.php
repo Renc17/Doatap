@@ -91,8 +91,10 @@ class FormController{
                     $this->db->create(self::$files_table, $this->files, null);
                 }else{
                     $effected_rows = $this->db->update(self::$table, $id, $this->data);
-                    if($effected_rows)
-                        header('location: profile.php');
+                    if($effected_rows){
+                        $this->files['id'] = $id;
+                        $this->db->create(self::$files_table, $this->files, null);
+                    }
                     else
                         $this->errors['checked'] = 'Form doesnt exist';
                 }

@@ -339,7 +339,7 @@ class CreateForm {
     }
 
     function validateDraftIdentification(){
-        $field = trim($this->data['identification']);
+        $field = trim($this->data['identification_type']);
         if(empty($field)){
             return;
         }
