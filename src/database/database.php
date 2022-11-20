@@ -11,7 +11,7 @@
         function executeQuery($query, $data){
             $stmt = $this->connection->prepare($query);
             if ($stmt == FALSE){
-                print('Statement is not correct');
+                die('prepare() failed:' . htmlspecialchars($this->connection->error));
                 exit();
             }
             $values = array_values($data);
@@ -21,10 +21,13 @@
             return $stmt;
         }
     
-        function create($table, $data){
-            $user = $this->selectOne($table, ['email' => $data['email']]);
-            if ($user){
-                return $user['id'];
+        function create($table, $data, $unique){
+            if ($unique != null){
+                $user = $this->select($table, [$unique => $data[$unique]]);
+                if (!empty($user)){
+                    $user = $user[0];
+                    return $user[0];
+                }
             }
 
             $query = "INSERT INTO $table SET ";
@@ -38,8 +41,9 @@
                 }
                 $i++;
             }
-    
-           $this->executeQuery($query, $data);
+            
+            $stmt = $this->executeQuery($query, $data);
+            return $stmt->insert_id;
         }
 
         function update($table, $id, $data){
@@ -60,7 +64,7 @@
             return $stmt->affected_rows;
         }
 
-        function selectOne($table, $conditiions){
+        function select($table, $conditiions){
             $query = "SELECT * FROM $table";
 
             $i=0;
@@ -72,9 +76,38 @@
                 }
                 $i++;
             }
-
+            
             $stmt = $this->executeQuery($query, $conditiions);
-            return $stmt->get_result()->fetch_assoc();
+            $rows = $stmt->get_result();
+            $results = array();
+            while ($row = $rows->fetch_array(MYSQLI_NUM)) {
+                $results[] = $row;
+            }
+            return $results;
+        }
+
+        function JoinedSelection($table1 , $table2, $conditiions) {
+            $query = "SELECT * FROM $table1 JOIN $table2 ON";
+            $query = $query . " $table1.id=$table2.id";
+
+            $i=0;
+            foreach($conditiions as $key => $_){
+                if ($i === 0) {
+                    $query = $query . " WHERE $key=?";
+                } else {
+                    $query = $query . " AND $key=?";
+                }
+                $i++;
+            }
+            
+            $query = $query . " ORDER BY created_at DESC";
+            $stmt = $this->executeQuery($query, $conditiions);
+            $rows = $stmt->get_result();
+            $results = array();
+            while ($row = $rows->fetch_array(MYSQLI_NUM)) {
+                $results[] = $row;
+            }
+            return $results;
         }
 
         function delete($table, $conditiions){

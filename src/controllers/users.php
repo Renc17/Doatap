@@ -1,9 +1,8 @@
 <?php
 
-require(BASE_URL. '\src\database\database.php');
-require(BASE_URL. '\src\helpers\validation\create-user.php');
-require(BASE_URL. '\src\helpers\validation\login-user.php');
-require(BASE_URL. '\src\helpers\validation\edit-user.php');
+require(BASE_URL. 'helpers\validation\create-user.php');
+require(BASE_URL. 'helpers\validation\login-user.php');
+require(BASE_URL. 'helpers\validation\edit-user.php');
 
 class UserController{
 
@@ -21,8 +20,8 @@ class UserController{
     private $amka = '';
     private $cel = '';
 
-    function __construct(){
-        $this->db = new Database();
+    function __construct($database){
+        $this->db = $database;
     }
 
     function getName(){
@@ -100,16 +99,19 @@ class UserController{
                 $this->setName($_POST['name']);
                 $this->setSurname($_POST['surname']);
                 $this->setEmail($_POST['email']);
+                $this->setAFM($_POST['afm']);
+                $this->setAMKA($_POST['amka']);
             }else{
-                unset($_POST['register'], $_POST['confirm_password']);
+                unset($_POST['register'], $_POST['confirm_password'], $_POST['confirm_email']);
                 $_POST['role'] = 'user';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         
-                $user_id = $this->db->create(self::$table, $_POST);
-                if($user_id){
-                    $this->errors['users'] = 'user already exists';
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
+                if($user){
+                    $this->errors['users'] = 'Ο χρήστης έχει λογαριασμό';
                     return;
                 }
+                $this->db->create(self::$table, $_POST, 'email');
                 header('location: login.php');
             }
         }
@@ -123,23 +125,31 @@ class UserController{
             if(count($this->errors)){
                 $this->setEmail($_POST['email']);
             }else{
-                $user = $this->db->selectOne(self::$table, ['email' => $_POST['email']]);
-                if(!$user){
-                    print('User doesnt exit');
-                    exit();
+                $user = $this->db->select(self::$table, ['email' => $_POST['email']]);
+                if(empty($user)){
+                    $this->errors['auth'] = "Δεν έχετε λογαριασμό";
+                    return;
                 }
-        
-                if(password_verify($_POST['password'], $user['password'])){
+
+                $user = $user[0];
+
+                if(password_verify($_POST['password'], $user[4])){
                     session_start();
-                    $_SESSION['id'] = $user['id'];
-                    $_SESSION['email'] = $user['email'];
-                    $_SESSION['name'] = $user['name'];
-                    $_SESSION['surname'] = $user['surname'];
-                    $_SESSION['AFM'] = $user['afm'];
-                    $_SESSION['AMKA'] = $user['amka'];
-                    $_SESSION['cel'] = $user['cel'];
-                    $_SESSION['role'] = $user['role'];
-                    header('location: profile.php');
+                    $_SESSION['id'] = $user[0];
+                    $_SESSION['email'] = $user[3];
+                    $_SESSION['name'] = $user[1];
+                    $_SESSION['surname'] = $user[2];
+                    $_SESSION['AFM'] = $user[6];
+                    $_SESSION['AMKA'] = $user[7];
+                    $_SESSION['cel'] = $user[5];
+                    $_SESSION['role'] = $user[8];
+
+                    if($_SESSION['role'] == 'user')
+                        header('location: profile.php');
+                    else if($_SESSION['role'] == 'admin')
+                        header('location: dashboard.php');
+                }else {
+                    $this->errors['auth'] = 'Ο κωδικός δεν είναι έγκυρος';
                 }
             }
         }
@@ -159,7 +169,7 @@ class UserController{
                 $_POST['role'] = 'admin';
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-                $user_id = $this->db->create(self::$table, $_POST);
+                $user_id = $this->db->create(self::$table, $_POST, 'email');
                 if($user_id){
                     $errors['users'] = 'admin already exists';
                     return;
@@ -175,9 +185,7 @@ class UserController{
             $this->setErrors($user_validation->validateForm());
 
             if(count($this->errors)){
-                $this->setCel($_SESSION['cel']);
-                $this->setAMKA($_SESSION['AMKA']);
-                $this->setAFM($_SESSION['AFM']);
+                return;
             }else{
                 unset($_POST['edit']);
                 foreach($_POST as $key => $field){
@@ -188,7 +196,13 @@ class UserController{
                 $this->db->update(self::$table, $_SESSION['id'], $_POST);
                 $this->setCel($_POST['cel']);
                 $this->setAFM($_POST['AFM']);
-                $this->setAMKA($_POST['AMKA']);
+                $this->setAMKA($_POST['AMKA']);    
+
+                $_SESSION['AFM'] = $_POST['AFM'];
+                $_SESSION['AMKA'] =$_POST['AMKA'];
+                $_SESSION['cel'] = $_POST['cel'];
+
+                header('location: profile.php');
             }
         }
     }

@@ -28,10 +28,10 @@ class LoginUser {
     function validateEmail(){
         $email = trim($this->data['email']);
         if(empty($email)){
-            $this->addError('email', 'email cannot be empty');
+            $this->addError('email', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $this->addError('email', 'email is not valid');
+                $this->addError('email', 'Το email δεν είναι έγκυρο');
             }
         }
     }
@@ -39,10 +39,10 @@ class LoginUser {
     function validatePassword(){
         $password = trim($this->data['password']);
         if(empty($password)){
-            $this->addError('password', 'password cannot be empty');
+            $this->addError('password', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $password)){
-                $this->addError('password', 'password must be 6-12 characters');
+                $this->addError('password', 'Το πεδίο πρέπει να περιέχει 6-12 ψηφία και λατινικους χαρακτήρες');
             }
         }
     }

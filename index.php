@@ -1,58 +1,124 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="el">
 <head>
     <title>ΔΟΑΤΑΠ</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/Doatap/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+
+    <style>
+        .btn-more a{
+            color: #0071bc;
+            padding: 13px;
+            border: 1px solid #0071bc;
+        }
+        .btn-more a:hover{
+            color: white;
+            background-color: #0071bc;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+       
+        .choice{
+            background-color: #0071bc;
+            margin: 0 10px 0;
+            
+            border-radius: 50%;
+            height: 135px;
+            width: 135px;
+        }
+        .choice i{
+            color: white;
+            font-size: 42px;
+        }
+
+        i{
+            font-size: 37px;
+        }
+
+        .choice button:hover{
+            color: white;
+        }
+        .documentDescription{
+            font-size: 17px;
+            font-weight: lighter;
+            line-height: 32px;
+            text-align: center;
+        }
+        .description{
+            font-size: 14.5px;
+        }
+    </style>
 </head>
 
 <body>
     <?php 
         require('config.php');
-        include(BASE_URL. '\src\includes\navbar.php'); 
+        require(BASE_URL. 'helpers\middlewares\guard.php');
+        include(BASE_URL. 'includes\navbar.php'); 
     ?>
 
-    <div class="container" style="height:100vh;">
-        <div id="eonly" class="alert-box">
-            <div class="alert alert-danger alert-container d-flex" role="alert">
-                <p class="col-11">Το Πρωτόκολλο του ΔΟΑΤΑΠ δέχεται έγγραφα ΜΟΝΟ δια ηλεκτρονικού ταχυδρομείου (protocol@doatap.gr), ΕΛΤΑ και ταχυμεταφορών.</p>
-                <button type="button" class="btn-close col-1 justify-content-end" aria-label="Close" onclick="hideElement('eonly')"></button>
-            </div>
+    <div class="container">
+        
+        <div class="d-flex flex-column justify-content-center mt-4 mb-5">
+            <h1 style="font-weight: bold; color:#0071bc">Αναγνώριση Τίτλων Σπουδών</h1> 
+            <div class="mb-2 mt-2 col-md-9 m-auto documentDescription ">
+            Ο Διεπιστημονικός Οργανισμός Αναγνώρισης Τίτλων Ακαδημαϊκών και Πληροφόρησης (Δ.Ο.Α.Τ.Α.Π.) είναι ο επίσημος φορέας της Ελληνικής Δημοκρατίας για την ακαδημαϊκή αναγνώριση τίτλων που απονέμονται από εκπαιδευτικά ιδρύματα ανώτατης εκπαίδευσης της αλλοδαπής. Σε αυτήν την πλατφόρμα μπορείτε να πραγματοποιήσετε αίτηση για αναγνώριση τον Ακαδημαϊκών σας τίτλων.</div>
         </div>
 
-        <div id="isonomia" class="alert-box">
-            <div class="alert alert-danger alert-container d-flex" role="alert">
-                <p class="col-11">Για λόγους ισονομίας και ίσης μεταχείρισης των αιτόυντων, η σειρά προτεραιότητας δεν παραβιάζεται. Η διοίκηση απορρίπτει Αιτήματα υπέρβασης σειράς προτεραιότητας με το παραπάνω σκεπτικό. Μόνον όταν υπάρχει πέραν του συνήθους αδικαιολόγητη καθυστέρηση εκ μέρους του οργανισμού δίνεται έγκριση επίσπευσης </p>
-                <button type="button" class="btn-close col-1 justify-content-end" aria-label="Close" onclick="hideElement('isonomia')"></button>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center m-2">
-            <h1 style="color: #77B6EA; ">Οδηγός για την Αναγνώριση Πτυχίων</h1>
-        </div>
-        <div class="row p-4">
-            <div class="d-flex col-5 justify-content-end">
-                <img style="object-fit:contain;" src="images/homepage.png" alt="Italian Trulli">
-            </div>
-            <div class="col-6">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        </div>
-        <hr class="minehr" />
-        <div class="d-flex justify-content-center col-10">
-            <ul class="list-display">
-                <li class="qna">Συχνές Ερωτήσεις</li>
-                <li class="qna">Παράβολα</li>
-                <li class="qna">Η Πορεία μιας Αίτησης</li>
-                <li class="qna">Αιτήματα Φορέων για Επιβεβαίωση Γνησιότητας Πράξεων Αναγνώρισης</li>
-                <li class="qna">Φόρμες Αιτήσεων</li>
-            </ul>
-        </div>
-        <hr class="minehr" />
+
     </div>
 
-    <?php include(BASE_URL. '\src\includes\footer.php');  ?>
+    <div class="container" style="width: 55%;">
+        <div class="d-flex justify-content-center mt-5 align-items center">
+            <div class="col-md-3 d-flex flex-column">
+                <div class="p-5 choice ms-auto me-auto d-flex align-items-center">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                </div>
+                <div class="text mt-4">
+                    <div class="text-center fw-bold">Κάνε Εγγραφή</div>
+                    <p class="description text-black-50 mt-2 text-center">Βρες την φόρμα <br> αίτησης</p>
+                </div>
+            </div>
+            
+            <div class="mt-auto mb-auto ms-3 me-5 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+
+            <div class="col-md-3 d-flex flex-column">
+                <div class="p-5 choice ms-auto me-auto d-flex align-items-center">
+                    <i class="bi bi-ui-checks"></i>
+                </div>
+                <div class="text mt-4">
+                    <div class="text-center fw-bold">Συμπλήρωσε την αίτηση</div>
+                    <div class="description text-black-50 mt-2 text-center">Συμπλήρωσε τα στοιχεία σου και τα δικαιολογητικά</div>
+                </div>
+            </div>
+
+            <div class="mt-auto mb-auto ms-5 me-3 text-black-50"><i class="bi bi-chevron-double-right"></i></div>
+
+            <div class="col-md-3 d-flex flex-column">
+                <div class="p-5 choice ms-auto me-auto d-flex align-items-center">
+                    <i class="bi bi-file-pdf"></i>
+                </div>
+                <div class="text mt-4">
+                    <div class="text-center fw-bold">Πάρε την πράξη</div>
+                    <div class="description text-black-50 mt-2 text-center">Έκδοση e-statement ή/και αποστολή έντυπου</div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-4"><button class="btn btn-more mt-3"><a href="/Doatap/src/views/faq.php">Μάθε Περισσότερα</a></button></div>
+    </div>
+
+    <?php include(BASE_URL. 'includes\footer.php'); ?>
+    <script type="text/javascript" src="/Doatap/src/views/scripts/faq.js"></script>
+    <script type="text/javascript" src="/Doatap/src/views/scripts/edit.js"></script>
 </body>
 
 </html>

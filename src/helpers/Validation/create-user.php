@@ -26,18 +26,21 @@ class CreateUser {
         $this->validateName();
         $this->validateSurname();
         $this->validateEmail();
-        $this->validatePaswword();
+        $this->validateConfirmEmail();
+        $this->validatePassword();
         $this->validateConfirmPassword();
+        $this->validateAFM();
+        $this->validateAMKA();
         return $this->errors;
     }
 
     function validateName(){
         $name = trim($this->data['name']);
         if(empty($name)){
-            $this->addError('name', 'name cannot be empty');
+            $this->addError('name', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $name)){
-                $this->addError('name', 'name must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]*$/', $name)){
+                $this->addError('name', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -45,10 +48,10 @@ class CreateUser {
     function validateSurname(){
         $surname = trim($this->data['surname']);
         if(empty($surname)){
-            $this->addError('surname', 'surname cannot be empty');
+            $this->addError('surname', 'Το πεδίο είναι υποχρεωτικό');
         }else{
-            if(!preg_match('/^[a-zA-Z]*$/', $surname)){
-                $this->addError('surname', 'surname must not contain numerical');
+            if(!preg_match('/^[a-zA-Z\p{Greek}\s]*$/', $surname)){
+                $this->addError('surname', 'Το πεδίο δεν πρέπει να περιέχει ψηφία');
             }
         }
     }
@@ -56,21 +59,30 @@ class CreateUser {
     function validateEmail(){
         $email = trim($this->data['email']);
         if(empty($email)){
-            $this->addError('email', 'email cannot be empty');
+            $this->addError('email', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                $this->addError('email', 'email is not valid');
+                $this->addError('email', 'Το email δεν είναι έγκυρο');
             }
         }
     }
 
-    function validatePaswword(){
+    function validateConfirmEmail(){
+        $confirm = trim($this->data['confirm_email']);
+        $email = trim($this->data['confirm_email']);
+        
+        if($confirm != $email){
+            $this->addError('confirm_email', 'Το πεδίο δεν ταιριάζει με τον email');
+        }
+    }
+
+    function validatePassword(){
         $password = trim($this->data['password']);
         if(empty($password)){
-            $this->addError('password', 'password cannot be empty');
+            $this->addError('password', 'Το πεδίο είναι υποχρεωτικό');
         }else{
             if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $password)){
-                $this->addError('password', 'password must be 6-12 characters');
+                $this->addError('password', 'Το πεδίο πρέπει να περιέχει 6-12 ψηφία και λατινικους χαρακτήρες');
             }
         }
     }
@@ -80,9 +92,32 @@ class CreateUser {
         $password = trim($this->data['password']);
         
         if($confirm != $password){
-            $this->addError('confirm_password', 'password confirmation doesnt match');
+            $this->addError('confirm_password', 'Το πεδίο δεν ταιριάζει με τον κωδικό');
         }
     }
+
+    function validateAFM(){
+        $afm = trim($this->data['afm']);
+        if(empty($afm)){
+            $this->addError('afm', 'Το πεδίο είναι υποχρεωτικό');
+        }else{
+            if(!preg_match('/^[0-9]{9}$/', $afm)){
+                $this->addError('afm', 'Το πεδίο πρέπει να περιέχει 9 ψηφία');
+            }
+        }
+    }
+
+    function validateAMKA(){
+        $amka = trim($this->data['amka']);
+        if(empty($amka)){
+            $this->addError('amka', 'Το πεδίο είναι υποχρεωτικό');
+        }else{
+            if(!preg_match('/^[0-9]{11}$/', $amka)){
+                $this->addError('amka', 'Το πεδίο πρέπει να περιέχει 11 ψηφία');
+            }
+        }
+    }
+
 
     function addError($key, $value){
         $this->errors[$key] = $value;
